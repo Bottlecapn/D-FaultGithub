@@ -6,11 +6,12 @@ public class TileGrid : MonoBehaviour
 {
     [SerializeField] int gridSizeX, gridSizeY;
     [SerializeField] GameObject basicTile;
-    [SerializeField] List<Tile> tiles;
+    [SerializeField] Tile[] tiles;
     // Start is called before the first frame update
     void Start()
     {
         GenerateGrid();
+        tiles = new Tile[gridSizeX*gridSizeY];
     }
 
     // Update is called once per frame
@@ -21,6 +22,7 @@ public class TileGrid : MonoBehaviour
 
     void GenerateGrid()
     {
+        int counter = 0;
         for (int y = 0; y < gridSizeY; y++)
         {
             for (int x = 0; x < gridSizeX; x++)
@@ -30,7 +32,8 @@ public class TileGrid : MonoBehaviour
                     transform.position.z + y);
                 Tile t = go.GetComponent<Tile>();
                 t.SetPosition(x,y);
-                tiles.Add(t);
+                tiles[counter] = t;
+                counter++;
             }
         }
     }
