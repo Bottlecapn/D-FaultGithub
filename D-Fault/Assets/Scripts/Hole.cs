@@ -6,7 +6,7 @@ public class Hole : Tile
 {
     [SerializeField] int holeCount;
     int currentCount;
-    [SerializeField] TextMesh countDisplay;
+    //[SerializeField] TextMesh countDisplay;
 
     private void Start()
     {
@@ -15,7 +15,7 @@ public class Hole : Tile
 
     private void Update()
     {
-        countDisplay.text = currentCount.ToString();
+        //countDisplay.text = currentCount.ToString();
     }
 
     private void OnTriggerEnter(Collider other)
