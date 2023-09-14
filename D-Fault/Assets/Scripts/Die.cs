@@ -60,10 +60,13 @@ public class Die : MonoBehaviour
         mLastFrameRight = (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D));
 
         // Show numbers on the die
+        // NOTE - Amari: I can do this, yes
 
         // border check
 
         // Add system (if collide with another die, destroy the other and add its moves to current one)
+        // NOTE - Amari: I think instead of destroying dice, the other die simply stops at it's last position. 
+        // Also in order to do that we'll have have a simple "manager" object that switches the current die.
 
         // Collision with hole (destroy current object, subtract from hole requirement) (Should be in hole scripts)
     }
