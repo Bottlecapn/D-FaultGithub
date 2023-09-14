@@ -18,6 +18,7 @@ public class Hole : Tile
         //countDisplay.text = currentCount.ToString();
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<Die>())
@@ -26,5 +27,6 @@ public class Hole : Tile
             currentCount -= d.Moves;
         }
         Destroy(other.gameObject);
+        print("aa");
     }
 }

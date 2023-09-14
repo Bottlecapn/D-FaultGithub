@@ -36,7 +36,7 @@ public class Die : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
             {
                 // boundary check
-                if (transform.position.z + 1 > 1)
+                if (transform.position.z + 1 >= 0   )
                 {
                     Moves--;
                     verticalMove = -1.0f;
@@ -47,7 +47,7 @@ public class Die : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
                 // boundary check
-                if (transform.position.x - 1 > 1)
+                if (transform.position.x - 1 >= 0)
                 {
                     Moves--;
                     horizontalMove = -1.0f;
@@ -73,5 +73,11 @@ public class Die : MonoBehaviour
         // Also in order to do that we'll have have a simple "manager" object that switches the current die.
 
         // Collision with hole (destroy current object, subtract from hole requirement) (Should be in hole scripts)
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("akdlsdg;j");
+        Destroy(gameObject);
     }
 }

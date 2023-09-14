@@ -41,8 +41,8 @@ public class TileGrid : MonoBehaviour
                         transform.position.z + y);
                 }
                 
-                Tile t = go.GetComponent<Tile>();
-                t.SetPosition(x, y);
+                //Tile t = go.GetComponent<Tile>();
+                //t.SetPosition(x, y);
                 counter++;
                 
                 /*tiles[counter] = t;

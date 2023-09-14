@@ -18,4 +18,5 @@ public class Tile : MonoBehaviour
         int[] arr = {posX, posY};
         return arr;
     }
+
 }
