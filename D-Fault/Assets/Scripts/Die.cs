@@ -8,17 +8,21 @@ public class Die : MonoBehaviour
 {
     public int Moves;
     //public TextMeshPro moveNumText;
+    [SerializeField] GameObject mvs;
+    [SerializeField] TextMeshPro moveDisplay;
     public int GridSize;
 
     // Start is called before the first frame update
     void Start()
     {
+        moveDisplay = mvs.GetComponent<TextMeshPro>();
         transform.position = new Vector3(GridSize / 2, 0.5f, GridSize / 2); //0.5f should be half the die size in z direction
     }
 
     // Update is called once per frame
     void Update()
     {
+        moveDisplay.text = "Moves: " + Moves.ToString();
         if (Moves > 0)
         {
             float verticalMove = 0.0f;
