@@ -167,6 +167,7 @@ MonoBehaviour:
   gridSizeX: 10
   gridSizeY: 10
   basicTile: {fileID: 5051932311032128713, guid: 7cba52d065cf79446a851c23aefdafe7, type: 3}
+  hole: {fileID: 5051932311032128713, guid: 77a1e1ce9a0011e4ea33506686b8d1e8, type: 3}
 --- !u!1 &1511857922
 GameObject:
   m_ObjectHideFlags: 0
