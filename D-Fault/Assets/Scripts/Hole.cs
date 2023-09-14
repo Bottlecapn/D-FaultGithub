@@ -11,13 +11,13 @@ public class Hole : Tile
 
     private void Awake()
     {
-        countDisplay = GameObject.Find("GoalText").GetComponent<TextMeshPro>();
+        //countDisplay = GameObject.Find("GoalText").GetComponent<TextMeshPro>();
         currentCount = holeCount;
     }
 
     private void Update()
     {
-        countDisplay.text = "Goal: " + currentCount.ToString();
+        //countDisplay.text = "Goal: " + currentCount.ToString();
     }
 
 
