@@ -1,21 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Hole : Tile
 {
     [SerializeField] int holeCount;
     int currentCount;
-    //[SerializeField] TextMesh countDisplay;
+    [SerializeField] TextMeshPro countDisplay;
 
-    private void Start()
+    private void Awake()
     {
+        //countDisplay = GameObject.Find("GoalText").GetComponent<TextMeshPro>();
         currentCount = holeCount;
     }
 
     private void Update()
     {
-        //countDisplay.text = currentCount.ToString();
+        //countDisplay.text = "Goal: " + currentCount.ToString();
     }
 
 
