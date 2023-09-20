@@ -13,6 +13,10 @@ public class Die : MonoBehaviour
     [SerializeField] TextMeshPro moveDisplay;
     public int GridSize;
 
+    public float x;
+    public float y;
+    public float z;
+
     // check selected
     bool mIsSelected = false;
     public Material red, white;
@@ -21,8 +25,9 @@ public class Die : MonoBehaviour
     void Start()
     {
         //moveDisplay = mvs.GetComponent<TextMeshPro>();
-        transform.position = new Vector3(GridSize / 2, 0.5f, GridSize / 2); //0.5f should be half the die size in z direction
-        this.GetComponent<Renderer>().material = white;
+        //transform.position = new Vector3(GridSize / 2, 0.5f, GridSize / 2); //0.5f should be half the die size in z direction
+        transform.position = new Vector3(x, y, z);
+        //this.GetComponent<Renderer>().material = white;
     }
 
     // Update is called once per frame
@@ -85,18 +90,18 @@ public class Die : MonoBehaviour
         // Collision with hole (destroy current object, subtract from hole requirement) (Should be in hole scripts)
     }
 
-    /*private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("akdlsdg;j");
-        
+        //Debug.Log("akdlsdg;j");
+
         if (!mIsSelected)
         {
             Die otherDie = other.gameObject.GetComponent<Die>();
             otherDie.Moves += Moves;
             Destroy(gameObject);
         }
-        
-    }*/
+
+    }
 
     private void OnMouseDown()
     {
