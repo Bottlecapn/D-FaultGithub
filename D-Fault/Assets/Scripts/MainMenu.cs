@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     }
     private void PlayGameInvoke()
     {
-        SceneManager.LoadScene("GridWork");
+        SceneManager.LoadScene("AnimTesting");
     }
 
     public void LevelSelect()

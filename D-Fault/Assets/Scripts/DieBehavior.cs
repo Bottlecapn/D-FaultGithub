@@ -1,33 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class DieAnim : MonoBehaviour
+public class DieBehavior : MonoBehaviour
 {
     bool canMove;
-    Animator anim;
+    public Animator anim;
     public int Moves;
     public int GridSize;
-    GameObject dieParent;
+    public GameObject dieParent;
     Vector3 storedMove;
     Vector3 storedVector;
+    [SerializeField] MeshRenderer cubeRenderer;
+    public TextMeshProUGUI moveNumber;
+    AudioSource sfx;
+    [SerializeField] AudioClip addSound, moveSound;
+
+    public float x;
+    public float y;
+    public float z;
+
+    bool mIsSelected = false;
+    public Material red, white;
     // Start is called before the first frame update
     void Start()
     {
-        dieParent = transform.parent.gameObject;
+        //dieParent = transform.parent.gameObject;
+        moveNumber.text = Moves.ToString();
         anim = GetComponent<Animator>();
         canMove = true;
-        dieParent.transform.position = new Vector3(GridSize / 2, 0.5f, GridSize / 2);
+        storedMove = new Vector3 (x, y, z);
+        dieParent.transform.position = new Vector3(x, y, z);
+        sfx = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(mIsSelected)
+            moveNumber.text = Moves.ToString();
         //NOTE: WHAT IF BOTH PRESSED AT THE SAME TIME?
         ///
         ///
         anim.SetBool("Move", false);
-        if (Moves > 0 && canMove)
+        if (Moves > 0 && canMove && mIsSelected)
         {
             float verticalMove = 0.0f;
             float horizontalMove = 0.0f;
@@ -94,9 +111,52 @@ public class DieAnim : MonoBehaviour
         }
     }
 
+    private void OnMouseDown()
+    {
+        // select if unselected, vice versa
+        SetSelection(!mIsSelected);
+        // if selected the current die, unselect all other dice
+        if (mIsSelected)
+        {
+            // find all dice
+            GameObject[] dice = GameObject.FindGameObjectsWithTag("Dice");
+            // for each die, if it is not the current die, unselect it.
+            foreach (var d in dice)
+            {
+                DieBehavior die = d.GetComponent<DieBehavior>();
+                if (die != this)
+                {
+                    die.SetSelection(false);
+                }
+            }
+        }
+    }
+
+    public void SetSelection(bool selected)
+    {
+        mIsSelected = selected;
+        if (mIsSelected)
+        {
+            cubeRenderer.material = red;
+        }
+        else
+        {
+            cubeRenderer.material = white;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Hole"))
+        //print("AAAAAAAAAA");
+        if (!mIsSelected && other.CompareTag("Dice"))
+        {
+            DieBehavior otherDie = other.gameObject.GetComponent<DieBehavior>();
+            otherDie.Moves += Moves;
+            otherDie.anim.SetTrigger("Add");
+            SelfDestruct();
+        }
+
+        if (other.CompareTag("Hole"))
         {
             anim.SetTrigger("Score");
         }
@@ -105,5 +165,16 @@ public class DieAnim : MonoBehaviour
     void SelfDestruct()
     {
         Destroy(dieParent);
+    }
+
+    void PlaySFX(int sound)
+    {
+        if (sound == 0)
+        {
+            sfx.PlayOneShot(moveSound);
+        } else if (sound == 1)
+        {
+            sfx.PlayOneShot(addSound);
+        }
     }
 }
