@@ -104,6 +104,6 @@ public class DieAnim : MonoBehaviour
 
     void SelfDestruct()
     {
-        Destroy(gameObject);
+        Destroy(dieParent);
     }
 }
