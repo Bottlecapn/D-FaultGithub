@@ -23,12 +23,12 @@ public class Hole : Tile
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Die>())
+        /*if (other.gameObject.GetComponent<Die>())
         {
             Die d = other.gameObject.GetComponent<Die>();
             currentCount -= d.Moves;
         }
         Destroy(other.gameObject);
-        print("aa");
+        print("aa");*/
     }
 }
