@@ -19,34 +19,36 @@ public class TileGrid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void GenerateGrid()
     {
-        int holePos = Random.RandomRange(1, (gridSizeX*gridSizeY) -1);
+        int holePos = Random.Range(1, (gridSizeX * gridSizeY) - 1);
         int counter = 0;
         for (int y = 0; y < gridSizeY; y++)
         {
             for (int x = 0; x < gridSizeX; x++)
             {
                 GameObject go;
-                if(counter == holePos) {
+                if (counter == holePos)
+                {
                     go = Instantiate(hole, transform);
                     go.transform.position = new Vector3(transform.position.x + x, transform.position.y,
                         transform.position.z + y);
-                } else
+                }
+                else
                 {
                     go = Instantiate(basicTile, transform);
                     go.transform.position = new Vector3(transform.position.x + x, transform.position.y,
                         transform.position.z + y);
                 }
-                
+
                 //Tile t = go.GetComponent<Tile>();
                 //t.SetPosition(x, y);
                 counter++;
-                
+
                 /*tiles[counter] = t;
                 counter++;*/
             }
