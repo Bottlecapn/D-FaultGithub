@@ -24,27 +24,15 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("LevelSelect");
     }
-    public void OptionsMenu()
-    {
-        Invoke("OptionsMenuInvoke", 1);
-    }
 
-    private void OptionsMenuInvoke()
-    {
-        SceneManager.LoadScene("Options");
-    }
-
-
-    /*
-    Go back to main menu
-    public void MainMenu()
+    public void ReturnMainMenu()
     {
         Invoke("MainMenuInvoke", 1);
     }
     public void MainMenuInvoke()
     {
         SceneManager.LoadScene("MainMenu");
-    }*/
+    }
 
     public void QuitGame()
     {
