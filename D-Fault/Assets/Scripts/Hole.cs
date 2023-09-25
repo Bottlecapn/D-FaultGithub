@@ -7,28 +7,35 @@ public class Hole : Tile
 {
     [SerializeField] int holeCount;
     int currentCount;
-    [SerializeField] TextMeshPro countDisplay;
+    TextMeshProUGUI countDisplay;
+    AudioSource sfx;
+    [SerializeField] AudioClip scoreSound, completeSound;
 
     private void Awake()
     {
-        //countDisplay = GameObject.Find("GoalText").GetComponent<TextMeshPro>();
+        sfx = GetComponent<AudioSource>();
+        countDisplay = GameObject.Find("GoalText").GetComponent<TextMeshProUGUI>();
         currentCount = holeCount;
+        countDisplay.text = "Goal: " + currentCount.ToString();
     }
-
-    private void Update()
-    {
-        //countDisplay.text = "Goal: " + currentCount.ToString();
-    }
-
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Die>())
+        if (other.gameObject.GetComponent<DieBehavior>())
         {
-            Die d = other.gameObject.GetComponent<Die>();
+            DieBehavior d = other.gameObject.GetComponent<DieBehavior>();
             currentCount -= d.Moves;
+            d.Moves = 0;
+            if(currentCount <= 0) { 
+                currentCount = 0;
+                countDisplay.text = "Success!";
+                sfx.PlayOneShot(completeSound);
+            } else
+            {
+                sfx.PlayOneShot(scoreSound);
+                countDisplay.text = "Goal: " + currentCount.ToString();
+            }
         }
-        Destroy(other.gameObject);
-        print("aa");
+
     }
 }

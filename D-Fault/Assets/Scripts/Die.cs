@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -12,18 +13,28 @@ public class Die : MonoBehaviour
     [SerializeField] TextMeshPro moveDisplay;
     public int GridSize;
 
+    public float x;
+    public float y;
+    public float z;
+
+    // check selected
+    bool mIsSelected = false;
+    public Material red, white;
+
     // Start is called before the first frame update
     void Start()
     {
         //moveDisplay = mvs.GetComponent<TextMeshPro>();
-        transform.position = new Vector3(GridSize / 2, 0.5f, GridSize / 2); //0.5f should be half the die size in z direction
+        //transform.position = new Vector3(GridSize / 2, 0.5f, GridSize / 2); //0.5f should be half the die size in z direction
+        transform.position = new Vector3(x, y, z);
+        //this.GetComponent<Renderer>().material = white;
     }
 
     // Update is called once per frame
     void Update()
     {
         //moveDisplay.text = "Moves: " + Moves.ToString();
-        if (Moves > 0)
+        if (Moves > 0 && mIsSelected)
         {
             float verticalMove = 0.0f;
             float horizontalMove = 0.0f;
@@ -81,7 +92,48 @@ public class Die : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("akdlsdg;j");
-        Destroy(gameObject);
+        //Debug.Log("akdlsdg;j");
+
+        if (!mIsSelected)
+        {
+            Die otherDie = other.gameObject.GetComponent<Die>();
+            otherDie.Moves += Moves;
+            Destroy(gameObject);
+        }
+
+    }
+
+    private void OnMouseDown()
+    {
+        // select if unselected, vice versa
+        SetSelection(!mIsSelected);
+        // if selected the current die, unselect all other dice
+        if (mIsSelected)
+        {
+            // find all dice
+            GameObject[] dice = GameObject.FindGameObjectsWithTag("Dice");
+            // for each die, if it is not the current die, unselect it.
+            foreach (var d in dice) 
+            {
+                Die die = d.GetComponent<Die>();
+                if (die != this) 
+                {
+                    die.SetSelection(false);
+                }
+            }
+        }
+    }
+
+    public void SetSelection(bool selected)
+    {
+        mIsSelected = selected;
+        if (mIsSelected)
+        {
+            this.GetComponent<Renderer>().material = red;
+        }
+        else
+        {
+            this.GetComponent<Renderer>().material = white;
+        }
     }
 }
