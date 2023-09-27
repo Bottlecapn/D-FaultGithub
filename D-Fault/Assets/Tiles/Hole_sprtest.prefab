@@ -317,8 +317,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.522
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -417,6 +417,10 @@ MonoBehaviour:
   slot1: {fileID: 1934715343671778069}
   slot2: {fileID: 8975518447423298665}
   slot3: {fileID: 6831644288884004001}
+  maxDuration: 13
+  useAudio: 0
+  sfx: {fileID: 4636791156708243462}
+  countSound: {fileID: 8300000, guid: efe284dfd3174bf44a506b57c478eb13, type: 3}
   numberSprites:
   - {fileID: -1205788998, guid: fe4721fd1ea04c24084b1a74231a1f1e, type: 3}
   - {fileID: -1393070703, guid: fe4721fd1ea04c24084b1a74231a1f1e, type: 3}
@@ -428,8 +432,6 @@ MonoBehaviour:
   - {fileID: 1370486063, guid: fe4721fd1ea04c24084b1a74231a1f1e, type: 3}
   - {fileID: -325890271, guid: fe4721fd1ea04c24084b1a74231a1f1e, type: 3}
   - {fileID: 711765580, guid: fe4721fd1ea04c24084b1a74231a1f1e, type: 3}
-  maxDuration: 10
-  countingDuration: 0
 --- !u!114 &5787126067184162003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,7 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 805d4c7342d331c4a8a968e904c28fad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holeCount: 25
+  holeCount: 17
   scoreSound: {fileID: 8300000, guid: 2afb157186bfe204186c24fd63cb8d21, type: 3}
   completeSound: {fileID: 8300000, guid: c915cc4f1cd16994a91231498132f030, type: 3}
 --- !u!1 &7474623988889504739

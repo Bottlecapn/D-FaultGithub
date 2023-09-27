@@ -58,9 +58,9 @@ public class HoleSprites : Tile
         if (currentCount <= 0) {
             currentCount = 0;
             countDisplay.text = "Success!";
-            sfx.PlayOneShot(completeSound);
+            //sfx.PlayOneShot(completeSound);
         } else {
-            sfx.PlayOneShot(scoreSound);
+            //sfx.PlayOneShot(scoreSound);
             print("WAH");
             countDisplay.text = "Goal: " + currentCount.ToString();
         }
