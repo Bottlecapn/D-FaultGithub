@@ -30,8 +30,9 @@ public class TileGrid : MonoBehaviour
     {
         int currentX = 0;
         int currentY = 0;
+        string pathnew = Path.Combine(Application.streamingAssetsPath, level.name + ".txt");
         string path = "Assets/Levels/"+level.name+".txt";
-        StreamReader reader = new StreamReader(path);
+        StreamReader reader = new StreamReader(pathnew);
         string line;
         while (!reader.EndOfStream)
         {
