@@ -446,7 +446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holeCount: 17
   scoreSound: {fileID: 8300000, guid: 2afb157186bfe204186c24fd63cb8d21, type: 3}
-  completeSound: {fileID: 8300000, guid: c915cc4f1cd16994a91231498132f030, type: 3}
+  completeSound: {fileID: 8300000, guid: 2cceb7b0baf2cc64cb1bd8067e44701b, type: 3}
 --- !u!1 &7474623988889504739
 GameObject:
   m_ObjectHideFlags: 0

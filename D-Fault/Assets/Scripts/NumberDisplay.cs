@@ -73,6 +73,7 @@ public class NumberDisplay : Tile
                 yield return null;
             } else {
                 print("ending");
+                sfx.pitch = 1f;
                 counting = false;
                 yield break;
             }
@@ -91,4 +92,12 @@ public class NumberDisplay : Tile
         sfx.Stop();
         sfx.PlayOneShot(countSound);
     }
+
+    /*private void GetSprites()
+    {
+        foreach (GameObject child in gameObject.transform)
+        {
+            child.
+        }
+    }*/
 }

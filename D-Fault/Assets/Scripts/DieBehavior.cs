@@ -27,7 +27,7 @@ public class DieBehavior : MonoBehaviour
     void Start()
     {
         //dieParent = transform.parent.gameObject;
-        moveNumber.text = Moves.ToString();
+        //moveNumber.text = Moves.ToString();
         anim = GetComponent<Animator>();
         canMove = true;
         storedMove = new Vector3 (x, y, z);
@@ -35,11 +35,16 @@ public class DieBehavior : MonoBehaviour
         sfx = GetComponent<AudioSource>();
     }
 
+    private void Awake()
+    {
+        MoveNumberUpdate();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if(mIsSelected)
-            moveNumber.text = Moves.ToString();
+        //if(mIsSelected)
+            //moveNumber.text = Moves.ToString();
         //NOTE: WHAT IF BOTH PRESSED AT THE SAME TIME?
         ///
         ///
@@ -103,8 +108,9 @@ public class DieBehavior : MonoBehaviour
         {
             canMove = false;
             dieParent.transform.rotation = Quaternion.LookRotation(storedVector.normalized, Vector3.up);
-
-        } else
+            MoveNumberUpdate();
+        }
+        else
         {
             canMove = true;
             dieParent.transform.position = storedMove;
@@ -138,10 +144,12 @@ public class DieBehavior : MonoBehaviour
         if (mIsSelected)
         {
             cubeRenderer.material = red;
+            gameObject.GetComponent<BoxCollider>().isTrigger = false;
         }
         else
         {
             cubeRenderer.material = white;
+            gameObject.GetComponent<BoxCollider>().isTrigger = true;
         }
     }
 
@@ -175,6 +183,19 @@ public class DieBehavior : MonoBehaviour
         } else if (sound == 1)
         {
             sfx.PlayOneShot(addSound);
+        }
+    }
+
+    void MoveNumberUpdate()
+    {
+        Transform dice = transform.GetChild(0);
+        foreach (Transform child in dice)
+        {
+            NumberDisplay numdis;
+            if (child.gameObject.TryGetComponent<NumberDisplay>(out numdis))
+            {
+                numdis.UpdateNumber(Moves);
+            }
         }
     }
 }

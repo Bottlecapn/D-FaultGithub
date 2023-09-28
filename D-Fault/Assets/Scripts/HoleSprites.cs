@@ -33,6 +33,8 @@ public class HoleSprites : Tile
 
     private IEnumerator ScoreSequence(GameObject dice)
     {
+        sfx.pitch = 1f;
+        sfx.PlayOneShot(scoreSound);
         DieBehavior d = dice.GetComponent<DieBehavior>();
         while (true)
         {
@@ -58,7 +60,7 @@ public class HoleSprites : Tile
         if (currentCount <= 0) {
             currentCount = 0;
             countDisplay.text = "Success!";
-            //sfx.PlayOneShot(completeSound);
+            sfx.PlayOneShot(completeSound);
         } else {
             //sfx.PlayOneShot(scoreSound);
             print("WAH");
