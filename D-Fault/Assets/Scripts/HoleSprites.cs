@@ -48,7 +48,7 @@ public class HoleSprites : Tile
             yield return null;
         }
 
-        StartCoroutine(nums.CountDown(currentCount, currentCount - d.Moves));
+        StartCoroutine(nums.CountDown(currentCount, Mathf.Clamp(currentCount - d.Moves, 0, 1000)));
         while (true)
         {
             if (nums.IsCounting()) {
