@@ -63,7 +63,7 @@ public class HoleSprites : Tile
             currentCount = 0;
             //countDisplay.text = "Success!";
             sfx.PlayOneShot(completeSound);
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         } else {
             //sfx.PlayOneShot(scoreSound);

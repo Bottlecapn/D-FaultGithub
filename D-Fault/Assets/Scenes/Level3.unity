@@ -243,7 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridSizeX: 10
   gridSizeY: 10
-  holeNumber: 6
+  holeNumber: 5
   dieNumber: 6
   basicTile: {fileID: 5051932311032128713, guid: 4f103cf3449a65946bf61c6d5bcd512a, type: 3}
   hole: {fileID: 5051932311032128713, guid: 408115aabd5698e44bfb336fe27325a3, type: 3}
