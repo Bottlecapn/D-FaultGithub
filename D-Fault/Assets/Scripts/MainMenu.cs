@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        sceneName = "AnimTesting";
+        sceneName = "Level1";
         Invoke("ChangeScene", 1);
     }
 
