@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HoleSprites : Tile
 {
+    [SerializeField] string nextScene;
     [SerializeField] int holeCount;
     int currentCount;
     TextMeshProUGUI countDisplay;
@@ -16,9 +18,9 @@ public class HoleSprites : Tile
     {
         nums = GetComponent<NumberDisplay>();
         sfx = GetComponent<AudioSource>();
-        countDisplay = GameObject.Find("GoalText").GetComponent<TextMeshProUGUI>();
+        //countDisplay = GameObject.Find("GoalText").GetComponent<TextMeshProUGUI>();
         currentCount = holeCount;
-        countDisplay.text = "Goal: " + currentCount.ToString();
+        //countDisplay.text = "Goal: " + currentCount.ToString();
         nums.UpdateNumber(currentCount);
     }
 
@@ -59,13 +61,21 @@ public class HoleSprites : Tile
         d.Moves = 0;
         if (currentCount <= 0) {
             currentCount = 0;
-            countDisplay.text = "Success!";
+            //countDisplay.text = "Success!";
             sfx.PlayOneShot(completeSound);
+            yield return new WaitForSeconds(2);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         } else {
             //sfx.PlayOneShot(scoreSound);
             print("WAH");
-            countDisplay.text = "Goal: " + currentCount.ToString();
+            //countDisplay.text = "Goal: " + currentCount.ToString();
         }
         yield break;
+    }
+
+    public void SetHoleCount(int holeNum)
+    {
+        currentCount = holeNum;
+        nums.UpdateNumber(currentCount);
     }
 }

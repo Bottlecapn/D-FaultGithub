@@ -30,8 +30,8 @@ public class DieBehavior : MonoBehaviour
         //moveNumber.text = Moves.ToString();
         anim = GetComponent<Animator>();
         canMove = true;
-        storedMove = new Vector3 (x, y, z);
-        dieParent.transform.position = new Vector3(x, y, z);
+        //storedMove = new Vector3 (x, y, z);
+        //dieParent.transform.position = new Vector3(x, y, z);
         sfx = GetComponent<AudioSource>();
     }
 
@@ -102,7 +102,7 @@ public class DieBehavior : MonoBehaviour
         }
     }
 
-    void SetCanMove(int tf)
+    public void SetCanMove(int tf)
     {
         if(tf == 0)
         {
@@ -197,5 +197,17 @@ public class DieBehavior : MonoBehaviour
                 numdis.UpdateNumber(Moves);
             }
         }
+    }
+
+    public void SetStoredMove(Vector3 FUCK)
+    {
+        storedMove = FUCK;
+        SetCanMove(1);
+    }
+
+    public void SetMoveLimit(int movelimit)
+    {
+        Moves = movelimit;
+        MoveNumberUpdate();
     }
 }
