@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e62809767f2c46d4dab9fd9c28022a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  anim: {fileID: 1650737845525521777}
   Moves: 10
   GridSize: 10
   dieParent: {fileID: 1737172300991720200}
@@ -331,7 +331,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6482661538449769044}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -5495902117074765545, guid: 1c782d1014624924f957323a666725f6, type: 3}
 --- !u!23 &2162044043459844649
 MeshRenderer:
   m_ObjectHideFlags: 0

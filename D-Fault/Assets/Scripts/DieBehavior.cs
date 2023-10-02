@@ -27,19 +27,24 @@ public class DieBehavior : MonoBehaviour
     void Start()
     {
         //dieParent = transform.parent.gameObject;
-        moveNumber.text = Moves.ToString();
+        //moveNumber.text = Moves.ToString();
         anim = GetComponent<Animator>();
         canMove = true;
-        storedMove = new Vector3 (x, y, z);
-        dieParent.transform.position = new Vector3(x, y, z);
+        //storedMove = new Vector3 (x, y, z);
+        //dieParent.transform.position = new Vector3(x, y, z);
         sfx = GetComponent<AudioSource>();
+    }
+
+    private void Awake()
+    {
+        MoveNumberUpdate();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(mIsSelected)
-            moveNumber.text = Moves.ToString();
+        //if(mIsSelected)
+            //moveNumber.text = Moves.ToString();
         //NOTE: WHAT IF BOTH PRESSED AT THE SAME TIME?
         ///
         ///
@@ -97,14 +102,15 @@ public class DieBehavior : MonoBehaviour
         }
     }
 
-    void SetCanMove(int tf)
+    public void SetCanMove(int tf)
     {
         if(tf == 0)
         {
             canMove = false;
             dieParent.transform.rotation = Quaternion.LookRotation(storedVector.normalized, Vector3.up);
-
-        } else
+            MoveNumberUpdate();
+        }
+        else
         {
             canMove = true;
             dieParent.transform.position = storedMove;
@@ -138,10 +144,12 @@ public class DieBehavior : MonoBehaviour
         if (mIsSelected)
         {
             cubeRenderer.material = red;
+            gameObject.GetComponent<BoxCollider>().isTrigger = false;
         }
         else
         {
             cubeRenderer.material = white;
+            gameObject.GetComponent<BoxCollider>().isTrigger = true;
         }
     }
 
@@ -176,5 +184,30 @@ public class DieBehavior : MonoBehaviour
         {
             sfx.PlayOneShot(addSound);
         }
+    }
+
+    void MoveNumberUpdate()
+    {
+        Transform dice = transform.GetChild(0);
+        foreach (Transform child in dice)
+        {
+            NumberDisplay numdis;
+            if (child.gameObject.TryGetComponent<NumberDisplay>(out numdis))
+            {
+                numdis.UpdateNumber(Moves);
+            }
+        }
+    }
+
+    public void SetStoredMove(Vector3 FUCK)
+    {
+        storedMove = FUCK;
+        SetCanMove(1);
+    }
+
+    public void SetMoveLimit(int movelimit)
+    {
+        Moves = movelimit;
+        MoveNumberUpdate();
     }
 }
