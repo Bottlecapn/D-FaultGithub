@@ -4,19 +4,18 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TileGrid : MonoBehaviour
+public class GridSpawner : MonoBehaviour
 {
     [SerializeField] int gridSizeX, gridSizeY, holeNumber, dieNumber;
     [SerializeField] GameObject basicTile;
     [SerializeField] GameObject hole;
     [SerializeField] GameObject die;
     [SerializeField] TextAsset level;
-    //[SerializeField] Tile[] tiles;
+
     // Start is called before the first frame update
     void Start()
     {
         GenerateGrid();
-        //tiles = new Tile[gridSizeX*gridSizeY];
     }
 
     // Update is called once per frame
@@ -26,6 +25,10 @@ public class TileGrid : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    // Generates the level's grid from a text file.
+    // !! IMPORTANT NOTE !!
+    // Please ensure that the level's txt file is COPY-PASTED INTO the "StreamingAssets" folder.
+    // If not, the level will NOT spawn in the build.
     void GenerateGrid()
     {
         int currentX = 0;
@@ -50,61 +53,31 @@ public class TileGrid : MonoBehaviour
                 // spawn a die and a tile
                 else if (line[i] == 'D')
                 {
-                    // tile
+                    // spawn tile
                     go = Instantiate(basicTile, transform);
                     go.transform.position = new Vector3(transform.position.x + currentX, transform.position.y,
                         transform.position.z + currentY);
-                    // die
+                    // spawn die, set it's starting position and move limit
                     GameObject go2 = Instantiate(die);
                     DieBehavior dicetemp = go2.transform.GetChild(0).GetComponent<DieBehavior>();
-                    dicetemp.SetStoredMove(new Vector3(transform.position.x + currentX, transform.position.y + 0.5f,
+                    dicetemp.SetStartingPosition(new Vector3(transform.position.x + currentX, transform.position.y + 0.5f,
                         transform.position.z + currentY));
                     dicetemp.SetMoveLimit(dieNumber);
-                    /*go2.transform.position = new Vector3(transform.position.x + currentX, transform.position.y + 0.5f,
-                        transform.position.z + currentY);*/
                 }
-                // spawn a holes
+                // spawn a hole
                 else if (line[i] == 'H')
                 {
                     go = Instantiate(hole, transform);
                     go.transform.position = new Vector3(transform.position.x + currentX, transform.position.y,
                         transform.position.z + currentY);
-                    HoleSprites holetemp = go.GetComponent<HoleSprites>();
+                    HoleBehavior holetemp = go.GetComponent<HoleBehavior>();
                     holetemp.SetHoleCount(holeNumber);
                 }
-                currentX += 1; // should be the size of the tile
+                currentX += 1; // TODO: variable should be the size of the tile, not hardcoded.
             }
             currentX = 0;
-            currentY += 1; // should be the size of the tile
+            currentY += 1; // TODO: variable should be the size of the tile, not hardcoded
         }
         reader.Close();
-        /*int holePos = Random.Range(1, (gridSizeX * gridSizeY) - 1);
-        int counter = 0;
-        for (int y = 0; y < gridSizeY; y++)
-        {
-            for (int x = 0; x < gridSizeX; x++)
-            {
-                GameObject go;
-                if (counter == holePos)
-                {
-                    go = Instantiate(hole, transform);
-                    go.transform.position = new Vector3(transform.position.x + x, transform.position.y,
-                        transform.position.z + y);
-                }
-                else
-                {
-                    go = Instantiate(basicTile, transform);
-                    go.transform.position = new Vector3(transform.position.x + x, transform.position.y,
-                        transform.position.z + y);
-                }
-
-                //Tile t = go.GetComponent<Tile>();
-                //t.SetPosition(x, y);
-                counter++;
-
-                //tiles[counter] = t;
-                //counter++;
-            }
-        }*/
     }
 }

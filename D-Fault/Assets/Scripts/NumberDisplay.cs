@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class NumberDisplay : Tile
 {
-
     [SerializeField] SpriteRenderer slot1, slot2, slot3; 
     [SerializeField] float maxDuration;
     [SerializeField] bool useAudio;
@@ -23,6 +22,11 @@ public class NumberDisplay : Tile
             sfx = GetComponent<AudioSource>();
         }
     }
+
+    // function that changes the text sprites to match the specified number value.
+    // 3 "slots" are different sprite positions: slot1 is for single digits.
+    // slot2 and slot3 are for double digit numbers (tens place and ones place, respectively).
+    // called by CountDown enumerator as well as DieBehavior to update dice number instantly.
     public int UpdateNumber(int count)
     {
         if (count <= 9) {
@@ -43,6 +47,9 @@ public class NumberDisplay : Tile
         return count;
     }
 
+    // function that performs a lerped count down/up from currentNum to targetNum.
+    // This is to show the effect of the number going down/up in realtime, used on the Hole.
+    // (please don't mess with this function) - Amari
     public IEnumerator CountDown(int currentNum, int targetNum)
     {
         counting = true;
@@ -50,7 +57,6 @@ public class NumberDisplay : Tile
         currentCount = currentNum;
         float countLerp = currentNum;
         float pitchLerp = Mathf.Clamp(-0.04f*(Mathf.Abs(currentNum-targetNum))+1, 0.75f, 1f);
-        //float pitchLerp = Mathf.Clamp(-0.004f * (currentNum*currentNum) + 1, 0.75f, 1f);
         while (true)
         {
             float t = timeElapsed / maxDuration;

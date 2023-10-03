@@ -5,33 +5,27 @@ using TMPro;
 
 public class DieBehavior : MonoBehaviour
 {
-    bool canMove;
+    bool mCanMove;
     public Animator anim;
     public int Moves;
     public int GridSize;
     public GameObject dieParent;
-    Vector3 storedMove;
-    Vector3 storedVector;
+    Vector3 mStoredMove;
+    Vector3 mStoredRotationVector;
     [SerializeField] MeshRenderer cubeRenderer;
-    public TextMeshProUGUI moveNumber;
     AudioSource sfx;
     [SerializeField] AudioClip addSound, moveSound;
 
-    public float x;
-    public float y;
-    public float z;
+    public float x, y, z;
 
     bool mIsSelected = false;
     public Material red, white;
+
     // Start is called before the first frame update
     void Start()
     {
-        //dieParent = transform.parent.gameObject;
-        //moveNumber.text = Moves.ToString();
         anim = GetComponent<Animator>();
-        canMove = true;
-        //storedMove = new Vector3 (x, y, z);
-        //dieParent.transform.position = new Vector3(x, y, z);
+        mCanMove = true;
         sfx = GetComponent<AudioSource>();
     }
 
@@ -43,13 +37,12 @@ public class DieBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(mIsSelected)
-            //moveNumber.text = Moves.ToString();
-        //NOTE: WHAT IF BOTH PRESSED AT THE SAME TIME?
-        ///
-        ///
+        // NOTE: FIX DIAGONAL MOVEMENT (both keys pressed at the same time)
+
+        // reset the animation boolean parameter, to ensure that die do not play move anim multiple times. 
         anim.SetBool("Move", false);
-        if (Moves > 0 && canMove && mIsSelected)
+
+        if (Moves > 0 && mCanMove && mIsSelected)
         {
             float verticalMove = 0.0f;
             float horizontalMove = 0.0f;
@@ -74,7 +67,7 @@ public class DieBehavior : MonoBehaviour
                     anim.SetBool("Move", true);
                 }
             }
-            //dieParent.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + verticalMove);
+            
             // horizontal movement
             if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
@@ -96,24 +89,31 @@ public class DieBehavior : MonoBehaviour
                     anim.SetBool("Move", true);
                 }
             }
-            storedVector = new Vector3(horizontalMove, 0, verticalMove); 
-            storedMove = new Vector3(transform.position.x + horizontalMove, transform.position.y, transform.position.z + verticalMove);
-            //dieParent.transform.position = new Vector3(transform.position.x + horizontalMove, transform.position.y, transform.position.z + verticalMove);
+
+            // mStoredRotationVector sets rotation of dieParent to align animation with direction of movement.
+            // mStoredMove sets the position of where the dieParent will move to after animation ends
+            // (the "real" position of dieParent doesn't update until end of animation).
+            mStoredRotationVector = new Vector3(horizontalMove, 0, verticalMove); 
+            mStoredMove = new Vector3(transform.position.x + horizontalMove, transform.position.y, transform.position.z + verticalMove);
         }
     }
 
-    public void SetCanMove(int tf)
+    // Called by AnimationEvents in the die's animations, and by the GridSpawner at Start.
+    // uses an int parameter instead of a bool because AnimationEvents cannot call bool parameters
+    public void SetmCanMove(int move)
     {
-        if(tf == 0)
+        if(move == 0)
         {
-            canMove = false;
-            dieParent.transform.rotation = Quaternion.LookRotation(storedVector.normalized, Vector3.up);
+            //die is prevented from inputting a move (called during any other animation)
+            mCanMove = false;
+            dieParent.transform.rotation = Quaternion.LookRotation(mStoredRotationVector.normalized, Vector3.up);
             MoveNumberUpdate();
         }
         else
         {
-            canMove = true;
-            dieParent.transform.position = storedMove;
+            // die is allowed to move (called when the die is in idle animation)
+            mCanMove = true;
+            dieParent.transform.position = mStoredMove;
         }
     }
 
@@ -155,12 +155,13 @@ public class DieBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //print("AAAAAAAAAA");
+        // If another die collides with this one while not selected, it gets destroyed.
         if (!mIsSelected && other.CompareTag("Dice"))
         {
             DieBehavior otherDie = other.gameObject.GetComponent<DieBehavior>();
             otherDie.Moves += Moves;
             otherDie.anim.SetTrigger("Add");
+            print("Die added");
             SelfDestruct();
         }
 
@@ -175,6 +176,7 @@ public class DieBehavior : MonoBehaviour
         Destroy(dieParent);
     }
 
+    // Called by AnimationEvents in the die's animation (do not call in code).
     void PlaySFX(int sound)
     {
         if (sound == 0)
@@ -186,6 +188,8 @@ public class DieBehavior : MonoBehaviour
         }
     }
 
+    // Updates the number sprites on the die to reflect # of Moves
+    // by looping through NumberDisplay components in children
     void MoveNumberUpdate()
     {
         Transform dice = transform.GetChild(0);
@@ -199,12 +203,14 @@ public class DieBehavior : MonoBehaviour
         }
     }
 
-    public void SetStoredMove(Vector3 FUCK)
+    // Sets the starting position of the die. Called by GridSpawner.
+    public void SetStartingPosition(Vector3 setmove)
     {
-        storedMove = FUCK;
-        SetCanMove(1);
+        mStoredMove = setmove;
+        SetmCanMove(1);
     }
 
+    // Sets the die's number of moves. Called by GridSpawner.
     public void SetMoveLimit(int movelimit)
     {
         Moves = movelimit;

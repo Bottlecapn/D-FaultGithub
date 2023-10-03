@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Billboard : MonoBehaviour
 {
+    // creates a basic "billboard" effect -- the object always faces the camera. 
     Camera mainCamera;
     void Start()
     {
