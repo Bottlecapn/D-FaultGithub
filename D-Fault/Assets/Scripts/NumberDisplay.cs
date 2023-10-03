@@ -26,7 +26,7 @@ public class NumberDisplay : Tile
     // function that changes the text sprites to match the specified number value.
     // 3 "slots" are different sprite positions: slot1 is for single digits.
     // slot2 and slot3 are for double digit numbers (tens place and ones place, respectively).
-    // called by CountDown enumerator as well as DieBehavior to update dice number instantly.
+    // called by CountDown coroutine as well as DieBehavior to update dice number instantly.
     public int UpdateNumber(int count)
     {
         if (count <= 9) {
@@ -47,7 +47,7 @@ public class NumberDisplay : Tile
         return count;
     }
 
-    // function that performs a lerped count down/up from currentNum to targetNum.
+    // coroutine that performs a lerped count down/up from currentNum to targetNum.
     // This is to show the effect of the number going down/up in realtime, used on the Hole.
     // (please don't mess with this function) - Amari
     public IEnumerator CountDown(int currentNum, int targetNum)

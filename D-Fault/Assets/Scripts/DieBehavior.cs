@@ -98,13 +98,13 @@ public class DieBehavior : MonoBehaviour
         }
     }
 
-    // Called by AnimationEvents in the die's animations, and by the GridSpawner at Start.
+    // Called by Animation events in the die's animations, and by the GridSpawner at Start.
     // uses an int parameter instead of a bool because AnimationEvents cannot call bool parameters
     public void SetmCanMove(int move)
     {
         if(move == 0)
         {
-            //die is prevented from inputting a move (called during any other animation)
+            // die is prevented from inputting a move (called during any other animation)
             mCanMove = false;
             dieParent.transform.rotation = Quaternion.LookRotation(mStoredRotationVector.normalized, Vector3.up);
             MoveNumberUpdate();
@@ -176,7 +176,7 @@ public class DieBehavior : MonoBehaviour
         Destroy(dieParent);
     }
 
-    // Called by AnimationEvents in the die's animation (do not call in code).
+    // Called by Animation events in the die's animation (do not call in code).
     void PlaySFX(int sound)
     {
         if (sound == 0)

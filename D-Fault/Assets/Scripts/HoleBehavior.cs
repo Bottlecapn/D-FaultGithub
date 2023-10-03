@@ -21,8 +21,10 @@ public class HoleBehavior : Tile
         holeNumberDisplay.UpdateNumber(mCurrentHoleCount);
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
+        // if a die runs into the hole, start scoring sequence coroutine
         if (other.gameObject.GetComponent<DieBehavior>())
         {
             StartCoroutine(ScoreSequence(other.gameObject));
@@ -36,7 +38,7 @@ public class HoleBehavior : Tile
         sfx.pitch = 1f;
         sfx.PlayOneShot(scoreSound);
 
-        // waits until die is destroyed AND the previous coroutine is finished before counting down
+        // waits until die is destroyed AND the previous coroutine is finished before counting down.
         DieBehavior d = dice.GetComponent<DieBehavior>();
         while (true)
         {
