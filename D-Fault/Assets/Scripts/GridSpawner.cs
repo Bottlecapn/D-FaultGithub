@@ -27,7 +27,7 @@ public class GridSpawner : MonoBehaviour
 
     // Generates the level's grid from a text file.
     // !! IMPORTANT NOTE !!
-    // Please ensure that the level's txt file is COPY-PASTED INTO the "StreamingAssets" folder.
+    // Please ensure that the level's .txt file is COPY-PASTED INTO the "StreamingAssets" folder.
     // If not, the level will NOT spawn in the build.
     void GenerateGrid()
     {
