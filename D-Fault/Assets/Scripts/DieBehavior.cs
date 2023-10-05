@@ -37,7 +37,7 @@ public class DieBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // NOTE: FIX DIAGONAL MOVEMENT (both keys pressed at the same time)
+        // NOTE: FIX DIAGONAL MOVEMENT (both keys pressed at the same time)  FIXED!!!
 
         // reset the animation boolean parameter, to ensure that die do not play move anim multiple times. 
         anim.SetBool("Move", false);
@@ -57,7 +57,7 @@ public class DieBehavior : MonoBehaviour
                     anim.SetBool("Move", true);
                 }
             }
-            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+            else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
             {
                 // boundary check
                 if (dieParent.transform.position.z - 1 >= 0)
@@ -69,7 +69,7 @@ public class DieBehavior : MonoBehaviour
             }
             
             // horizontal movement
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
                 // boundary check
                 if (dieParent.transform.position.x - 1 >= 0)
@@ -79,7 +79,7 @@ public class DieBehavior : MonoBehaviour
                     anim.SetBool("Move", true);
                 }
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+            else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
             {
                 // boundary check
                 if (dieParent.transform.position.x + 1 < GridSize)
@@ -168,6 +168,11 @@ public class DieBehavior : MonoBehaviour
         if (other.CompareTag("Hole"))
         {
             anim.SetTrigger("Score");
+        }
+
+        if (other.CompareTag("Wall"))
+        {
+            anim.SetTrigger("Rebound");
         }
     }
 
