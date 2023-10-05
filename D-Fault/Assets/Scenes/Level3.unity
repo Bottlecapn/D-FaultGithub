@@ -241,15 +241,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26ae1416dfd9fe46a71b2034188e5ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSizeX: 10
-  gridSizeY: 10
   holeNumber: 5
   basicTile: {fileID: 5051932311032128713, guid: 4f103cf3449a65946bf61c6d5bcd512a, type: 3}
   hole: {fileID: 5051932311032128713, guid: 408115aabd5698e44bfb336fe27325a3, type: 3}
   die: {fileID: 1737172300991720200, guid: b669ac66f6c0e9542b781fa06e53331c, type: 3}
   wall: {fileID: 76025097956725628, guid: 956eb2fe759c5484cb950edb276513fa, type: 3}
   diceValues: 0600000006000000
-  level: {fileID: 4900000, guid: 5a0bb9503feec864591505a4451d3ec9, type: 3}
+  level: {fileID: 4900000, guid: 01c712d2d457ee94482d9ad6f7c9579b, type: 3}
 --- !u!4 &93524479
 Transform:
   m_ObjectHideFlags: 0

@@ -798,13 +798,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26ae1416dfd9fe46a71b2034188e5ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holeNumber: 4
+  holeNumber: 3
   basicTile: {fileID: 5051932311032128713, guid: 4f103cf3449a65946bf61c6d5bcd512a, type: 3}
   hole: {fileID: 5051932311032128713, guid: 408115aabd5698e44bfb336fe27325a3, type: 3}
   die: {fileID: 1737172300991720200, guid: b669ac66f6c0e9542b781fa06e53331c, type: 3}
   wall: {fileID: 76025097956725628, guid: 956eb2fe759c5484cb950edb276513fa, type: 3}
-  diceValues: 080000000900000007000000
-  level: {fileID: 4900000, guid: 191ec63d453563c42975feb829b92f8b, type: 3}
+  diceValues: 0700000006000000
+  level: {fileID: 4900000, guid: 43ac7963098418f409a9c446395328d4, type: 3}
 --- !u!4 &2002645108
 Transform:
   m_ObjectHideFlags: 0
