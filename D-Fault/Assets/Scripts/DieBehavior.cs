@@ -8,9 +8,10 @@ public class DieBehavior : MonoBehaviour
     bool mCanMove;
     public Animator anim;
     public int Moves;
-    public int GridSize;
+    public int GridSizeX, GridSizeY;
     public GameObject dieParent;
     Vector3 mStoredMove;
+    Vector3 mPreviousStoredMove;
     Vector3 mStoredRotationVector;
     [SerializeField] MeshRenderer cubeRenderer;
     AudioSource sfx;
@@ -50,7 +51,7 @@ public class DieBehavior : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             {
                 // boundary check
-                if (dieParent.transform.position.z + 1 < GridSize)
+                if (dieParent.transform.position.z + 1 < GridSizeY)
                 {
                     Moves--;
                     verticalMove = 1.0f;
@@ -82,7 +83,7 @@ public class DieBehavior : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
             {
                 // boundary check
-                if (dieParent.transform.position.x + 1 < GridSize)
+                if (dieParent.transform.position.x + 1 < GridSizeX)
                 {
                     Moves--;
                     horizontalMove = 1.0f;
@@ -100,7 +101,7 @@ public class DieBehavior : MonoBehaviour
 
     // Called by Animation events in the die's animations, and by the GridSpawner at Start.
     // uses an int parameter instead of a bool because AnimationEvents cannot call bool parameters
-    public void SetmCanMove(int move)
+    public void SetCanMove(int move)
     {
         if(move == 0)
         {
@@ -113,6 +114,7 @@ public class DieBehavior : MonoBehaviour
         {
             // die is allowed to move (called when the die is in idle animation)
             mCanMove = true;
+            mPreviousStoredMove = mStoredMove;
             dieParent.transform.position = mStoredMove;
         }
     }
@@ -172,6 +174,7 @@ public class DieBehavior : MonoBehaviour
 
         if (other.CompareTag("Wall"))
         {
+            print("rebound!!");
             anim.SetTrigger("Rebound");
         }
     }
@@ -184,12 +187,19 @@ public class DieBehavior : MonoBehaviour
     // Called by Animation events in the die's animation (do not call in code).
     void PlaySFX(int sound)
     {
+        sfx.pitch = 1f;
         if (sound == 0)
         {
             sfx.PlayOneShot(moveSound);
         } else if (sound == 1)
         {
             sfx.PlayOneShot(addSound);
+        }
+        else if (sound == 2)
+        {
+            //moveDeny / Rebound sound
+            sfx.pitch = 0.5f;
+            sfx.PlayOneShot(moveSound);
         }
     }
 
@@ -212,13 +222,27 @@ public class DieBehavior : MonoBehaviour
     public void SetStartingPosition(Vector3 setmove)
     {
         mStoredMove = setmove;
-        SetmCanMove(1);
+        SetCanMove(1);
     }
 
     // Sets the die's number of moves. Called by GridSpawner.
     public void SetMoveLimit(int movelimit)
     {
         Moves = movelimit;
+        MoveNumberUpdate();
+    }
+
+    //Sets the "grid size" so the dice doesn't go off the grid. Called by Grid Spawner.
+    public void SetGridSize(int gridX, int gridY)
+    {
+        GridSizeX = gridX;
+        GridSizeY = gridY;
+    }
+
+    public void RestorePreviousPosition()
+    {
+        mStoredMove = mPreviousStoredMove;
+        Moves++;
         MoveNumberUpdate();
     }
 }

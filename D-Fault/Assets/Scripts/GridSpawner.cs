@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class GridSpawner : MonoBehaviour
 {
-    [SerializeField] int gridSizeX, gridSizeY, holeNumber, dieNumber;
+    [SerializeField] int holeNumber;
     [SerializeField] GameObject basicTile;
     [SerializeField] GameObject hole;
     [SerializeField] GameObject die;
     [SerializeField] GameObject wall;
+    [SerializeField] int[] diceValues;
     [SerializeField] TextAsset level;
 
     // Start is called before the first frame update
@@ -34,10 +35,12 @@ public class GridSpawner : MonoBehaviour
     {
         int currentX = 0;
         int currentY = 0;
+        int dieCounter = 0;
+        List<DieBehavior> diceInLevel = new List<DieBehavior>();
         string pathnew = Path.Combine(Application.streamingAssetsPath, level.name + ".txt");
         string path = "Assets/Levels/"+level.name+".txt";
         StreamReader reader = new StreamReader(pathnew);
-        string line;
+        string line = "";
         while (!reader.EndOfStream)
         {
             line = reader.ReadLine();
@@ -63,7 +66,9 @@ public class GridSpawner : MonoBehaviour
                     DieBehavior dicetemp = go2.transform.GetChild(0).GetComponent<DieBehavior>();
                     dicetemp.SetStartingPosition(new Vector3(transform.position.x + currentX, transform.position.y + 0.5f,
                         transform.position.z + currentY));
-                    dicetemp.SetMoveLimit(dieNumber);
+                    dicetemp.SetMoveLimit(diceValues[dieCounter]);
+                    dieCounter++;
+                    diceInLevel.Add(dicetemp);
                 }
                 // spawn a hole
                 else if (line[i] == 'H')
@@ -91,6 +96,12 @@ public class GridSpawner : MonoBehaviour
             currentX = 0;
             currentY += 1; // TODO: variable should be the size of the tile, not hardcoded
         }
+
+        foreach(DieBehavior d in diceInLevel)
+        {
+            d.SetGridSize(line.Length, currentY);
+        }
+
         reader.Close();
     }
 }
