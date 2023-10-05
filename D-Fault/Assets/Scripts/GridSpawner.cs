@@ -10,6 +10,7 @@ public class GridSpawner : MonoBehaviour
     [SerializeField] GameObject basicTile;
     [SerializeField] GameObject hole;
     [SerializeField] GameObject die;
+    [SerializeField] GameObject wall;
     [SerializeField] TextAsset level;
 
     // Start is called before the first frame update
@@ -72,6 +73,18 @@ public class GridSpawner : MonoBehaviour
                         transform.position.z + currentY);
                     HoleBehavior holetemp = go.GetComponent<HoleBehavior>();
                     holetemp.SetHoleCount(holeNumber);
+                }
+                // spawn a wall
+                else if (line[i] == 'W')
+                {
+                    // spawn tile first
+                    go = Instantiate(basicTile, transform);
+                    go.transform.position = new Vector3(transform.position.x + currentX, transform.position.y,
+                        transform.position.z + currentY);
+                    // spawn wall
+                    GameObject go2 = Instantiate(wall);
+                    go2.transform.position = new Vector3(transform.position.x + currentX, transform.position.y + 0.5f,
+                        transform.position.z + currentY);
                 }
                 currentX += 1; // TODO: variable should be the size of the tile, not hardcoded.
             }
