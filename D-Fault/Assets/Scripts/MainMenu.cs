@@ -7,42 +7,60 @@ using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
-    static string sceneName;
+    static string sceneName = "";
+    static int buildIndexNumber = -1;
+
+    float delay = 0.2f;
     private void ChangeScene()
     {
-        SceneManager.LoadScene(sceneName);
-        sceneName = "";
+        if (sceneName == "")
+        {
+            SceneManager.LoadScene(buildIndexNumber);
+            buildIndexNumber = -1;
+        }
+        else if (buildIndexNumber == -1)
+        {
+            SceneManager.LoadScene(sceneName);
+            sceneName = "";
+        }
+
     }
 
     public void PlayGame()
     {
         sceneName = "Level1";
-        Invoke("ChangeScene", 1);
+        Invoke("ChangeScene", 0.8f);
     }
 
     public void LevelSelect()
     {
         sceneName = "LevelSelect";
-        Invoke("ChangeScene", 1);
+        Invoke("ChangeScene", delay);
     }
 
     public void ReturnMainMenu()
     {
         sceneName = "MainMenu";
-        Invoke("ChangeScene", 1);
+        Invoke("ChangeScene", delay);
     }
 
     public void Level(Button b)
     {
         string txt = b.GetComponentInChildren<TMP_Text>().text;
         sceneName = "Level" + txt;
-        Invoke("ChangeScene", 1);
+        Invoke("ChangeScene", delay);
     }
 
     public void LevelTransition()
     {
-        int buildIndex = PlayerPrefs.GetInt("buildIndex");
-        SceneManager.LoadScene(buildIndex);
+        buildIndexNumber = PlayerPrefs.GetInt("buildIndex");
+        Invoke("ChangeScene", delay);
+    }
+
+    public void LevelRetry()
+    {
+        buildIndexNumber = PlayerPrefs.GetInt("buildIndex") - 1;
+        Invoke("ChangeScene", delay);
     }
 
     public void QuitGame()
