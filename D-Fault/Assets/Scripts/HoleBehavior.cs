@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class HoleBehavior : Tile
 {
-
     [SerializeField] int holePar;
     int mCurrentHoleCount;
     AudioSource sfx;
@@ -70,7 +69,9 @@ public class HoleBehavior : Tile
             mCurrentHoleCount = 0;
             sfx.PlayOneShot(completeSound);
             yield return new WaitForSeconds(1);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+            //int buildIndexNumber = SceneManager.GetActiveScene().buildIndex+1;
+            PlayerPrefs.SetInt("buildIndex", SceneManager.GetActiveScene().buildIndex+1);
+            SceneManager.LoadScene("LevelTransition");
             print("Level Cleared");
         } else {
             print("Scored");

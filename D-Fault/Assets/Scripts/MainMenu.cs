@@ -39,6 +39,12 @@ public class MainMenu : MonoBehaviour
         Invoke("ChangeScene", 1);
     }
 
+    public void LevelTransition()
+    {
+        int buildIndex = PlayerPrefs.GetInt("buildIndex");
+        SceneManager.LoadScene(buildIndex);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
