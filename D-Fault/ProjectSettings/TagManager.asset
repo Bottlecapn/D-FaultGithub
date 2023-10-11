@@ -7,6 +7,7 @@ TagManager:
   - Dice
   - Hole
   - Wall
+  - Coin
   layers:
   - Default
   - TransparentFX
