@@ -4,42 +4,38 @@ using UnityEngine;
 using TMPro;
 
 public class DieBehavior : MonoBehaviour
-{
-    bool mCanMove;
+{   
     public Animator anim;
-    public int Moves;
-    public int GridSizeX, GridSizeY;
     public GameObject dieParent;
-    Vector3 mStoredMove;
-    Vector3 mPreviousStoredMove;
-    Vector3 mStoredRotationVector;
+    public Material red, white;
     [SerializeField] MeshRenderer cubeRenderer;
     AudioSource sfx;
     [SerializeField] AudioClip addSound, moveSound;
+    public int Moves;
 
-    public float x, y, z;
-
-    bool mIsSelected = false;
-    public Material red, white;
+    protected bool mCanMove;
+    protected bool mIsSelected = false;
+    protected int GridSizeX, GridSizeY;
+    protected Vector3 mStoredMove;
+    protected Vector3 mPreviousStoredMove;
+    protected Vector3 mStoredRotationVector;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         anim = GetComponent<Animator>();
         mCanMove = true;
         sfx = GetComponent<AudioSource>();
     }
 
-    private void Awake()
+    protected void Awake()
     {
         MoveNumberUpdate();
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
-        // NOTE: FIX DIAGONAL MOVEMENT (both keys pressed at the same time)  FIXED!!!
-
         // reset the animation boolean parameter, to ensure that die do not play move anim multiple times. 
         anim.SetBool("Move", false);
 
@@ -119,7 +115,7 @@ public class DieBehavior : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
+    protected void OnMouseDown()
     {
         // select if unselected, vice versa
         SetSelection(!mIsSelected);
@@ -135,6 +131,18 @@ public class DieBehavior : MonoBehaviour
                 if (die != this)
                 {
                     die.SetSelection(false);
+                }
+            }
+
+            // find all coins
+            GameObject[] coins = GameObject.FindGameObjectsWithTag("Coin");
+            // for each coin, if it is not the current coin, unselect it.
+            foreach (var c in coins)
+            {
+                CoinBehavior coin = c.GetComponent<CoinBehavior>();
+                if (coin != this)
+                {
+                    coin.SetSelection(false);
                 }
             }
         }
@@ -155,7 +163,7 @@ public class DieBehavior : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         // If another die collides with this one while not selected, it gets destroyed.
         if (!mIsSelected && other.CompareTag("Dice"))
@@ -163,7 +171,7 @@ public class DieBehavior : MonoBehaviour
             DieBehavior otherDie = other.gameObject.GetComponent<DieBehavior>();
             otherDie.Moves += Moves;
             otherDie.anim.SetTrigger("Add");
-            print("Die added");
+            //print("Die added");
             SelfDestruct();
         }
 
@@ -174,18 +182,25 @@ public class DieBehavior : MonoBehaviour
 
         if (other.CompareTag("Wall"))
         {
-            print("rebound!!");
+            //print("rebound!!");
             anim.SetTrigger("Rebound");
         }
+
+        /*
+        if (other.CompareTag("Coin"))
+        {
+            
+        }
+        */
     }
 
-    void SelfDestruct()
+    protected void SelfDestruct()
     {
         Destroy(dieParent);
     }
 
     // Called by Animation events in the die's animation (do not call in code).
-    void PlaySFX(int sound)
+    protected void PlaySFX(int sound)
     {
         sfx.pitch = 1f;
         if (sound == 0)
@@ -205,7 +220,7 @@ public class DieBehavior : MonoBehaviour
 
     // Updates the number sprites on the die to reflect # of Moves
     // by looping through NumberDisplay components in children
-    void MoveNumberUpdate()
+    protected void MoveNumberUpdate()
     {
         Transform dice = transform.GetChild(0);
         foreach (Transform child in dice)

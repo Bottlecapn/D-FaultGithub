@@ -91,6 +91,15 @@ public class GridSpawner : MonoBehaviour
                     go2.transform.position = new Vector3(transform.position.x + currentX, transform.position.y + 0.5f,
                         transform.position.z + currentY);
                 }
+                else if (line[i] == 'C')
+                {
+                    // spawn tile first
+                    go = Instantiate(basicTile, transform);
+                    go.transform.position = new Vector3(transform.position.x + currentX, transform.position.y,
+                        transform.position.z + currentY);
+                    // TODO: spawn coin
+
+                }
                 currentX += 1; // TODO: variable should be the size of the tile, not hardcoded.
             }
             currentX = 0;
