@@ -12,6 +12,8 @@ public class DieBehavior : MonoBehaviour
     AudioSource sfx;
     [SerializeField] AudioClip addSound, moveSound;
     public int Moves;
+    public int moveDistance;
+    public float defaultHeight;
 
     protected bool mCanMove;
     protected bool mIsSelected = false;
@@ -47,7 +49,7 @@ public class DieBehavior : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             {
                 // boundary check
-                if (dieParent.transform.position.z + 1 < GridSizeY)
+                if (dieParent.transform.position.z + moveDistance < GridSizeY)
                 {
                     Moves--;
                     verticalMove = 1.0f;
@@ -57,7 +59,7 @@ public class DieBehavior : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
             {
                 // boundary check
-                if (dieParent.transform.position.z - 1 >= 0)
+                if (dieParent.transform.position.z - moveDistance >= 0.0f)
                 {
                     Moves--;
                     verticalMove = -1.0f;
@@ -69,7 +71,7 @@ public class DieBehavior : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
                 // boundary check
-                if (dieParent.transform.position.x - 1 >= 0)
+                if (dieParent.transform.position.x - moveDistance >= 0.0f)
                 {
                     Moves--;
                     horizontalMove = -1.0f;
@@ -79,7 +81,7 @@ public class DieBehavior : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
             {
                 // boundary check
-                if (dieParent.transform.position.x + 1 < GridSizeX)
+                if (dieParent.transform.position.x + moveDistance < GridSizeX)
                 {
                     Moves--;
                     horizontalMove = 1.0f;
@@ -91,7 +93,7 @@ public class DieBehavior : MonoBehaviour
             // mStoredMove sets the position of where the dieParent will move to after animation ends
             // (the "real" position of dieParent doesn't update until end of animation).
             mStoredRotationVector = new Vector3(horizontalMove, 0, verticalMove); 
-            mStoredMove = new Vector3(transform.position.x + horizontalMove, transform.position.y, transform.position.z + verticalMove);
+            mStoredMove = new Vector3(transform.position.x + horizontalMove * moveDistance, defaultHeight, transform.position.z + verticalMove * moveDistance);
         }
     }
 
