@@ -3,39 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class DieBehavior : MonoBehaviour
-{   
-    public Animator anim;
+public class TEMP_DieBehavior : MonoBehaviour
+{
+    bool mCanMove;
+    [SerializeField] Animator anim;
+    public int Moves;
+    public int GridSizeX, GridSizeY;
     public GameObject dieParent;
-    public Material red, white;
+    Vector3 mStoredMove;
+    Vector3 mPreviousStoredMove;
+    Vector3 mStoredRotationVector;
     [SerializeField] MeshRenderer cubeRenderer;
     AudioSource sfx;
     [SerializeField] AudioClip addSound, moveSound;
-    public int Moves;
+    [SerializeField] int moveDistance;
+    [SerializeField] float defaultHeight;
 
-    protected bool mCanMove;
-    protected bool mIsSelected = false;
-    protected int GridSizeX, GridSizeY;
-    protected Vector3 mStoredMove;
-    protected Vector3 mPreviousStoredMove;
-    protected Vector3 mStoredRotationVector;
+    public float x, y, z;
+
+    bool mIsSelected = false;
+    public Material red, white;
 
     // Start is called before the first frame update
-    protected void Start()
+    void Start()
     {
         anim = GetComponent<Animator>();
         mCanMove = true;
         sfx = GetComponent<AudioSource>();
     }
 
-    protected void Awake()
+    private void Awake()
     {
         MoveNumberUpdate();
     }
 
     // Update is called once per frame
-    protected virtual void Update()
+    void Update()
     {
+        // NOTE: FIX DIAGONAL MOVEMENT (both keys pressed at the same time)  FIXED!!!
+
         // reset the animation boolean parameter, to ensure that die do not play move anim multiple times. 
         anim.SetBool("Move", false);
 
@@ -47,7 +53,7 @@ public class DieBehavior : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             {
                 // boundary check
-                if (dieParent.transform.position.z + 1 < GridSizeY)
+                if (dieParent.transform.position.z + moveDistance < GridSizeY)
                 {
                     Moves--;
                     verticalMove = 1.0f;
@@ -57,7 +63,7 @@ public class DieBehavior : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
             {
                 // boundary check
-                if (dieParent.transform.position.z - 1 >= 0)
+                if (dieParent.transform.position.z - moveDistance >= 0)
                 {
                     Moves--;
                     verticalMove = -1.0f;
@@ -69,7 +75,7 @@ public class DieBehavior : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
                 // boundary check
-                if (dieParent.transform.position.x - 1 >= 0)
+                if (dieParent.transform.position.x - moveDistance >= 0)
                 {
                     Moves--;
                     horizontalMove = -1.0f;
@@ -79,7 +85,7 @@ public class DieBehavior : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
             {
                 // boundary check
-                if (dieParent.transform.position.x + 1 < GridSizeX)
+                if (dieParent.transform.position.x + moveDistance < GridSizeX)
                 {
                     Moves--;
                     horizontalMove = 1.0f;
@@ -91,7 +97,8 @@ public class DieBehavior : MonoBehaviour
             // mStoredMove sets the position of where the dieParent will move to after animation ends
             // (the "real" position of dieParent doesn't update until end of animation).
             mStoredRotationVector = new Vector3(horizontalMove, 0, verticalMove); 
-            mStoredMove = new Vector3(transform.position.x + horizontalMove, transform.position.y, transform.position.z + verticalMove);
+            mStoredMove = new Vector3(transform.position.x + horizontalMove * moveDistance, defaultHeight,
+                transform.position.z + verticalMove * moveDistance);
         }
     }
 
@@ -115,7 +122,7 @@ public class DieBehavior : MonoBehaviour
         }
     }
 
-    protected void OnMouseDown()
+    private void OnMouseDown()
     {
         // select if unselected, vice versa
         SetSelection(!mIsSelected);
@@ -127,22 +134,10 @@ public class DieBehavior : MonoBehaviour
             // for each die, if it is not the current die, unselect it.
             foreach (var d in dice)
             {
-                DieBehavior die = d.GetComponent<DieBehavior>();
+                TEMP_DieBehavior die = d.GetComponent<TEMP_DieBehavior>();
                 if (die != this)
                 {
                     die.SetSelection(false);
-                }
-            }
-
-            // find all coins
-            GameObject[] coins = GameObject.FindGameObjectsWithTag("Coin");
-            // for each coin, if it is not the current coin, unselect it.
-            foreach (var c in coins)
-            {
-                CoinBehavior coin = c.GetComponent<CoinBehavior>();
-                if (coin != this)
-                {
-                    coin.SetSelection(false);
                 }
             }
         }
@@ -163,15 +158,15 @@ public class DieBehavior : MonoBehaviour
         }
     }
 
-    protected virtual void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         // If another die collides with this one while not selected, it gets destroyed.
         if (!mIsSelected && other.CompareTag("Dice"))
         {
-            DieBehavior otherDie = other.gameObject.GetComponent<DieBehavior>();
+            TEMP_DieBehavior otherDie = other.gameObject.GetComponent<TEMP_DieBehavior>();
             otherDie.Moves += Moves;
             otherDie.anim.SetTrigger("Add");
-            //print("Die added");
+            print("Die added");
             SelfDestruct();
         }
 
@@ -182,25 +177,18 @@ public class DieBehavior : MonoBehaviour
 
         if (other.CompareTag("Wall"))
         {
-            //print("rebound!!");
+            print("rebound!!");
             anim.SetTrigger("Rebound");
         }
-
-        /*
-        if (other.CompareTag("Coin"))
-        {
-            
-        }
-        */
     }
 
-    protected void SelfDestruct()
+    void SelfDestruct()
     {
         Destroy(dieParent);
     }
 
     // Called by Animation events in the die's animation (do not call in code).
-    protected void PlaySFX(int sound)
+    void PlaySFX(int sound)
     {
         sfx.pitch = 1f;
         if (sound == 0)
@@ -220,7 +208,7 @@ public class DieBehavior : MonoBehaviour
 
     // Updates the number sprites on the die to reflect # of Moves
     // by looping through NumberDisplay components in children
-    protected void MoveNumberUpdate()
+    void MoveNumberUpdate()
     {
         Transform dice = transform.GetChild(0);
         foreach (Transform child in dice)

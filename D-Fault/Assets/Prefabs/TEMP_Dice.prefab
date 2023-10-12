@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3777944850033232994}
   m_Layer: 0
-  m_Name: DiceNew
+  m_Name: TEMP_Dice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,9 +211,9 @@ GameObject:
   - component: {fileID: 6367740044158100409}
   - component: {fileID: 1013332868523499952}
   - component: {fileID: 2495715565328896417}
-  - component: {fileID: 8267467481800375088}
   - component: {fileID: 1650737845525521777}
   - component: {fileID: 2248789415220260485}
+  - component: {fileID: 8845087805454876616}
   - component: {fileID: 7056987765589499016}
   - component: {fileID: 5321706001460427108}
   m_Layer: 0
@@ -289,31 +289,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8267467481800375088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1806729873389796898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e62809767f2c46d4dab9fd9c28022a07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 1650737845525521777}
-  Moves: 10
-  GridSizeX: 0
-  GridSizeY: 0
-  dieParent: {fileID: 1737172300991720200}
-  cubeRenderer: {fileID: 2162044043459844649}
-  addSound: {fileID: 8300000, guid: 8ab04876a79a2d84ba9c9808208cf454, type: 3}
-  moveSound: {fileID: 8300000, guid: f9fc1dd33ce480341b09b5259deada43, type: 3}
-  x: 0
-  y: 0
-  z: 0
-  red: {fileID: 2100000, guid: d96839a2ad9beaf4fb97757d1d7e6dd5, type: 2}
-  white: {fileID: 2100000, guid: cec10e54ac8691f40ac3e52ab8efdf5d, type: 2}
 --- !u!95 &1650737845525521777
 Animator:
   serializedVersion: 7
@@ -363,6 +338,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8845087805454876616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806729873389796898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962193ce4df29054bb0e2e4d9dbcd514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1650737845525521777}
+  Moves: 0
+  GridSizeX: 0
+  GridSizeY: 0
+  dieParent: {fileID: 1737172300991720200}
+  cubeRenderer: {fileID: 2162044043459844649}
+  addSound: {fileID: 8300000, guid: efe284dfd3174bf44a506b57c478eb13, type: 3}
+  moveSound: {fileID: 8300000, guid: f9fc1dd33ce480341b09b5259deada43, type: 3}
+  moveDistance: 1
+  defaultHeight: 0.5
+  x: 0
+  y: 0
+  z: 0
+  red: {fileID: 2100000, guid: d96839a2ad9beaf4fb97757d1d7e6dd5, type: 2}
+  white: {fileID: 2100000, guid: cec10e54ac8691f40ac3e52ab8efdf5d, type: 2}
 --- !u!82 &7056987765589499016
 AudioSource:
   m_ObjectHideFlags: 0
@@ -654,7 +656,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2442036000094697205}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: 0.7071068, w: 0}
   m_LocalPosition: {x: 0.51, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -663,7 +665,7 @@ Transform:
   - {fileID: 8938794694860027370}
   - {fileID: 9159717417530718101}
   m_Father: {fileID: 1936860047067419305}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 180}
 --- !u!114 &1300089161568924842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1273,7 +1275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6347965052046785668}
   - component: {fileID: 2418379226911056249}
-  - component: {fileID: 8202891976866975703}
+  - component: {fileID: 4439352877195971754}
   m_Layer: 0
   m_Name: face1
   m_TagString: Untagged
@@ -1329,7 +1331,7 @@ MonoBehaviour:
   - {fileID: 1370486063, guid: fe4721fd1ea04c24084b1a74231a1f1e, type: 3}
   - {fileID: -325890271, guid: fe4721fd1ea04c24084b1a74231a1f1e, type: 3}
   - {fileID: 711765580, guid: fe4721fd1ea04c24084b1a74231a1f1e, type: 3}
---- !u!114 &8202891976866975703
+--- !u!114 &4439352877195971754
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
