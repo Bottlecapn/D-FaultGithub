@@ -11,6 +11,7 @@ public class GridSpawner : MonoBehaviour
     [SerializeField] GameObject hole;
     [SerializeField] GameObject die;
     [SerializeField] GameObject wall;
+    [SerializeField] GameObject coin;
     [SerializeField] int[] diceValues;
     [SerializeField] TextAsset level;
 
@@ -97,8 +98,10 @@ public class GridSpawner : MonoBehaviour
                     go = Instantiate(basicTile, transform);
                     go.transform.position = new Vector3(transform.position.x + currentX, transform.position.y,
                         transform.position.z + currentY);
-                    // TODO: spawn coin
-
+                    // spawn coin
+                    GameObject go2 = Instantiate(coin);
+                    go2.transform.position = new Vector3(transform.position.x + currentX, transform.position.y,
+                        transform.position.z + currentY);
                 }
                 currentX += 1; // TODO: variable should be the size of the tile, not hardcoded.
             }

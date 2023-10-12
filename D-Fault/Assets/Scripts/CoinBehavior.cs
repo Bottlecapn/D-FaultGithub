@@ -69,6 +69,6 @@ public class CoinBehavior : DieBehavior
 
     protected override void OnTriggerEnter(Collider other)
     {
-
+        
     }
 }
