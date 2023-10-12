@@ -8,6 +8,7 @@ public class GridSpawner : MonoBehaviour
 {
     [SerializeField] int holeNumber;
     [SerializeField] GameObject basicTile;
+    [SerializeField] GameObject greyTile;
     [SerializeField] GameObject hole;
     [SerializeField] GameObject die;
     [SerializeField] GameObject wall;
@@ -37,6 +38,7 @@ public class GridSpawner : MonoBehaviour
         int currentX = 0;
         int currentY = 0;
         int dieCounter = 0;
+        int tileCounter = 0; // For alternating tile colors
         List<DieBehavior> diceInLevel = new List<DieBehavior>();
         string pathnew = Path.Combine(Application.streamingAssetsPath, level.name + ".txt");
         string path = "Assets/Levels/"+level.name+".txt";
@@ -51,9 +53,16 @@ public class GridSpawner : MonoBehaviour
                 // spawn a tile
                 if (line[i] == '.')
                 {
-                    go = Instantiate(basicTile, transform);
+                    if (tileCounter % 2 == 0)
+                    {
+                        go = Instantiate(basicTile, transform);
+                    }
+                    else
+                    {
+                        go = Instantiate(greyTile, transform);
+                    }
                     go.transform.position = new Vector3(transform.position.x + currentX, transform.position.y,
-                        transform.position.z + currentY);
+                            transform.position.z + currentY);
                 }
                 // spawn a die and a tile
                 else if (line[i] == 'D')
@@ -108,6 +117,7 @@ public class GridSpawner : MonoBehaviour
                     diceInLevel.Add(cointemp);
                 }
                 currentX += 1; // TODO: variable should be the size of the tile, not hardcoded.
+                tileCounter++; // for alternating tile color
             }
             currentX = 0;
             currentY += 1; // TODO: variable should be the size of the tile, not hardcoded
