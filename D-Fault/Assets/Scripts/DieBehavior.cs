@@ -141,7 +141,7 @@ public class DieBehavior : MonoBehaviour
             // for each coin, if it is not the current coin, unselect it.
             foreach (var c in coins)
             {
-                CoinBehavior coin = c.GetComponent<CoinBehavior>();
+                DieBehavior coin = c.GetComponent<DieBehavior>();
                 if (coin != this)
                 {
                     coin.SetSelection(false);
@@ -168,13 +168,21 @@ public class DieBehavior : MonoBehaviour
     protected virtual void OnTriggerEnter(Collider other)
     {
         // If another die collides with this one while not selected, it gets destroyed.
-        if (!mIsSelected && other.CompareTag("Dice"))
+        if (other.CompareTag("Dice"))
         {
-            DieBehavior otherDie = other.gameObject.GetComponent<DieBehavior>();
-            otherDie.Moves += Moves;
-            otherDie.anim.SetTrigger("Add");
-            //print("Die added");
-            SelfDestruct();
+            if (!mIsSelected) { 
+                DieBehavior otherDie = other.gameObject.GetComponent<DieBehavior>();
+                otherDie.Moves += Moves;
+                otherDie.anim.SetTrigger("Add");
+                //print("Die added");
+                SelfDestruct();
+            } else if (mIsSelected && gameObject.CompareTag("Coin"))
+            {
+                anim.SetTrigger("Add");
+                DieBehavior otherDie = other.gameObject.GetComponent<DieBehavior>();
+                otherDie.Moves += Moves;
+                otherDie.anim.SetTrigger("Add");
+            }
         }
 
         if (other.CompareTag("Hole"))
@@ -188,12 +196,12 @@ public class DieBehavior : MonoBehaviour
             anim.SetTrigger("Rebound");
         }
 
-        /*
+        
         if (other.CompareTag("Coin"))
         {
             
         }
-        */
+        
     }
 
     protected void SelfDestruct()

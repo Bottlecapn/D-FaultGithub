@@ -100,10 +100,8 @@ public class GridSpawner : MonoBehaviour
                         transform.position.z + currentY);
                     // spawn coin
                     GameObject go2 = Instantiate(coin);
-                    go2.transform.position = new Vector3(transform.position.x + currentX, transform.position.y,
-                        transform.position.z + currentY);
-                    CoinBehavior cointemp = go2.transform.GetChild(0).GetComponent<CoinBehavior>();
-                    cointemp.SetStartingPosition(new Vector3(transform.position.x + currentX, transform.position.y + 0.5f,
+                    DieBehavior cointemp = go2.transform.GetChild(0).GetComponent<DieBehavior>();
+                    cointemp.SetStartingPosition(new Vector3(transform.position.x + currentX, transform.position.y,
                         transform.position.z + currentY));
                     cointemp.SetMoveLimit(diceValues[dieCounter]);
                     dieCounter++;

@@ -14,13 +14,9 @@ public class Billboard : MonoBehaviour
     
     void LateUpdate()
     {
-        if (fixedRotation)
-        {
-            FreeBillboard();
-        } else
-        {
-            FixedBillboard();
-        }
+        Vector3 cameraPlane = new Vector3(mainCamera.transform.position.x, transform.position.y, mainCamera.transform.position.z);
+        transform.LookAt(cameraPlane, Vector3.up);
+        transform.Rotate(Vector3.right * -90);
     }
 
     void FreeBillboard()
