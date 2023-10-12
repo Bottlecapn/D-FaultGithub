@@ -14,15 +14,17 @@ public class Billboard : MonoBehaviour
     
     void LateUpdate()
     {
-        Vector3 cameraPlane = new Vector3(mainCamera.transform.position.x, transform.position.y, mainCamera.transform.position.z);
-        transform.LookAt(cameraPlane, Vector3.up);
-        transform.Rotate(Vector3.right * -90);
+        //Vector3 cameraPlane = new Vector3(mainCamera.transform.position.x, transform.position.y, mainCamera.transform.position.z);
+        //transform.LookAt(cameraPlane, Vector3.up);
+        //transform.Rotate(Vector3.right * -90);
+        transform.LookAt(mainCamera.transform);
+        transform.Rotate(0, 180, 0);
     }
 
     void FreeBillboard()
     {
-        //transform.LookAt(mainCamera.transform);
-        //transform.Rotate(0, 180, 0);
+        transform.LookAt(mainCamera.transform);
+        transform.Rotate(0, 180, 0);
     }
 
     void FixedBillboard()

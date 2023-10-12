@@ -1270,7 +1270,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6347965052046785668}
   - component: {fileID: 2418379226911056249}
-  - component: {fileID: 8202891976866975703}
   m_Layer: 0
   m_Name: face1
   m_TagString: Untagged
@@ -1326,19 +1325,6 @@ MonoBehaviour:
   - {fileID: 1370486063, guid: fe4721fd1ea04c24084b1a74231a1f1e, type: 3}
   - {fileID: -325890271, guid: fe4721fd1ea04c24084b1a74231a1f1e, type: 3}
   - {fileID: 711765580, guid: fe4721fd1ea04c24084b1a74231a1f1e, type: 3}
---- !u!114 &8202891976866975703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5402594756187840888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acbf2875db623da46a57b796d2f05b62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fixedRotation: 1
 --- !u!1 &5940484909474363366
 GameObject:
   m_ObjectHideFlags: 0
