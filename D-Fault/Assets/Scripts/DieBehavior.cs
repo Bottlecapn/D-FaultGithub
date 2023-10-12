@@ -197,9 +197,12 @@ public class DieBehavior : MonoBehaviour
         }
 
         
-        if (other.CompareTag("Coin"))
+        if (!mIsSelected && other.CompareTag("Coin"))
         {
-            
+            DieBehavior otherDie = other.gameObject.GetComponent<DieBehavior>();
+            otherDie.Moves += Moves;
+            anim.SetTrigger("Add");
+            //print("Die added");
         }
         
     }
