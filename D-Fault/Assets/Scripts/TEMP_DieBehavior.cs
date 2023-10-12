@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class DieBehavior : MonoBehaviour
+public class TEMP_DieBehavior : MonoBehaviour
 {
     bool mCanMove;
-    public Animator anim;
+    [SerializeField] Animator anim;
     public int Moves;
     public int GridSizeX, GridSizeY;
     public GameObject dieParent;
@@ -16,6 +16,8 @@ public class DieBehavior : MonoBehaviour
     [SerializeField] MeshRenderer cubeRenderer;
     AudioSource sfx;
     [SerializeField] AudioClip addSound, moveSound;
+    [SerializeField] int moveDistance;
+    [SerializeField] float defaultHeight;
 
     public float x, y, z;
 
@@ -51,7 +53,7 @@ public class DieBehavior : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             {
                 // boundary check
-                if (dieParent.transform.position.z + 1 < GridSizeY)
+                if (dieParent.transform.position.z + moveDistance < GridSizeY)
                 {
                     Moves--;
                     verticalMove = 1.0f;
@@ -61,7 +63,7 @@ public class DieBehavior : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
             {
                 // boundary check
-                if (dieParent.transform.position.z - 1 >= 0)
+                if (dieParent.transform.position.z - moveDistance >= 0)
                 {
                     Moves--;
                     verticalMove = -1.0f;
@@ -73,7 +75,7 @@ public class DieBehavior : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
                 // boundary check
-                if (dieParent.transform.position.x - 1 >= 0)
+                if (dieParent.transform.position.x - moveDistance >= 0)
                 {
                     Moves--;
                     horizontalMove = -1.0f;
@@ -83,7 +85,7 @@ public class DieBehavior : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
             {
                 // boundary check
-                if (dieParent.transform.position.x + 1 < GridSizeX)
+                if (dieParent.transform.position.x + moveDistance < GridSizeX)
                 {
                     Moves--;
                     horizontalMove = 1.0f;
@@ -95,7 +97,8 @@ public class DieBehavior : MonoBehaviour
             // mStoredMove sets the position of where the dieParent will move to after animation ends
             // (the "real" position of dieParent doesn't update until end of animation).
             mStoredRotationVector = new Vector3(horizontalMove, 0, verticalMove); 
-            mStoredMove = new Vector3(transform.position.x + horizontalMove, transform.position.y, transform.position.z + verticalMove);
+            mStoredMove = new Vector3(transform.position.x + horizontalMove * moveDistance, defaultHeight,
+                transform.position.z + verticalMove * moveDistance);
         }
     }
 
@@ -131,7 +134,7 @@ public class DieBehavior : MonoBehaviour
             // for each die, if it is not the current die, unselect it.
             foreach (var d in dice)
             {
-                DieBehavior die = d.GetComponent<DieBehavior>();
+                TEMP_DieBehavior die = d.GetComponent<TEMP_DieBehavior>();
                 if (die != this)
                 {
                     die.SetSelection(false);
@@ -160,7 +163,7 @@ public class DieBehavior : MonoBehaviour
         // If another die collides with this one while not selected, it gets destroyed.
         if (!mIsSelected && other.CompareTag("Dice"))
         {
-            DieBehavior otherDie = other.gameObject.GetComponent<DieBehavior>();
+            TEMP_DieBehavior otherDie = other.gameObject.GetComponent<TEMP_DieBehavior>();
             otherDie.Moves += Moves;
             otherDie.anim.SetTrigger("Add");
             print("Die added");
