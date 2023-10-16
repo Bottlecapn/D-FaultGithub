@@ -26,7 +26,25 @@ public class GridSpawner : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else if (Input.GetKeyDown(KeyCode.M))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+        else if (Input.GetKeyDown(KeyCode.L))
+        {
+            SceneManager.LoadScene("LevelSelect");
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
     }
 
     // Generates the level's grid from a text file.
@@ -41,7 +59,7 @@ public class GridSpawner : MonoBehaviour
         int tileCounter = 0; // For alternating tile colors
         List<DieBehavior> diceInLevel = new List<DieBehavior>();
         string pathnew = Path.Combine(Application.streamingAssetsPath, level.name + ".txt");
-        string path = "Assets/Levels/"+level.name+".txt";
+        string path = "Assets/Levels/" + level.name + ".txt";
         StreamReader reader = new StreamReader(pathnew);
         string line = "";
         while (!reader.EndOfStream)
@@ -123,7 +141,7 @@ public class GridSpawner : MonoBehaviour
             currentY += 1; // TODO: variable should be the size of the tile, not hardcoded
         }
 
-        foreach(DieBehavior d in diceInLevel)
+        foreach (DieBehavior d in diceInLevel)
         {
             d.SetGridSize(line.Length, currentY);
         }
