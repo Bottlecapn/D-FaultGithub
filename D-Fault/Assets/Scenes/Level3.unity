@@ -732,7 +732,7 @@ MonoBehaviour:
   die: {fileID: 1737172300991720200, guid: b669ac66f6c0e9542b781fa06e53331c, type: 3}
   wall: {fileID: 76025097956725628, guid: 956eb2fe759c5484cb950edb276513fa, type: 3}
   coin: {fileID: 1737172300991720200, guid: d3071335c539a27408784ab81fd87e64, type: 3}
-  diceValues: 0500000005000000
+  diceValues: 0600000006000000
   level: {fileID: 4900000, guid: 01c712d2d457ee94482d9ad6f7c9579b, type: 3}
 --- !u!4 &1482972805
 Transform:
