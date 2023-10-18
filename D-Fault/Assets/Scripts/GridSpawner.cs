@@ -37,11 +37,11 @@ public class GridSpawner : MonoBehaviour
         {
             SceneManager.LoadScene("LevelSelect");
         }
-        else if (Input.GetKeyDown(KeyCode.LeftAlt))
+        else if (Input.GetKeyDown(KeyCode.RightBracket))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        else if (Input.GetKeyDown(KeyCode.LeftControl))
+        else if (Input.GetKeyDown(KeyCode.LeftBracket))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
