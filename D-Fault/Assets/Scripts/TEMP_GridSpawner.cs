@@ -21,7 +21,17 @@ public class TEMP_GridSpawner : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else if (Input.GetKeyDown(KeyCode.M))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+        else if (Input.GetKeyDown(KeyCode.L))
+        {
+            SceneManager.LoadScene("LevelSelect");
+        }
     }
 
     // Generates the level's grid from a text file.
@@ -35,7 +45,7 @@ public class TEMP_GridSpawner : MonoBehaviour
         int dieCounter = 0;
         List<TEMP_DieBehavior> diceInLevel = new List<TEMP_DieBehavior>();
         string pathnew = Path.Combine(Application.streamingAssetsPath, level.name + ".txt");
-        string path = "Assets/Levels/"+level.name+".txt";
+        string path = "Assets/Levels/" + level.name + ".txt";
         StreamReader reader = new StreamReader(pathnew);
         string line = "";
         while (!reader.EndOfStream)
@@ -110,7 +120,7 @@ public class TEMP_GridSpawner : MonoBehaviour
             currentY += 1; // TODO: variable should be the size of the tile, not hardcoded
         }
 
-        foreach(TEMP_DieBehavior d in diceInLevel)
+        foreach (TEMP_DieBehavior d in diceInLevel)
         {
             d.SetGridSize(line.Length, currentY);
         }

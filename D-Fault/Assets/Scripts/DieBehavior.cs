@@ -32,7 +32,7 @@ public class DieBehavior : MonoBehaviour
 
     protected void Awake()
     {
-        MoveNumberUpdate();
+        MoveNumberUpdate(false);
     }
 
     // Update is called once per frame
@@ -106,14 +106,14 @@ public class DieBehavior : MonoBehaviour
             // die is prevented from inputting a move (called during any other animation)
             mCanMove = false;
             dieParent.transform.rotation = Quaternion.LookRotation(mStoredRotationVector.normalized, Vector3.up);
-            MoveNumberUpdate();
+            MoveNumberUpdate(true);
         }
         else
         {
             // die is allowed to move (called when the die is in idle animation)
             mCanMove = true;
-            mPreviousStoredMove = mStoredMove;
-            dieParent.transform.position = mStoredMove;
+            MoveToNewPosition();
+            MoveNumberUpdate(false);
         }
     }
 
@@ -233,15 +233,23 @@ public class DieBehavior : MonoBehaviour
 
     // Updates the number sprites on the die to reflect # of Moves
     // by looping through NumberDisplay components in children
-    protected void MoveNumberUpdate()
+    // if "True" is passed through as a parameter, the sprites will lock their rotation
+    // to avoid graphical errors.
+    protected void MoveNumberUpdate(bool shouldRotationLock)
     {
         Transform dice = transform.GetChild(0);
         foreach (Transform child in dice)
         {
             NumberDisplay numdis;
+            Billboard bill;
             if (child.gameObject.TryGetComponent<NumberDisplay>(out numdis))
             {
                 numdis.UpdateNumber(Moves);
+            }
+
+            if (child.gameObject.TryGetComponent<Billboard>(out bill))
+            {
+                bill.LockRotation(shouldRotationLock);
             }
         }
     }
@@ -258,7 +266,7 @@ public class DieBehavior : MonoBehaviour
     {
         print(movelimit);
         Moves = movelimit;
-        MoveNumberUpdate();
+        MoveNumberUpdate(false);
     }
 
     //Sets the "grid size" so the dice doesn't go off the grid. Called by Grid Spawner.
@@ -272,6 +280,12 @@ public class DieBehavior : MonoBehaviour
     {
         mStoredMove = mPreviousStoredMove;
         Moves++;
-        MoveNumberUpdate();
+        MoveNumberUpdate(false);
+    }
+
+    public void MoveToNewPosition()
+    {
+        mPreviousStoredMove = mStoredMove;
+        dieParent.transform.position = mStoredMove;
     }
 }
