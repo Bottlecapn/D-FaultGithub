@@ -16,6 +16,8 @@ public class DieBehavior : MonoBehaviour
     public float defaultHeight;
 
     protected bool mCanMove;
+    protected bool mIsMoving = false; // disable selection when any die is moving
+    protected bool mCanSelect = true; // disable selection when any die is moving
     protected bool mIsSelected = false;
     protected int GridSizeX, GridSizeY;
     protected Vector3 mStoredMove;
@@ -120,31 +122,35 @@ public class DieBehavior : MonoBehaviour
     protected void OnMouseDown()
     {
         // select if unselected, vice versa
-        SetSelection(!mIsSelected);
-        // if selected the current die, unselect all other dice
-        if (mIsSelected)
+        // ONLY WHEN THE DIE CAN BE SELECTED
+        if (mCanSelect)
         {
-            // find all dice
-            GameObject[] dice = GameObject.FindGameObjectsWithTag("Dice");
-            // for each die, if it is not the current die, unselect it.
-            foreach (var d in dice)
+            SetSelection(!mIsSelected);
+            // if selected the current die, unselect all other dice
+            if (mIsSelected)
             {
-                DieBehavior die = d.GetComponent<DieBehavior>();
-                if (die != this)
+                // find all dice
+                GameObject[] dice = GameObject.FindGameObjectsWithTag("Dice");
+                // for each die, if it is not the current die, unselect it.
+                foreach (var d in dice)
                 {
-                    die.SetSelection(false);
+                    DieBehavior die = d.GetComponent<DieBehavior>();
+                    if (die != this)
+                    {
+                        die.SetSelection(false);
+                    }
                 }
-            }
 
-            // find all coins
-            GameObject[] coins = GameObject.FindGameObjectsWithTag("Coin");
-            // for each coin, if it is not the current coin, unselect it.
-            foreach (var c in coins)
-            {
-                DieBehavior coin = c.GetComponent<DieBehavior>();
-                if (coin != this)
+                // find all coins
+                GameObject[] coins = GameObject.FindGameObjectsWithTag("Coin");
+                // for each coin, if it is not the current coin, unselect it.
+                foreach (var c in coins)
                 {
-                    coin.SetSelection(false);
+                    DieBehavior coin = c.GetComponent<DieBehavior>();
+                    if (coin != this)
+                    {
+                        coin.SetSelection(false);
+                    }
                 }
             }
         }
@@ -287,5 +293,20 @@ public class DieBehavior : MonoBehaviour
     {
         mPreviousStoredMove = mStoredMove;
         dieParent.transform.position = mStoredMove;
+    }
+
+    public void SetIsMoving(bool isMoving) 
+    {
+        mIsMoving = isMoving;
+    }
+
+    public bool GetIsMoving()
+    {
+        return mIsMoving;
+    }
+
+    public void SetCanSelect(bool canSelect)
+    {
+        mCanSelect= canSelect;
     }
 }
