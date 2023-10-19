@@ -177,7 +177,7 @@ public class GridSpawner : MonoBehaviour
                         transform.position.z + currentY);
                     // spawn wall
                     GameObject go2 = Instantiate(wall);
-                    go2.transform.position = new Vector3(transform.position.x + currentX, transform.position.y + 0.5f,
+                    go2.transform.position = new Vector3(transform.position.x + currentX, transform.position.y,
                         transform.position.z + currentY);
                 }
                 else if (line[i] == 'C')
