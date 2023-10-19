@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tex_Woodblock_0: 7837468121342562455
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

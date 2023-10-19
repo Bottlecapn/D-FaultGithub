@@ -295,10 +295,17 @@ public class DieBehavior : MonoBehaviour
         dieParent.transform.position = mStoredMove;
     }
 
-    public void SetIsMoving(bool isMoving) 
+    public void SetIsMoving(int isMoving) 
     {
         print("here");
-        mIsMoving = isMoving;
+        if(isMoving == 0)
+        {
+            mIsMoving = false;
+        } 
+        else
+        {
+            mIsMoving = true;
+        }
     }
 
     public bool GetIsMoving()

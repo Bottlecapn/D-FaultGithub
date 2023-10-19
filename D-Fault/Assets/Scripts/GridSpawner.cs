@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -74,7 +73,7 @@ public class GridSpawner : MonoBehaviour
                     // NOTE: If the grid size changes, should not be using currentX and currentY
                     if (currentX % 2 == 0)
                     {
-                        if(currentY % 2 == 0)
+                        if (currentY % 2 == 0)
                         {
                             go = Instantiate(basicTile, transform);
                         }
