@@ -1,0 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TutorialRestart : MonoBehaviour
+{
+    // Start is called before the first frame update
+    public GameObject PanelCanvas;
+
+    // Update is called once per frame
+    void Start() {
+        if (PlayerPrefs.HasKey("HasRestarted")) {
+            PanelCanvas.SetActive(false);
+        }
+    }
+    void Update()
+    {
+        if (PanelCanvas.activeSelf) {
+            if (Input.GetKeyDown(KeyCode.R)) {
+                PlayerPrefs.SetInt("HasRestarted", 0);
+            }
+        }
+    }
+}
