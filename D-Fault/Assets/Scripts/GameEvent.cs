@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameEvent : MonoBehaviour
 {
     public List<DieBehavior> mDice;
     private bool mSelectionDisabled = false;
@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
             // if any die is moving, disable selection
             if (db != null && db.GetIsMoving())
             {
+                //print("here");
                 mSelectionDisabled = true;
             }
         }

@@ -135,7 +135,7 @@ public class GridSpawner : MonoBehaviour
                     diceInLevel.Add(dicetemp);
 
                     // add the die to eventsystem
-                    GameManager es = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+                    GameEvent es = GameObject.FindGameObjectWithTag("GameEvent").GetComponent<GameEvent>();
                     es.mDice.Add(dicetemp);
                 }
                 // spawn a hole
@@ -217,7 +217,7 @@ public class GridSpawner : MonoBehaviour
                     diceInLevel.Add(cointemp);
 
                     // add the coin to eventsystem
-                    GameManager es = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+                    GameEvent es = GameObject.FindGameObjectWithTag("GameEvent").GetComponent<GameEvent>();
                     es.mDice.Add(cointemp);
                 }
                 currentX += 1; // TODO: variable should be the size of the tile, not hardcoded.

@@ -718,8 +718,8 @@ GameObject:
   - component: {fileID: 1342650995}
   - component: {fileID: 1342650994}
   m_Layer: 0
-  m_Name: GameManager
-  m_TagString: GameManager
+  m_Name: GameEvent
+  m_TagString: GameEvent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

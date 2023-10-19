@@ -297,6 +297,7 @@ public class DieBehavior : MonoBehaviour
 
     public void SetIsMoving(bool isMoving) 
     {
+        print("here");
         mIsMoving = isMoving;
     }
 

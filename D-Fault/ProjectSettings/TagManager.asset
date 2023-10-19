@@ -8,7 +8,7 @@ TagManager:
   - Hole
   - Wall
   - Coin
-  - GameManager
+  - GameEvent
   layers:
   - Default
   - TransparentFX
