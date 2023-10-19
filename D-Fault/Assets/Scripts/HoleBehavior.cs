@@ -71,6 +71,8 @@ public class HoleBehavior : Tile
             yield return new WaitForSeconds(1);
             //int buildIndexNumber = SceneManager.GetActiveScene().buildIndex+1;
             PlayerPrefs.SetInt("buildIndex", SceneManager.GetActiveScene().buildIndex+1);
+            // TODO: Output telemetry data
+            // Level number = buildIndex
             SceneManager.LoadScene("LevelTransition");
             print("Level Cleared");
         } else {

@@ -12,7 +12,7 @@ public class Tutorial : MonoBehaviour
     public GameObject TextCanvas1;
     public GameObject TextCanvas2;
     public GameObject TextCanvas3;
-    bool active1 = true;
+    bool active1 = false;
     bool active2 = false;
 
     int counter = 0;
@@ -20,6 +20,7 @@ public class Tutorial : MonoBehaviour
 
     void Start()
     {
+        TextCanvas1.SetActive(false);
         TextCanvas2.SetActive(false);
         TextCanvas3.SetActive(false);
     }
@@ -29,13 +30,13 @@ public class Tutorial : MonoBehaviour
     {
         if (active1)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                TextCanvas1.SetActive(false);
-                TextCanvas2.SetActive(true);
-                active1 = false;
-                active2 = true;
-            }
+            //if (Input.GetKeyDown(KeyCode.Mouse0))
+            //{
+                TextCanvas1.SetActive(true);
+                TextCanvas2.SetActive(false);
+                //active1 = false;
+                //active2 = true;
+            //}
         }
         if (active2)
         {
@@ -66,6 +67,13 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Dice"))
+        {
+            active1 = true;
+        }
+    }
 }
 
 
