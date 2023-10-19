@@ -215,6 +215,8 @@ public class DieBehavior : MonoBehaviour
 
     protected void SelfDestruct()
     {
+        GameEvent ge = GameObject.FindGameObjectWithTag("GameEvent").GetComponent<GameEvent>();
+        ge.mDice.Remove(this);
         Destroy(dieParent);
     }
 
