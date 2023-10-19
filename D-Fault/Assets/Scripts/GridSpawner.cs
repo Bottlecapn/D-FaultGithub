@@ -56,7 +56,6 @@ public class GridSpawner : MonoBehaviour
         int currentX = 0;
         int currentY = 0;
         int dieCounter = 0;
-        int tileCounter = 0; // For alternating tile colors
         List<DieBehavior> diceInLevel = new List<DieBehavior>();
         string pathnew = Path.Combine(Application.streamingAssetsPath, level.name + ".txt");
         string path = "Assets/Levels/" + level.name + ".txt";
@@ -71,13 +70,29 @@ public class GridSpawner : MonoBehaviour
                 // spawn a tile
                 if (line[i] == '.')
                 {
-                    if (tileCounter % 2 == 0)
+                    // chessboard pattern
+                    // NOTE: If the grid size changes, should not be using currentX and currentY
+                    if (currentX % 2 == 0)
                     {
-                        go = Instantiate(basicTile, transform);
+                        if(currentY % 2 == 0)
+                        {
+                            go = Instantiate(basicTile, transform);
+                        }
+                        else
+                        {
+                            go = Instantiate(greyTile, transform);
+                        }
                     }
                     else
                     {
-                        go = Instantiate(greyTile, transform);
+                        if (currentY % 2 == 0)
+                        {
+                            go = Instantiate(greyTile, transform);
+                        }
+                        else
+                        {
+                            go = Instantiate(basicTile, transform);
+                        }
                     }
                     go.transform.position = new Vector3(transform.position.x + currentX, transform.position.y,
                             transform.position.z + currentY);
@@ -86,7 +101,28 @@ public class GridSpawner : MonoBehaviour
                 else if (line[i] == 'D')
                 {
                     // spawn tile
-                    go = Instantiate(basicTile, transform);
+                    if (currentX % 2 == 0)
+                    {
+                        if (currentY % 2 == 0)
+                        {
+                            go = Instantiate(basicTile, transform);
+                        }
+                        else
+                        {
+                            go = Instantiate(greyTile, transform);
+                        }
+                    }
+                    else
+                    {
+                        if (currentY % 2 == 0)
+                        {
+                            go = Instantiate(greyTile, transform);
+                        }
+                        else
+                        {
+                            go = Instantiate(basicTile, transform);
+                        }
+                    }
                     go.transform.position = new Vector3(transform.position.x + currentX, transform.position.y,
                         transform.position.z + currentY);
                     // spawn die, set it's starting position and move limit
@@ -111,7 +147,28 @@ public class GridSpawner : MonoBehaviour
                 else if (line[i] == 'W')
                 {
                     // spawn tile first
-                    go = Instantiate(basicTile, transform);
+                    if (currentX % 2 == 0)
+                    {
+                        if (currentY % 2 == 0)
+                        {
+                            go = Instantiate(basicTile, transform);
+                        }
+                        else
+                        {
+                            go = Instantiate(greyTile, transform);
+                        }
+                    }
+                    else
+                    {
+                        if (currentY % 2 == 0)
+                        {
+                            go = Instantiate(greyTile, transform);
+                        }
+                        else
+                        {
+                            go = Instantiate(basicTile, transform);
+                        }
+                    }
                     go.transform.position = new Vector3(transform.position.x + currentX, transform.position.y,
                         transform.position.z + currentY);
                     // spawn wall
@@ -122,7 +179,28 @@ public class GridSpawner : MonoBehaviour
                 else if (line[i] == 'C')
                 {
                     // spawn tile first
-                    go = Instantiate(basicTile, transform);
+                    if (currentX % 2 == 0)
+                    {
+                        if (currentY % 2 == 0)
+                        {
+                            go = Instantiate(basicTile, transform);
+                        }
+                        else
+                        {
+                            go = Instantiate(greyTile, transform);
+                        }
+                    }
+                    else
+                    {
+                        if (currentY % 2 == 0)
+                        {
+                            go = Instantiate(greyTile, transform);
+                        }
+                        else
+                        {
+                            go = Instantiate(basicTile, transform);
+                        }
+                    }
                     go.transform.position = new Vector3(transform.position.x + currentX, transform.position.y,
                         transform.position.z + currentY);
                     // spawn coin
@@ -135,7 +213,6 @@ public class GridSpawner : MonoBehaviour
                     diceInLevel.Add(cointemp);
                 }
                 currentX += 1; // TODO: variable should be the size of the tile, not hardcoded.
-                tileCounter++; // for alternating tile color
             }
             currentX = 0;
             currentY += 1; // TODO: variable should be the size of the tile, not hardcoded
