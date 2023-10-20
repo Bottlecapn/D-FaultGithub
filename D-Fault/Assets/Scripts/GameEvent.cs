@@ -6,16 +6,24 @@ public class GameEvent : MonoBehaviour
 {
     public List<DieBehavior> mDice;
     private bool mSelectionDisabled = false;
+    // Telemetry support
+    private int mRestartTimes = 0;
+    private float mTimeEachLevel = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
 
     }
 
-
     // Update is called once per frame
     void Update()
     {
+        mTimeEachLevel += Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            mRestartTimes++;
+        }
+
         // every frame, if no die is moving, enable selection
         mSelectionDisabled = false;
         foreach (var dice in mDice)
@@ -24,7 +32,6 @@ public class GameEvent : MonoBehaviour
             // if any die is moving, disable selection
             if (db != null && db.GetIsMoving())
             {
-                //print("here");
                 mSelectionDisabled = true;
             }
         }
@@ -52,5 +59,15 @@ public class GameEvent : MonoBehaviour
                 }
             }
         }
+    }
+
+    public int GetRestartTimes() 
+    { 
+        return mRestartTimes; 
+    }
+
+    public float GetTimeEachLevel()
+    {
+        return mTimeEachLevel;
     }
 }
