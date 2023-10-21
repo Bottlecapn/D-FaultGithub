@@ -56,9 +56,8 @@ public class GridSpawner : MonoBehaviour
         int currentY = 0;
         int dieCounter = 0;
         List<DieBehavior> diceInLevel = new List<DieBehavior>();
-        string pathnew = Path.Combine(Application.streamingAssetsPath, level.name + ".txt");
-        string path = "Assets/Levels/" + level.name + ".txt";
-        StreamReader reader = new StreamReader(pathnew);
+        string path = Path.Combine(Application.streamingAssetsPath, SceneManager.GetActiveScene().name + ".txt");
+        StreamReader reader = new StreamReader(path);
         string line = "";
         while (!reader.EndOfStream)
         {
