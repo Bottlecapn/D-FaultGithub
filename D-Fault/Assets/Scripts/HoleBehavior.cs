@@ -73,9 +73,9 @@ public class HoleBehavior : Tile
             PlayerPrefs.SetInt("buildIndex", SceneManager.GetActiveScene().buildIndex+1);
             // TODO: Output telemetry data
             // Level number = buildIndex
-            GameEvent ge = GameObject.FindGameObjectWithTag("GameEvent").GetComponent<GameEvent>();
-            print(ge.GetRestartTimes());
-            print(ge.GetTimeEachLevel());
+            Telemetry tele = GameObject.FindGameObjectWithTag("Telemetry").GetComponent<Telemetry>();
+            print(tele.GetRestartTimes());
+            print(tele.GetTimeEachLevel());
 
             SceneManager.LoadScene("LevelTransition");
             print("Level Cleared");
