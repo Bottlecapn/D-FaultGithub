@@ -299,7 +299,6 @@ public class DieBehavior : MonoBehaviour
 
     public void SetIsMoving(int isMoving) 
     {
-        print("here");
         if(isMoving == 0)
         {
             mIsMoving = false;
