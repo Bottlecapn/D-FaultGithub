@@ -9,15 +9,17 @@ public class TutorialRestart : MonoBehaviour
 
     // Update is called once per frame
     void Start() {
-        if (PlayerPrefs.HasKey("HasRestarted")) {
+        Debug.Log(PlayerPrefs.GetInt("HasRestarted"));
+        if (PlayerPrefs.GetInt("HasRestarted") == 1) {
+            Debug.Log("WRONG");
             PanelCanvas.SetActive(false);
         }
     }
     void Update()
     {
         if (PanelCanvas.activeSelf) {
-            if (Input.GetKeyDown(KeyCode.R)) {
-                PlayerPrefs.SetInt("HasRestarted", 0);
+            if (Input.GetKeyDown(KeyCode.R) && false) {
+                PlayerPrefs.SetInt("HasRestarted", 1);
             }
         }
     }
