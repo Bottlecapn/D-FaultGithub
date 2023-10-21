@@ -1726,7 +1726,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'The number on the dice reduces the hole amount needed.
+  m_text: 'After the dice goes into the hole, the number on the dice reduces the
+    hole amount needed.
 
 
 
@@ -1734,8 +1735,7 @@ MonoBehaviour:
 
 
 
-    Goal:
-    Reduce the hole to 0.'
+    Goal: Reduce the hole to 0.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
