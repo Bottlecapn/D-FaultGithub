@@ -230,7 +230,7 @@ public class GridSpawner : MonoBehaviour
             d.SetGridSize(line.Length, currentY);
         }
 
-        GameObject camPivot = GameObject.Find("Camera Pivot");
+        /*GameObject camPivot = GameObject.Find("Camera Pivot");
         print("CurX: " + currentX + ", CurY: " + currentY);
         if (currentX % 2 == 1)
         {
@@ -249,6 +249,6 @@ public class GridSpawner : MonoBehaviour
             currentY += 1;
         }
         camPivot.transform.position = new Vector3 (currentX / 2, 0, currentY / 2);
-        reader.Close();
+        reader.Close();*/
     }
 }

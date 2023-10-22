@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameEvent : MonoBehaviour
 {
@@ -9,7 +10,20 @@ public class GameEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        // Reset telemetry data variables
+        GameObject TelemetryManager = GameObject.FindGameObjectWithTag("Telemetry");
+        Telemetry tele = null;
+        if (TelemetryManager != null)
+        {
+            tele = TelemetryManager.GetComponent<Telemetry>();
+        }
+        // if current scene is different from previous scene, reset Telemetry varaibles
+        if (tele != null && SceneManager.GetActiveScene().buildIndex != tele.GetPreviousLevel())
+        {
+            tele.SetPreviousLevel(SceneManager.GetActiveScene().buildIndex);
+            tele.ResetRestartTimes();
+            tele.ResetTimeEachLevel();
+        }
     }
 
     // Update is called once per frame

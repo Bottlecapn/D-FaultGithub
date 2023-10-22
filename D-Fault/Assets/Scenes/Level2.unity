@@ -196,50 +196,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &524231619
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 524231621}
-  - component: {fileID: 524231620}
-  m_Layer: 0
-  m_Name: Telemetry Manager
-  m_TagString: Telemetry
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &524231620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 524231619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0782bfd9d31856f4eb2a6b3e772e84b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &524231621
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 524231619}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25945243, y: 2.6007915, z: 0.64793825}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &572207851
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,7 +628,6 @@ MonoBehaviour:
   wall: {fileID: 76025097956725628, guid: 956eb2fe759c5484cb950edb276513fa, type: 3}
   coin: {fileID: 1737172300991720200, guid: d3071335c539a27408784ab81fd87e64, type: 3}
   diceValues: 0f000000
-  level: {fileID: 4900000, guid: b87f52e08d2be4f449ed53b4a3bfd9b9, type: 3}
 --- !u!4 &875130121
 Transform:
   m_ObjectHideFlags: 0
@@ -1458,5 +1413,4 @@ SceneRoots:
   - {fileID: 875130121}
   - {fileID: 1559773564}
   - {fileID: 694901730}
-  - {fileID: 524231621}
   - {fileID: 1249514441}
