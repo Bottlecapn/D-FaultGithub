@@ -23,7 +23,7 @@ public class Telemetry : MonoBehaviour
         // because "telemetry" is static, it will be shared across all instances of this Class. So if there exists another instance already when this one is created, destroy itself. 
         else if (telemetry != this)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             return;
         }
     }
