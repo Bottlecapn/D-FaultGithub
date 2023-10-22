@@ -13,7 +13,7 @@ public class GridSpawner : MonoBehaviour
     [SerializeField] GameObject wall;
     [SerializeField] GameObject coin;
     [SerializeField] int[] diceValues;
-    [SerializeField] TextAsset level;
+    //[SerializeField] TextAsset level;
 
     // Start is called before the first frame update
     void Start()
@@ -61,9 +61,11 @@ public class GridSpawner : MonoBehaviour
         string line = "";
         while (!reader.EndOfStream)
         {
+            currentX = 0;
             line = reader.ReadLine();
             for (int i = 0; i < line.Length; i++)
             {
+                
                 GameObject go;
                 // spawn a tile
                 if (line[i] == '.')
@@ -220,7 +222,6 @@ public class GridSpawner : MonoBehaviour
                 }
                 currentX += 1; // TODO: variable should be the size of the tile, not hardcoded.
             }
-            currentX = 0;
             currentY += 1; // TODO: variable should be the size of the tile, not hardcoded
         }
 
@@ -229,6 +230,25 @@ public class GridSpawner : MonoBehaviour
             d.SetGridSize(line.Length, currentY);
         }
 
+        GameObject camPivot = GameObject.Find("Camera Pivot");
+        print("CurX: " + currentX + ", CurY: " + currentY);
+        if (currentX % 2 == 1)
+        {
+            currentX -= 1;
+        } else
+        {
+            currentX += 1;
+        }
+
+        if (currentY % 2 == 1)
+        {
+            currentY -= 1;
+        }
+        else
+        {
+            currentY += 1;
+        }
+        camPivot.transform.position = new Vector3 (currentX / 2, 0, currentY / 2);
         reader.Close();
     }
 }
