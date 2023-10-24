@@ -8,9 +8,20 @@ using TMPro;
 public class MainMenu : MonoBehaviour
 {
     static string sceneName = "";
-    static int buildIndexNumber = -1;
+    int buildIndexNumber = -1;
 
     float delay = 0.2f;
+
+    void Update()
+    {
+        if (SceneManager.GetActiveScene().name.Equals("LevelTransition")) {
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                buildIndexNumber = PlayerPrefs.GetInt("buildIndex");
+                Invoke("ChangeScene", delay);
+            }
+        }
+    }
+
     private void ChangeScene()
     {
         if (sceneName == "")
