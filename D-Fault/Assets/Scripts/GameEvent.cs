@@ -7,6 +7,8 @@ public class GameEvent : MonoBehaviour
 {
     public List<DieBehavior> mDice;
     private bool mSelectionDisabled = false;
+    public List<HoleBehavior> mHoles;
+    private bool mLevelCompleted = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +65,27 @@ public class GameEvent : MonoBehaviour
                     db.SetCanSelect(true);
                 }
             }
+        }
+
+        // every frame, check if every hole is completed
+        foreach (var hole in mHoles)
+        {
+            HoleBehavior hb = hole.GetComponent<HoleBehavior>();
+            // if any hole is not completed, exit the loop
+            if (!hb.GetCompleted())
+            {
+                break;
+            }
+            // if all holes are completed
+            mLevelCompleted = true;
+        }
+
+        // if this level is completed, load transition scene
+        if (mLevelCompleted)
+        {
+            print("Level Cleared");
+            PlayerPrefs.SetInt("buildIndex", SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene("LevelTransition");
         }
     }
 }

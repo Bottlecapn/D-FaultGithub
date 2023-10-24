@@ -146,6 +146,10 @@ public class GridSpawner : MonoBehaviour
                         transform.position.z + currentY);
                     HoleBehavior holetemp = go.GetComponent<HoleBehavior>();
                     holetemp.SetHoleCount(holeNumber);
+
+                    // add the hole to eventsystem
+                    GameEvent es = GameObject.FindGameObjectWithTag("GameEvent").GetComponent<GameEvent>();
+                    es.mHoles.Add(holetemp);
                 }
                 // spawn a wall
                 else if (line[i] == 'W')
@@ -230,12 +234,13 @@ public class GridSpawner : MonoBehaviour
             d.SetGridSize(line.Length, currentY);
         }
 
-        /*GameObject camPivot = GameObject.Find("Camera Pivot");
+        GameObject camPivot = GameObject.Find("Camera Pivot");
         print("CurX: " + currentX + ", CurY: " + currentY);
         if (currentX % 2 == 1)
         {
             currentX -= 1;
-        } else
+        }
+        else
         {
             currentX += 1;
         }
@@ -248,7 +253,7 @@ public class GridSpawner : MonoBehaviour
         {
             currentY += 1;
         }
-        camPivot.transform.position = new Vector3 (currentX / 2, 0, currentY / 2);
-        reader.Close();*/
+        camPivot.transform.position = new Vector3(currentX / 2, 0, currentY / 2);
+        reader.Close();
     }
 }

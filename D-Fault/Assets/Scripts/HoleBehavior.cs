@@ -11,6 +11,7 @@ public class HoleBehavior : Tile
     AudioSource sfx;
     [SerializeField] AudioClip scoreSound, completeSound;
     NumberDisplay holeNumberDisplay;
+    private bool mCompleted = false; // for game event manager
 
     private void Awake()
     {
@@ -69,8 +70,6 @@ public class HoleBehavior : Tile
             mCurrentHoleCount = 0;
             sfx.PlayOneShot(completeSound);
             yield return new WaitForSeconds(1);
-            //int buildIndexNumber = SceneManager.GetActiveScene().buildIndex+1;
-            PlayerPrefs.SetInt("buildIndex", SceneManager.GetActiveScene().buildIndex+1);
             // TODO: Output telemetry data
             GameObject TelemetryManager = GameObject.FindGameObjectWithTag("Telemetry");
             Telemetry tele = null;
@@ -87,9 +86,10 @@ public class HoleBehavior : Tile
                     print(tele.GetTimeEachLevel());
                 }
             }
-
-            SceneManager.LoadScene("LevelTransition");
-            print("Level Cleared");
+            //PlayerPrefs.SetInt("buildIndex", SceneManager.GetActiveScene().buildIndex + 1);
+            //SceneManager.LoadScene("LevelTransition");
+            //print("Level Cleared");
+            mCompleted = true;
         } else {
             print("Scored");
         }
@@ -101,5 +101,10 @@ public class HoleBehavior : Tile
     {
         mCurrentHoleCount = holePar;
         holeNumberDisplay.UpdateNumber(mCurrentHoleCount);
+    }
+
+    public bool GetCompleted()
+    {
+        return mCompleted;
     }
 }
