@@ -1,6 +1,6 @@
-W....C
-...W..
-.HW.W.
-W..WWW
-WW.C..
-....WW
+W...C
+W....
+HW...
+W...W
+W.C.W
+W.WWW

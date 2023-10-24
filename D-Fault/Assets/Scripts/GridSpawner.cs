@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GridSpawner : MonoBehaviour
 {
-    [SerializeField] int holeNumber;
+    [SerializeField] int[] holeValues;
     [SerializeField] GameObject basicTile;
     [SerializeField] GameObject greyTile;
     [SerializeField] GameObject hole;
@@ -56,6 +56,8 @@ public class GridSpawner : MonoBehaviour
         int currentY = 0;
         int dieCounter = 0;
         List<DieBehavior> diceInLevel = new List<DieBehavior>();
+        int holeCounter = 0;
+        List<HoleBehavior> holesInLevel = new List<HoleBehavior>();
         string path = Path.Combine(Application.streamingAssetsPath, SceneManager.GetActiveScene().name + ".txt");
         StreamReader reader = new StreamReader(path);
         string line = "";
@@ -145,7 +147,11 @@ public class GridSpawner : MonoBehaviour
                     go.transform.position = new Vector3(transform.position.x + currentX, transform.position.y,
                         transform.position.z + currentY);
                     HoleBehavior holetemp = go.GetComponent<HoleBehavior>();
-                    holetemp.SetHoleCount(holeNumber);
+
+                    // set hole values
+                    holetemp.SetHoleCount(holeValues[holeCounter]);
+                    holeCounter++;
+                    holesInLevel.Add(holetemp);
 
                     // add the hole to eventsystem
                     GameEvent es = GameObject.FindGameObjectWithTag("GameEvent").GetComponent<GameEvent>();

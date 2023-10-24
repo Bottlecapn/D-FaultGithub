@@ -68,22 +68,32 @@ public class GameEvent : MonoBehaviour
         }
 
         // every frame, check if every hole is completed
+        mLevelCompleted = mHoles[0].GetComponent<HoleBehavior>().GetCompleted();
         foreach (var hole in mHoles)
         {
             HoleBehavior hb = hole.GetComponent<HoleBehavior>();
-            // if any hole is not completed, exit the loop
-            if (!hb.GetCompleted())
-            {
-                break;
-            }
-            // if all holes are completed
-            mLevelCompleted = true;
+            mLevelCompleted &= hb.GetCompleted();
         }
 
         // if this level is completed, load transition scene
         if (mLevelCompleted)
         {
-            print("Level Cleared");
+            // output telemtry data
+            GameObject TelemetryManager = GameObject.FindGameObjectWithTag("Telemetry");
+            Telemetry tele = null;
+            if (TelemetryManager != null)
+            {
+                tele = TelemetryManager.GetComponent<Telemetry>();
+            }
+            if (tele != null)
+            {
+                // only outputing Telemetry data for the level scenes
+                if (SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex <= 20)
+                {
+                    print(tele.GetRestartTimes());
+                    print(tele.GetTimeEachLevel());
+                }
+            }
             PlayerPrefs.SetInt("buildIndex", SceneManager.GetActiveScene().buildIndex + 1);
             SceneManager.LoadScene("LevelTransition");
         }

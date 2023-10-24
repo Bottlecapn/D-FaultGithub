@@ -70,25 +70,6 @@ public class HoleBehavior : Tile
             mCurrentHoleCount = 0;
             sfx.PlayOneShot(completeSound);
             yield return new WaitForSeconds(1);
-            // TODO: Output telemetry data
-            GameObject TelemetryManager = GameObject.FindGameObjectWithTag("Telemetry");
-            Telemetry tele = null;
-            if (TelemetryManager != null)
-            {
-                tele = TelemetryManager.GetComponent<Telemetry>();
-            }
-            if (tele != null)
-            {
-                // only outputing Telemetry data for the level scenes
-                if (SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex <= 15)
-                {
-                    print(tele.GetRestartTimes());
-                    print(tele.GetTimeEachLevel());
-                }
-            }
-            //PlayerPrefs.SetInt("buildIndex", SceneManager.GetActiveScene().buildIndex + 1);
-            //SceneManager.LoadScene("LevelTransition");
-            //print("Level Cleared");
             mCompleted = true;
         } else {
             print("Scored");
