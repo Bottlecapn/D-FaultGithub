@@ -116,6 +116,7 @@ public class DieBehavior : MonoBehaviour
             mCanMove = true;
             MoveToNewPosition();
             MoveNumberUpdate(false);
+            dieParent.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
         }
     }
 
