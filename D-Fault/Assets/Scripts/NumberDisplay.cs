@@ -78,7 +78,6 @@ public class NumberDisplay : Tile
                 }
                 yield return null;
             } else {
-                print("ending");
                 sfx.pitch = 1f;
                 counting = false;
                 yield break;
