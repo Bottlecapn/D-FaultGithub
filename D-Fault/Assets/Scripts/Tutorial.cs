@@ -14,6 +14,9 @@ public class Tutorial : MonoBehaviour
     public GameObject TextCanvas3;
     public GameObject TextCanvas4;
     public GameObject TextCanvas5;
+    public GameObject TextCanvas6;
+    public GameObject TextCanvas7;
+    public GameObject TextCanvas8;
 
 
     void Start()
@@ -23,6 +26,9 @@ public class Tutorial : MonoBehaviour
         TextCanvas3.SetActive(false);
         TextCanvas4.SetActive(false);
         TextCanvas5.SetActive(false);
+        TextCanvas6.SetActive(false);
+        TextCanvas7.SetActive(false);
+        TextCanvas8.SetActive(false);
     }
 
 
@@ -49,6 +55,9 @@ public class Tutorial : MonoBehaviour
             TextCanvas3.SetActive(true);
             TextCanvas4.SetActive(true);
             TextCanvas5.SetActive(true);
+            TextCanvas6.SetActive(true);
+            TextCanvas7.SetActive(true);
+            TextCanvas8.SetActive(true);
         }
     }
 }
