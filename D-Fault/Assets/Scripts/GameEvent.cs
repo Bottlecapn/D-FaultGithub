@@ -92,16 +92,10 @@ public class GameEvent : MonoBehaviour
                 // only outputing Telemetry data for the level scenes
                 if (SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex <= 20)
                 {
-                    /*print(tele.GetRestartTimes());
-                    print(tele.GetTimeEachLevel());*/
                     string filePath = Path.Combine(Application.streamingAssetsPath, "TelemetryData.txt");
                     StreamWriter sw = new StreamWriter(filePath, true);
                     sw.WriteLine("Level " + SceneManager.GetActiveScene().buildIndex + ": Restarts: " + tele.GetRestartTimes() + " Time: " + tele.GetTimeEachLevel());
                     sw.Close();
-                    
-                    StreamReader reader = new StreamReader(filePath);
-                    print(reader.ReadToEnd());
-                    reader.Close();
                 }
             }
             PlayerPrefs.SetInt("buildIndex", SceneManager.GetActiveScene().buildIndex + 1);
