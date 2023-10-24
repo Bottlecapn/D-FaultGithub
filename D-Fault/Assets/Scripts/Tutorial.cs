@@ -35,7 +35,9 @@ public class Tutorial : MonoBehaviour
     void Update()
     {
         if (TextCanvas1.activeSelf) {
-            if (Input.GetKeyDown(KeyCode.Mouse0)) {
+            GameObject[] dice = GameObject.FindGameObjectsWithTag("Dice");
+            DieBehavior die = dice[0].GetComponent<DieBehavior>();
+            if (die.getmIsSelected()) {
                 TextCanvas1.SetActive(false);
                 TextCanvas2.SetActive(true);
             }
