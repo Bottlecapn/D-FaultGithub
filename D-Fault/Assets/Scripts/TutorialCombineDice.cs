@@ -9,7 +9,7 @@ public class TutorialCombineDice : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Dice"))
+        if (other.gameObject.CompareTag("Dice") || other.gameObject.CompareTag("Coin"))
         {
             PanelCanvas.SetActive(false);
         }

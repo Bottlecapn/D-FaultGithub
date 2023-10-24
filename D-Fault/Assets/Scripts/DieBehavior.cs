@@ -120,6 +120,10 @@ public class DieBehavior : MonoBehaviour
         }
     }
 
+    public bool getmIsSelected() {
+        return mIsSelected;
+    }
+
     protected void OnMouseDown()
     {
         // select if unselected, vice versa
