@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,7 @@ public class GameEvent : MonoBehaviour
     private bool mSelectionDisabled = false;
     public List<HoleBehavior> mHoles;
     private bool mLevelCompleted = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -90,8 +92,16 @@ public class GameEvent : MonoBehaviour
                 // only outputing Telemetry data for the level scenes
                 if (SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex <= 20)
                 {
-                    print(tele.GetRestartTimes());
-                    print(tele.GetTimeEachLevel());
+                    /*print(tele.GetRestartTimes());
+                    print(tele.GetTimeEachLevel());*/
+                    string filePath = Path.Combine(Application.streamingAssetsPath, "TelemetryData.txt");
+                    StreamWriter sw = new StreamWriter(filePath, true);
+                    sw.WriteLine("Level " + SceneManager.GetActiveScene().buildIndex + ": Restarts: " + tele.GetRestartTimes() + " Time: " + tele.GetTimeEachLevel());
+                    sw.Close();
+                    
+                    StreamReader reader = new StreamReader(filePath);
+                    print(reader.ReadToEnd());
+                    reader.Close();
                 }
             }
             PlayerPrefs.SetInt("buildIndex", SceneManager.GetActiveScene().buildIndex + 1);
