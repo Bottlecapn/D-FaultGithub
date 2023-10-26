@@ -36,8 +36,8 @@ public class Billboard : MonoBehaviour
     }
     void FreeBillboard()
     {
-        transform.LookAt(mainCamera.transform);
-        transform.Rotate(0, 180, 0);
+        //transform.LookAt(mainCamera.transform);
+        //transform.Rotate(0, 180, 0);
     }
 
     void FixedBillboard()
