@@ -193,6 +193,8 @@ public class DieBehavior : MonoBehaviour
                 DieBehavior otherDie = other.gameObject.GetComponent<DieBehavior>();
                 otherDie.Moves += Moves;
                 otherDie.anim.SetTrigger("Add");
+                otherDie.SetSelection(true);
+                this.SetSelection(false);
             }
         }
 
