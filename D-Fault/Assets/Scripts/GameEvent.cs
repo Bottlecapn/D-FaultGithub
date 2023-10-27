@@ -33,7 +33,8 @@ public class GameEvent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // every frame, if no die is moving, enable selection
+        // every frame, if no die is moving and not in pause menu, enable selection
+        mSelectionDisabled = false | GameObject.FindGameObjectWithTag("PauseMenuCanvas").GetComponent<PauseMenu>().Paused;
         foreach (var dice in mDice)
         {
             DieBehavior db = dice.GetComponent<DieBehavior>();
@@ -68,14 +69,6 @@ public class GameEvent : MonoBehaviour
             }
         }
 
-        // every frame, check if every hole is completed
-        mLevelCompleted = mHoles[0].GetComponent<HoleBehavior>().GetCompleted();
-        foreach (var hole in mHoles)
-        {
-            HoleBehavior hb = hole.GetComponent<HoleBehavior>();
-            mLevelCompleted &= hb.GetCompleted();
-        }
-
         // if everything reaches zero, pop up the restart screen
         bool allDiceDead = (mDice[0].GetComponent<DieBehavior>().Moves == 0);
         foreach (var dice in mDice)
@@ -84,18 +77,23 @@ public class GameEvent : MonoBehaviour
             allDiceDead &= (db.Moves == 0);
         }
 
+        // Restart screen pops up after all objects hit 0
         TutorialRestart tr = GameObject.FindGameObjectWithTag("RestartCanvas").GetComponent<TutorialRestart>();
         if (allDiceDead)
         {
             // spawn restart screen
-            if (!tr.PanelCanvas.activeSelf) 
-            { 
-                tr.PanelCanvas.SetActive(true); 
+            if (!tr.PanelCanvas.activeSelf)
+            {
+                tr.PanelCanvas.SetActive(true);
             }
         }
-        else
+
+        // every frame, check if every hole is completed
+        mLevelCompleted = mHoles[0].GetComponent<HoleBehavior>().GetCompleted();
+        foreach (var hole in mHoles)
         {
-            tr.PanelCanvas.SetActive(false);
+            HoleBehavior hb = hole.GetComponent<HoleBehavior>();
+            mLevelCompleted &= hb.GetCompleted();
         }
 
         // if this level is completed, load transition scene
@@ -122,10 +120,5 @@ public class GameEvent : MonoBehaviour
             PlayerPrefs.SetInt("buildIndex", SceneManager.GetActiveScene().buildIndex + 1);
             SceneManager.LoadScene("LevelTransition");
         }
-    }
-
-    public void SetDisableSelection(bool isDisabled)
-    {
-        mSelectionDisabled = isDisabled;
     }
 }

@@ -11,6 +11,7 @@ TagManager:
   - GameEvent
   - Telemetry
   - RestartCanvas
+  - PauseMenuCanvas
   layers:
   - Default
   - TransparentFX
