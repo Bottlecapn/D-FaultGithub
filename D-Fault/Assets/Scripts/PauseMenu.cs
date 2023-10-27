@@ -45,6 +45,7 @@ public class PauseMenu : MonoBehaviour
         pauseUI.SetActive(false);
         Time.timeScale = 1f;
         Paused = false;
+        GameObject.FindGameObjectWithTag("GameEvent").GetComponent<GameEvent>().SetDisableSelection(false);
     }
 
 
@@ -53,6 +54,8 @@ public class PauseMenu : MonoBehaviour
         pauseUI.SetActive(true);
         Time.timeScale = 0f;
         Paused = true;
+        GameObject.FindGameObjectWithTag("GameEvent").GetComponent<GameEvent>().SetDisableSelection(true);
+        
     }
 
 

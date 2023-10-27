@@ -34,14 +34,13 @@ public class GameEvent : MonoBehaviour
     void Update()
     {
         // every frame, if no die is moving, enable selection
-        mSelectionDisabled = false;
         foreach (var dice in mDice)
         {
             DieBehavior db = dice.GetComponent<DieBehavior>();
             // if any die is moving, disable selection
-            if (db != null && db.GetIsMoving())
+            if (db != null)
             {
-                mSelectionDisabled = true;
+                mSelectionDisabled |= db.GetIsMoving();
             }
         }
 
@@ -101,5 +100,10 @@ public class GameEvent : MonoBehaviour
             PlayerPrefs.SetInt("buildIndex", SceneManager.GetActiveScene().buildIndex + 1);
             SceneManager.LoadScene("LevelTransition");
         }
+    }
+
+    public void SetDisableSelection(bool isDisabled)
+    {
+        mSelectionDisabled = isDisabled;
     }
 }
