@@ -34,7 +34,6 @@ public class MainMenu : MonoBehaviour
             SceneManager.LoadScene(sceneName);
             sceneName = "";
         }
-
     }
 
     public void PlayGame()

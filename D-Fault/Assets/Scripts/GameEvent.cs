@@ -76,6 +76,28 @@ public class GameEvent : MonoBehaviour
             mLevelCompleted &= hb.GetCompleted();
         }
 
+        // if everything reaches zero, pop up the restart screen
+        bool allDiceDead = (mDice[0].GetComponent<DieBehavior>().Moves == 0);
+        foreach (var dice in mDice)
+        {
+            DieBehavior db = dice.GetComponent<DieBehavior>();
+            allDiceDead &= (db.Moves == 0);
+        }
+
+        TutorialRestart tr = GameObject.FindGameObjectWithTag("RestartCanvas").GetComponent<TutorialRestart>();
+        if (allDiceDead)
+        {
+            // spawn restart screen
+            if (!tr.PanelCanvas.activeSelf) 
+            { 
+                tr.PanelCanvas.SetActive(true); 
+            }
+        }
+        else
+        {
+            tr.PanelCanvas.SetActive(false);
+        }
+
         // if this level is completed, load transition scene
         if (mLevelCompleted)
         {
