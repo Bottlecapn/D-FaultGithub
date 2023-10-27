@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -33,15 +34,34 @@ public class GameEvent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // every frame, if no die is moving and not in pause menu, enable selection
-        mSelectionDisabled = false | GameObject.FindGameObjectWithTag("PauseMenuCanvas").GetComponent<PauseMenu>().Paused;
-        foreach (var dice in mDice)
+        // every frame, if in pause menu
+        if (GameObject.FindGameObjectWithTag("PauseMenuCanvas").GetComponent<PauseMenu>().Paused)
         {
-            DieBehavior db = dice.GetComponent<DieBehavior>();
-            // if any die is moving, disable selection
-            if (db != null)
+            // Disable selection and unselect all dice
+            mSelectionDisabled = true;
+            foreach (var dice in mDice)
             {
-                mSelectionDisabled |= db.GetIsMoving();
+                DieBehavior db = dice.GetComponent<DieBehavior>();
+                if (db != null)
+                {
+                    db.SetSelection(false);
+                }
+            }
+        }
+        // if not in pause menu
+        else
+        {
+            // Enable selection
+            mSelectionDisabled = false;
+            // Check if there's any objects moving
+            foreach (var dice in mDice)
+            {
+                DieBehavior db = dice.GetComponent<DieBehavior>();
+                // if any object is moving, disable selection
+                if (db != null)
+                {
+                    mSelectionDisabled |= db.GetIsMoving();
+                }
             }
         }
 
@@ -69,7 +89,7 @@ public class GameEvent : MonoBehaviour
             }
         }
 
-        // if everything reaches zero, pop up the restart screen
+        // Check if all objects reaches 0
         bool allDiceDead = (mDice[0].GetComponent<DieBehavior>().Moves == 0);
         foreach (var dice in mDice)
         {
@@ -77,13 +97,14 @@ public class GameEvent : MonoBehaviour
             allDiceDead &= (db.Moves == 0);
         }
 
-        // Restart screen pops up after all objects hit 0
+        // Restart screen pops up if all objects hit 0
         TutorialRestart tr = GameObject.FindGameObjectWithTag("RestartCanvas").GetComponent<TutorialRestart>();
         if (allDiceDead)
         {
-            // spawn restart screen
+            // if the restart canvas is not active
             if (!tr.PanelCanvas.activeSelf)
             {
+                // spawn restart screen
                 tr.PanelCanvas.SetActive(true);
             }
         }
@@ -109,7 +130,7 @@ public class GameEvent : MonoBehaviour
             if (tele != null)
             {
                 // only outputing Telemetry data for the level scenes
-                if (SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex <= 20)
+                if (SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex <= 21)
                 {
                     string filePath = Path.Combine(Application.streamingAssetsPath, "TelemetryData.txt");
                     StreamWriter sw = new StreamWriter(filePath, true);
