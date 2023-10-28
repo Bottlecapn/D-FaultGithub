@@ -325,4 +325,16 @@ public class DieBehavior : MonoBehaviour
     {
         mCanSelect= canSelect;
     }
+
+    public MeshRenderer getCubeRenderer() {
+        return cubeRenderer;
+    }
+
+    public Material getRedMaterial() {
+        return red;
+    }
+
+    public Material getWhiteMaterial() {
+        return white;
+    }
 }

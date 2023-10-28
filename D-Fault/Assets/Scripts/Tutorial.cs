@@ -17,6 +17,8 @@ public class Tutorial : MonoBehaviour
     public GameObject TextCanvas6;
     public GameObject TextCanvas7;
     public GameObject TextCanvas8;
+    bool enteredCollider = false;
+    bool triggeredMethod = false;
 
 
     void Start()
@@ -42,11 +44,26 @@ public class Tutorial : MonoBehaviour
                 TextCanvas2.SetActive(true);
             }
         }
-        if (TextCanvas4.activeSelf) {
+        if (TextCanvas4.activeSelf && !enteredCollider && !triggeredMethod) {
+            triggeredMethod = true;
+            GameObject[] dice = GameObject.FindGameObjectsWithTag("Dice");
+            DieBehavior die = dice[0].GetComponent<DieBehavior>();
+            die.SetSelection(false);
+            die.getCubeRenderer().material = die.getRedMaterial();
+            Invoke("EnableMovement", 1.5f);
+        }
+        if (TextCanvas4.activeSelf && enteredCollider) {
+            GameObject[] dice = GameObject.FindGameObjectsWithTag("Dice");
+            DieBehavior die = dice[0].GetComponent<DieBehavior>();
+            die.SetSelection(true);
             if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
                 TextCanvas4.SetActive(false);
             }
         }
+    }
+
+    private void EnableMovement() {
+        enteredCollider = true;
     }
 
     private void OnTriggerEnter(Collider other)
