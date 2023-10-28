@@ -358,7 +358,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "This new object is a \n\nCoins move two tiles at a time, and they can
-    even jump over walls!\nHowever, they can only move horizontally and vertically.\n"
+    even jump over walls!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7cc3e4b73acf2f24e97cb698ae03f241, type: 2}
   m_sharedMaterial: {fileID: -2280627963957680153, guid: 7cc3e4b73acf2f24e97cb698ae03f241, type: 2}
