@@ -7,7 +7,7 @@ public class DieBehavior : MonoBehaviour
 {   
     public Animator anim;
     public GameObject dieParent;
-    public Material red, white;
+    public Material red, white, yellow;
     [SerializeField] MeshRenderer cubeRenderer;
     AudioSource sfx;
     [SerializeField] AudioClip addSound, moveSound;
@@ -166,9 +166,13 @@ public class DieBehavior : MonoBehaviour
         mIsSelected = selected;
         if (mIsSelected)
         {
-            cubeRenderer.material = red;
+            if (gameObject.CompareTag("Dice")) {
+                cubeRenderer.material = red;
+            } else {
+                cubeRenderer.material = yellow;
+            }
             gameObject.GetComponent<BoxCollider>().isTrigger = false;
-        }
+        } 
         else
         {
             cubeRenderer.material = white;
@@ -336,5 +340,9 @@ public class DieBehavior : MonoBehaviour
 
     public Material getWhiteMaterial() {
         return white;
+    }
+
+    public int getMoves() {
+        return Moves;
     }
 }

@@ -89,26 +89,6 @@ public class GameEvent : MonoBehaviour
             }
         }
 
-        // Check if all objects reaches 0
-        bool allDiceDead = (mDice[0].GetComponent<DieBehavior>().Moves == 0);
-        foreach (var dice in mDice)
-        {
-            DieBehavior db = dice.GetComponent<DieBehavior>();
-            allDiceDead &= (db.Moves == 0);
-        }
-
-        // Restart screen pops up if all objects hit 0
-        TutorialRestart tr = GameObject.FindGameObjectWithTag("RestartCanvas").GetComponent<TutorialRestart>();
-        if (allDiceDead)
-        {
-            // if the restart canvas is not active
-            if (!tr.PanelCanvas.activeSelf)
-            {
-                // spawn restart screen
-                tr.PanelCanvas.SetActive(true);
-            }
-        }
-
         // every frame, check if every hole is completed
         mLevelCompleted = mHoles[0].GetComponent<HoleBehavior>().GetCompleted();
         foreach (var hole in mHoles)
@@ -140,6 +120,30 @@ public class GameEvent : MonoBehaviour
             }
             PlayerPrefs.SetInt("buildIndex", SceneManager.GetActiveScene().buildIndex + 1);
             SceneManager.LoadScene("LevelTransition");
+        }
+
+        // Check if all objects reaches 0
+        bool allDiceDead = false;
+        try {
+            allDiceDead = (mDice[0].GetComponent<DieBehavior>().Moves == 0);
+        } catch (Exception e) {
+            Debug.Log(e);
+        }
+        foreach (var dice in mDice)
+        {
+            DieBehavior db = dice.GetComponent<DieBehavior>();
+            allDiceDead &= (db.Moves == 0);
+        }
+        // Restart screen pops up if all objects hit 0
+        TutorialRestart tr = GameObject.FindGameObjectWithTag("RestartCanvas").GetComponent<TutorialRestart>();
+        if (allDiceDead)
+        {
+            // if the restart canvas is not active
+            if (!tr.PanelCanvas.activeSelf)
+            {
+                // spawn restart screen
+                tr.PanelCanvas.SetActive(true);
+            }
         }
     }
 }

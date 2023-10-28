@@ -3,7 +3,15 @@ guid: e62809767f2c46d4dab9fd9c28022a07
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - anim: {instanceID: 0}
+  - dieParent: {instanceID: 0}
+  - red: {instanceID: 0}
+  - white: {instanceID: 0}
+  - yellow: {instanceID: 0}
+  - cubeRenderer: {instanceID: 0}
+  - addSound: {instanceID: 0}
+  - moveSound: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
