@@ -21,7 +21,7 @@ public class AudioManager : MonoBehaviour
         }
         backgroundMusic = GetComponent<AudioSource>();
         backgroundMusic.volume = 0.0f;
-        StartCoroutine(Fade(true, backgroundMusic, 7.0f, 1.0f));
+        StartCoroutine(Fade(true, backgroundMusic, 7.0f, 0.5f));
         StartCoroutine(Fade(false, backgroundMusic, 7.0f, 0.0f));
     }
 
@@ -31,7 +31,7 @@ public class AudioManager : MonoBehaviour
         if (!backgroundMusic.isPlaying)
         {
             backgroundMusic.Play();
-            StartCoroutine(Fade(true, backgroundMusic, 7.0f, 1.0f));
+            StartCoroutine(Fade(true, backgroundMusic, 7.0f, 0.5f));
             StartCoroutine(Fade(false, backgroundMusic, 7.0f, 0.0f));
         }
     }
