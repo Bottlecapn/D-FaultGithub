@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 public class DieBehavior : MonoBehaviour
-{   
+{
     public Animator anim;
     public GameObject dieParent;
     public Material red, white, yellow;
@@ -68,7 +68,7 @@ public class DieBehavior : MonoBehaviour
                     anim.SetBool("Move", true);
                 }
             }
-            
+
             // horizontal movement
             else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
@@ -94,7 +94,7 @@ public class DieBehavior : MonoBehaviour
             // mStoredRotationVector sets rotation of dieParent to align animation with direction of movement.
             // mStoredMove sets the position of where the dieParent will move to after animation ends
             // (the "real" position of dieParent doesn't update until end of animation).
-            mStoredRotationVector = new Vector3(horizontalMove, 0, verticalMove); 
+            mStoredRotationVector = new Vector3(horizontalMove, 0, verticalMove);
             mStoredMove = new Vector3(transform.position.x + horizontalMove * moveDistance, defaultHeight, transform.position.z + verticalMove * moveDistance);
         }
     }
@@ -103,7 +103,7 @@ public class DieBehavior : MonoBehaviour
     // uses an int parameter instead of a bool because AnimationEvents cannot call bool parameters
     public void SetCanMove(int move)
     {
-        if(move == 0)
+        if (move == 0)
         {
             // die is prevented from inputting a move (called during any other animation)
             mCanMove = false;
@@ -120,16 +120,17 @@ public class DieBehavior : MonoBehaviour
         }
     }
 
-    public bool getmIsSelected() {
+    public bool getmIsSelected()
+    {
         return mIsSelected;
     }
 
     protected void OnMouseDown()
     {
-        // select if unselected, vice versa
         // ONLY WHEN THE DIE CAN BE SELECTED
         if (mCanSelect)
         {
+            // select if unselected, vice versa
             SetSelection(!mIsSelected);
             // if selected the current die, unselect all other dice
             if (mIsSelected)
@@ -166,13 +167,16 @@ public class DieBehavior : MonoBehaviour
         mIsSelected = selected;
         if (mIsSelected)
         {
-            if (gameObject.CompareTag("Dice")) {
+            if (gameObject.CompareTag("Dice"))
+            {
                 cubeRenderer.material = red;
-            } else {
+            }
+            else
+            {
                 cubeRenderer.material = yellow;
             }
             gameObject.GetComponent<BoxCollider>().isTrigger = false;
-        } 
+        }
         else
         {
             cubeRenderer.material = white;
@@ -185,13 +189,15 @@ public class DieBehavior : MonoBehaviour
         // If another die collides with this one while not selected, it gets destroyed.
         if (other.CompareTag("Dice"))
         {
-            if (!mIsSelected) { 
+            if (!mIsSelected)
+            {
                 DieBehavior otherDie = other.gameObject.GetComponent<DieBehavior>();
                 otherDie.Moves += Moves;
                 otherDie.anim.SetTrigger("Add");
                 //print("Die added");
                 SelfDestruct();
-            } else if (mIsSelected && gameObject.CompareTag("Coin"))
+            }
+            else if (mIsSelected && gameObject.CompareTag("Coin"))
             {
                 anim.SetTrigger("Add");
                 DieBehavior otherDie = other.gameObject.GetComponent<DieBehavior>();
@@ -213,7 +219,7 @@ public class DieBehavior : MonoBehaviour
             anim.SetTrigger("Rebound");
         }
 
-        
+
         if (!mIsSelected && other.CompareTag("Coin") && gameObject.CompareTag("Coin"))
         {
             DieBehavior otherDie = other.gameObject.GetComponent<DieBehavior>();
@@ -221,7 +227,7 @@ public class DieBehavior : MonoBehaviour
             anim.SetTrigger("Add");
             //print("Die added");
         }
-        
+
     }
 
     protected void SelfDestruct()
@@ -238,7 +244,8 @@ public class DieBehavior : MonoBehaviour
         if (sound == 0)
         {
             sfx.PlayOneShot(moveSound);
-        } else if (sound == 1)
+        }
+        else if (sound == 1)
         {
             sfx.PlayOneShot(addSound);
         }
@@ -308,12 +315,12 @@ public class DieBehavior : MonoBehaviour
         dieParent.transform.position = mStoredMove;
     }
 
-    public void SetIsMoving(int isMoving) 
+    public void SetIsMoving(int isMoving)
     {
-        if(isMoving == 0)
+        if (isMoving == 0)
         {
             mIsMoving = false;
-        } 
+        }
         else
         {
             mIsMoving = true;
@@ -327,22 +334,26 @@ public class DieBehavior : MonoBehaviour
 
     public void SetCanSelect(bool canSelect)
     {
-        mCanSelect= canSelect;
+        mCanSelect = canSelect;
     }
 
-    public MeshRenderer getCubeRenderer() {
+    public MeshRenderer getCubeRenderer()
+    {
         return cubeRenderer;
     }
 
-    public Material getRedMaterial() {
+    public Material getRedMaterial()
+    {
         return red;
     }
 
-    public Material getWhiteMaterial() {
+    public Material getWhiteMaterial()
+    {
         return white;
     }
 
-    public int getMoves() {
+    public int getMoves()
+    {
         return Moves;
     }
 }
