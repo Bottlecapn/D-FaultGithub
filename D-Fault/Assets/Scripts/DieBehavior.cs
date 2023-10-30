@@ -116,7 +116,16 @@ public class DieBehavior : MonoBehaviour
             mCanMove = true;
             MoveToNewPosition();
             MoveNumberUpdate(false);
-            dieParent.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+
+            // set the object's forward vector to maintain correct rotation for the idle pose
+            if (gameObject.CompareTag("Coin"))
+            {
+                dieParent.transform.rotation = Quaternion.LookRotation(Vector3.forward * -1f, Vector3.up);
+            } else
+            {
+                dieParent.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+            }
+            
         }
     }
 

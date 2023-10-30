@@ -303,8 +303,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 1650737845525521777}
   dieParent: {fileID: 1737172300991720200}
-  red: {fileID: 2100000, guid: d96839a2ad9beaf4fb97757d1d7e6dd5, type: 2}
-  white: {fileID: 2100000, guid: cec10e54ac8691f40ac3e52ab8efdf5d, type: 2}
+  red: {fileID: 2100000, guid: f1011d286a94b914191b791295715acd, type: 2}
+  white: {fileID: 2100000, guid: 0bedf5a29bb4c13479f857d4d8122b02, type: 2}
   yellow: {fileID: 2100000, guid: 7cc4529e5bc9bc241a49eb7edee1794c, type: 2}
   cubeRenderer: {fileID: 2162044043459844649}
   addSound: {fileID: 8300000, guid: 8ab04876a79a2d84ba9c9808208cf454, type: 3}
@@ -1597,7 +1597,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6482661538449769044}
-  m_Mesh: {fileID: -5495902117074765545, guid: 1c782d1014624924f957323a666725f6, type: 3}
+  m_Mesh: {fileID: -835688487210165693, guid: 9d3d409556857de469ee019c15ae7e11, type: 3}
 --- !u!23 &2162044043459844649
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1618,7 +1618,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cec10e54ac8691f40ac3e52ab8efdf5d, type: 2}
+  - {fileID: 2100000, guid: 0bedf5a29bb4c13479f857d4d8122b02, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
