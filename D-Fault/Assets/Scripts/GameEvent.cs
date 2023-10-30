@@ -13,6 +13,10 @@ public class GameEvent : MonoBehaviour
     public List<HoleBehavior> mHoles;
     private bool mLevelCompleted = false;
 
+    // temp
+    private float restartScreenTimer = 0.0f;
+    private const float RESTART_SCREEN_TIME = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -111,6 +115,7 @@ public class GameEvent : MonoBehaviour
             if (tele != null)
             {
                 // only outputing Telemetry data for the level scenes
+                // NOTE: CHANGE THE RANGE IF MORE LEVELS ARE ADDED
                 if (SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex <= 21)
                 {
                     string filePath = Path.Combine(Application.streamingAssetsPath, "TelemetryData.txt");
@@ -138,12 +143,18 @@ public class GameEvent : MonoBehaviour
         // Restart screen pops up if all objects hit 0
         if (allDiceDead)
         {
-            TutorialRestart tr = GameObject.FindGameObjectWithTag("RestartCanvas").GetComponent<TutorialRestart>();
-            // if the restart canvas is not active
-            if (!tr.PanelCanvas.activeSelf)
+            // Allow time for hitting the wall animation
+            restartScreenTimer += Time.deltaTime;
+            if (restartScreenTimer >= RESTART_SCREEN_TIME)
             {
-                // spawn restart screen
-                tr.PanelCanvas.SetActive(true);
+                restartScreenTimer = 0.0f;
+                TutorialRestart tr = GameObject.FindGameObjectWithTag("RestartCanvas").GetComponent<TutorialRestart>();
+                // if the restart canvas is not active
+                if (!tr.PanelCanvas.activeSelf)
+                {
+                    // spawn restart screen
+                    tr.PanelCanvas.SetActive(true);
+                }
             }
         }
     }
