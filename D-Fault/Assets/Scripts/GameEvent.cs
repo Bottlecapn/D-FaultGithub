@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -124,20 +125,20 @@ public class GameEvent : MonoBehaviour
 
         // Check if all objects reaches 0
         bool allDiceDead = false;
-        try {
-            allDiceDead = (mDice[0].GetComponent<DieBehavior>().Moves == 0);
-        } catch (Exception e) {
-            Debug.Log(e);
-        }
-        foreach (var dice in mDice)
+        if (mDice.Any())
         {
-            DieBehavior db = dice.GetComponent<DieBehavior>();
-            allDiceDead &= (db.Moves == 0);
+            allDiceDead = (mDice[0].GetComponent<DieBehavior>().Moves == 0);
+            foreach (var dice in mDice)
+            {
+                DieBehavior db = dice.GetComponent<DieBehavior>();
+                allDiceDead &= (db.Moves == 0);
+            }
         }
+
         // Restart screen pops up if all objects hit 0
-        TutorialRestart tr = GameObject.FindGameObjectWithTag("RestartCanvas").GetComponent<TutorialRestart>();
         if (allDiceDead)
         {
+            TutorialRestart tr = GameObject.FindGameObjectWithTag("RestartCanvas").GetComponent<TutorialRestart>();
             // if the restart canvas is not active
             if (!tr.PanelCanvas.activeSelf)
             {
