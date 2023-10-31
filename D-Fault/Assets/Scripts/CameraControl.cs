@@ -16,12 +16,12 @@ public class CameraControl : MonoBehaviour
     void LateUpdate()
     {
         transform.LookAt(pivot.transform);
-        if (Input.GetKeyDown(KeyCode.Q))
+        /*if (Input.GetKeyDown(KeyCode.Q))
         {
             pivot.transform.Rotate(new Vector3(0,-90,0));
         } else if (Input.GetKeyDown(KeyCode.E))
         {
             pivot.transform.Rotate(new Vector3(0, 90, 0));
-        }
+        }*/
     }
 }

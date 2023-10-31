@@ -821,6 +821,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1826936715319469952, guid: fd436a09c5023f74d828eedde9afec9c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -39.429993
+      objectReference: {fileID: 0}
     - target: {fileID: 5772035816372172560, guid: fd436a09c5023f74d828eedde9afec9c, type: 3}
       propertyPath: m_Name
       value: BGCanvas
@@ -948,8 +952,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.7, y: 144}
-  m_SizeDelta: {x: 493.208, y: 28.0798}
+  m_AnchoredPosition: {x: 4.7, y: 158.5}
+  m_SizeDelta: {x: 572.23, y: 28.0798}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1242356366
 MonoBehaviour:
@@ -971,10 +975,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: All holes must be reduced to 0 to complete the level.
+  m_text: 'Some levels contain multiple holes.
+
+    The par of all holes must be
+    reduced to 0 in order to complete the level.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7cc3e4b73acf2f24e97cb698ae03f241, type: 2}
-  m_sharedMaterial: {fileID: -2280627963957680153, guid: 7cc3e4b73acf2f24e97cb698ae03f241, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b5c73238e13016c4382110624ee5ba91, type: 2}
+  m_sharedMaterial: {fileID: -7249032509463807619, guid: b5c73238e13016c4382110624ee5ba91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -998,14 +1005,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.05
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

@@ -179,8 +179,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Just like dice, coins can also be combined together.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7cc3e4b73acf2f24e97cb698ae03f241, type: 2}
-  m_sharedMaterial: {fileID: -2280627963957680153, guid: 7cc3e4b73acf2f24e97cb698ae03f241, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b5c73238e13016c4382110624ee5ba91, type: 2}
+  m_sharedMaterial: {fileID: -7249032509463807619, guid: b5c73238e13016c4382110624ee5ba91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -204,14 +204,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -921,6 +921,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1826936715319469952, guid: fd436a09c5023f74d828eedde9afec9c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -39.429993
+      objectReference: {fileID: 0}
     - target: {fileID: 5772035816372172560, guid: fd436a09c5023f74d828eedde9afec9c, type: 3}
       propertyPath: m_Name
       value: BGCanvas
