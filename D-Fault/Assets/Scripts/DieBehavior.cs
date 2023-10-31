@@ -10,7 +10,7 @@ public class DieBehavior : MonoBehaviour
     public Material red, white, yellow;
     [SerializeField] MeshRenderer cubeRenderer;
     AudioSource sfx;
-    [SerializeField] AudioClip addSound, moveSound;
+    [SerializeField] AudioClip addSound, moveSound, coinCombineSound;
     public int Moves;
     public int moveDistance;
     public float defaultHeight;
@@ -234,6 +234,7 @@ public class DieBehavior : MonoBehaviour
             DieBehavior otherDie = other.gameObject.GetComponent<DieBehavior>();
             otherDie.Moves += Moves;
             anim.SetTrigger("Add");
+            PlaySFX(3);
             //print("Die added");
         }
 
@@ -263,6 +264,9 @@ public class DieBehavior : MonoBehaviour
             //moveDeny / Rebound sound
             sfx.pitch = 0.5f;
             sfx.PlayOneShot(moveSound);
+        } else if (sound == 3)
+        {
+            sfx.PlayOneShot(coinCombineSound);
         }
     }
 
