@@ -12,8 +12,7 @@ public class GameEvent : MonoBehaviour
     private bool mSelectionDisabled = false;
     public List<HoleBehavior> mHoles;
     private bool mLevelCompleted = false;
-
-    // temp
+    // Restart screen pops up 1 second later after fail
     private float restartScreenTimer = 0.0f;
     private const float RESTART_SCREEN_TIME = 1.0f;
 
@@ -128,20 +127,8 @@ public class GameEvent : MonoBehaviour
             SceneManager.LoadScene("LevelTransition");
         }
 
-        // Check if all objects reaches 0
-        bool allDiceDead = false;
-        if (mDice.Any())
-        {
-            allDiceDead = (mDice[0].GetComponent<DieBehavior>().Moves == 0);
-            foreach (var dice in mDice)
-            {
-                DieBehavior db = dice.GetComponent<DieBehavior>();
-                allDiceDead &= (db.Moves == 0);
-            }
-        }
-
         // Restart screen pops up if all objects hit 0
-        if (allDiceDead)
+        if (ShouldRestart())
         {
             // Allow time for hitting the wall animation
             restartScreenTimer += Time.deltaTime;
@@ -157,5 +144,33 @@ public class GameEvent : MonoBehaviour
                 }
             }
         }
+    }
+
+    private bool ShouldRestart()
+    {
+        bool allDiceDead = false;
+        bool allHolesCompleted = false;
+        // Check if all dice and coins reaches 0
+        if (mDice.Any())
+        {
+            allDiceDead = (mDice[0].GetComponent<DieBehavior>().Moves == 0);
+            foreach (var dice in mDice)
+            {
+                DieBehavior diceBehavior = dice.GetComponent<DieBehavior>();
+                allDiceDead &= (diceBehavior.Moves == 0);
+            }
+        }
+        // Check all hole numbers if no dice are alive
+        else
+        {
+            allDiceDead = true;
+            allHolesCompleted = (mHoles[0].GetComponent<HoleBehavior>().GetCurrentHoleCount() == 0);
+            foreach (var hole in mHoles)
+            {
+                HoleBehavior holeBehavior = hole.GetComponent<HoleBehavior>();
+                allHolesCompleted &= (holeBehavior.GetCurrentHoleCount() == 0);
+            }
+        }
+        return allDiceDead && !allHolesCompleted;
     }
 }

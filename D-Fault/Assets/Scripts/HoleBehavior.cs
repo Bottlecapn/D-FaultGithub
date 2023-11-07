@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class HoleBehavior : Tile
 {
     [SerializeField] int holePar;
-    int mCurrentHoleCount;
+    private int mCurrentHoleCount;
     AudioSource sfx;
     [SerializeField] AudioClip scoreSound, completeSound;
     NumberDisplay holeNumberDisplay;
@@ -42,11 +42,12 @@ public class HoleBehavior : Tile
         DieBehavior d = dice.GetComponent<DieBehavior>();
         while (true)
         {
-            if (dice == null && !holeNumberDisplay.IsCounting()) {
+            if (dice == null && !holeNumberDisplay.IsCounting())
+            {
                 break;
             }
-            if(holeNumberDisplay.IsCounting())
-                    yield return new WaitForEndOfFrame();
+            if (holeNumberDisplay.IsCounting())
+                yield return new WaitForEndOfFrame();
             yield return null;
         }
 
@@ -55,9 +56,12 @@ public class HoleBehavior : Tile
         StartCoroutine(holeNumberDisplay.CountDown(mCurrentHoleCount, Mathf.Clamp(mCurrentHoleCount - d.Moves, 0, 1000)));
         while (true)
         {
-            if (holeNumberDisplay.IsCounting()) {
+            if (holeNumberDisplay.IsCounting())
+            {
                 yield return null;
-            } else {
+            }
+            else
+            {
                 break;
             }
         }
@@ -66,12 +70,15 @@ public class HoleBehavior : Tile
         // wait for a second if level is complete before loading the next one.
         mCurrentHoleCount -= d.Moves;
         d.Moves = 0;
-        if (mCurrentHoleCount <= 0) {
+        if (mCurrentHoleCount <= 0)
+        {
             mCurrentHoleCount = 0;
             sfx.PlayOneShot(completeSound);
             yield return new WaitForSeconds(1);
             mCompleted = true;
-        } else {
+        }
+        else
+        {
             print("Scored");
         }
         yield break;
@@ -87,5 +94,10 @@ public class HoleBehavior : Tile
     public bool GetCompleted()
     {
         return mCompleted;
+    }
+
+    public int GetCurrentHoleCount()
+    {
+        return mCurrentHoleCount;
     }
 }
