@@ -125,7 +125,6 @@ public class DieBehavior : MonoBehaviour
             {
                 dieParent.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
             }
-            
         }
     }
 
@@ -253,6 +252,7 @@ public class DieBehavior : MonoBehaviour
         sfx.pitch = 1f;
         if (sound == 0)
         {
+            sfx.pitch = Random.Range(1.05f, .9f);
             sfx.PlayOneShot(moveSound);
         }
         else if (sound == 1)

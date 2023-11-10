@@ -8,11 +8,14 @@ public class PauseMenu : MonoBehaviour
 {
     public bool Paused = false;
     public GameObject pauseUI;
-
+    AudioSource sfx;
+    [SerializeField]
+    AudioClip restartSound;
 
     void Start()
     {
         pauseUI.SetActive(false);
+        sfx = gameObject.GetComponent<AudioSource>();
     }
 
 
@@ -31,7 +34,15 @@ public class PauseMenu : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.R))
         {
-            Resume();
+            if (Paused) 
+            { 
+                Resume();
+            } 
+            else
+            {
+                sfx.PlayOneShot(restartSound);
+                Invoke("Restart", 0.5f);
+            }
         }
     }
 
@@ -49,6 +60,11 @@ public class PauseMenu : MonoBehaviour
         pauseUI.SetActive(true);
         Time.timeScale = 0f;
         Paused = true;
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 

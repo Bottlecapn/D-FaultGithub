@@ -307,8 +307,9 @@ MonoBehaviour:
   white: {fileID: 2100000, guid: 0bedf5a29bb4c13479f857d4d8122b02, type: 2}
   yellow: {fileID: 2100000, guid: 7cc4529e5bc9bc241a49eb7edee1794c, type: 2}
   cubeRenderer: {fileID: 2162044043459844649}
-  addSound: {fileID: 8300000, guid: 8ab04876a79a2d84ba9c9808208cf454, type: 3}
-  moveSound: {fileID: 8300000, guid: f9fc1dd33ce480341b09b5259deada43, type: 3}
+  addSound: {fileID: 8300000, guid: 1976aa0e93223794e9ef0e00eed50dec, type: 3}
+  moveSound: {fileID: 8300000, guid: e48bf9276d439164c9f585697d42d6a3, type: 3}
+  coinCombineSound: {fileID: 8300000, guid: 047c8298f7d73e943935f7cd7f4863c9, type: 3}
   Moves: 10
   moveDistance: 1
   defaultHeight: 0.5
