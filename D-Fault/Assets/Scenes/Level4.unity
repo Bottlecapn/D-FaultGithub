@@ -353,6 +353,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6032929910268723468, guid: fd436a09c5023f74d828eedde9afec9c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032929910268723468, guid: fd436a09c5023f74d828eedde9afec9c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -165
+      objectReference: {fileID: 0}
     - target: {fileID: 7653559105199641685, guid: fd436a09c5023f74d828eedde9afec9c, type: 3}
       propertyPath: m_Camera
       value: 
