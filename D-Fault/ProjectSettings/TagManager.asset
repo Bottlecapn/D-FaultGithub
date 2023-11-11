@@ -12,6 +12,7 @@ TagManager:
   - Telemetry
   - RestartCanvas
   - PauseMenuCanvas
+  - TutorialCanvas
   layers:
   - Default
   - TransparentFX
