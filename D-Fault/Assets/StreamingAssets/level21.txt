@@ -4,7 +4,7 @@ WD...W......
 ....CW..WW..
 ..WWWW.WWD.W
 .....W..WW..
-W..WW..H.W..
+W..WW.HH.W..
 ....W...W...
 WW.W..W..W.W
 .....W.W...C
