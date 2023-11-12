@@ -138,10 +138,9 @@ public class GameEvent : MonoBehaviour
                 TutorialRestart tr = GameObject.FindGameObjectWithTag("RestartCanvas").GetComponent<TutorialRestart>();
                 GameObject oth = GameObject.FindGameObjectWithTag("TutorialCanvas");
                 if (oth != null) {
-                    TutorialMenu tmu = oth.GetComponent<TutorialMenu>();
-                    if (tmu.PanelCanvas.activeSelf) {
-                    tmu.PanelCanvas.SetActive(false);
-                }
+                    if (oth.activeSelf) {
+                        oth.SetActive(false);
+                    }
                 }
                 // if the restart canvas is not active
                 if (!tr.PanelCanvas.activeSelf)
