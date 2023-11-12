@@ -13,6 +13,7 @@ TagManager:
   - RestartCanvas
   - PauseMenuCanvas
   - TutorialCanvas
+  - GameProgress
   layers:
   - Default
   - TransparentFX

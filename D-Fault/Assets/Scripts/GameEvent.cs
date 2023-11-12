@@ -38,6 +38,71 @@ public class GameEvent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Disable selection if in pause menu OR if any OBJECT IS MOVING
+        ToggleSelectionDisabled();
+
+        // update mCanSelect of all dice every frame
+        // If selection is disabled, set all dice unselectable, vice versa
+        foreach (var dice in mDice)
+        {
+            DieBehavior db = dice.GetComponent<DieBehavior>();
+            if (db != null)
+            {
+                db.SetCanSelect(!mSelectionDisabled);
+            }
+        }
+
+        // every frame, check if every hole is completed
+        mLevelCompleted = mHoles[0].GetComponent<HoleBehavior>().GetCompleted();
+        foreach (var hole in mHoles)
+        {
+            HoleBehavior hb = hole.GetComponent<HoleBehavior>();
+            if (hb != null)
+            {
+                mLevelCompleted &= hb.GetCompleted();
+            }
+        }
+
+        // if this level is completed, load transition scene
+        if (mLevelCompleted)
+        {
+            OutputTelemetryData();
+            EnableLevelSelectButton();
+
+            PlayerPrefs.SetInt("buildIndex", SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene("LevelTransition");
+        }
+
+        // Restart screen pops up if all objects hit 0
+        if (ShouldRestart())
+        {
+            // Allow time for hitting the wall animation
+            restartScreenTimer += Time.deltaTime;
+            if (restartScreenTimer >= RESTART_SCREEN_TIME)
+            {
+                restartScreenTimer = 0.0f;
+                TutorialRestart tr = GameObject.FindGameObjectWithTag("RestartCanvas").GetComponent<TutorialRestart>();
+                GameObject oth = GameObject.FindGameObjectWithTag("TutorialCanvas");
+                if (oth != null)
+                {
+                    if (oth.activeSelf)
+                    {
+                        oth.SetActive(false);
+                    }
+                }
+                // if the restart canvas is not active
+                if (!tr.PanelCanvas.activeSelf)
+                {
+                    // spawn restart screen
+                    tr.PanelCanvas.SetActive(true);
+                }
+            }
+        }
+    }
+
+    // Disable selection if in pause menu OR if any OBJECT IS MOVING
+    private void ToggleSelectionDisabled()
+    {
         // every frame, if in pause menu
         if (GameObject.FindGameObjectWithTag("PauseMenuCanvas").GetComponent<PauseMenu>().Paused)
         {
@@ -68,90 +133,9 @@ public class GameEvent : MonoBehaviour
                 }
             }
         }
-
-        // update mCanSelect of all dice every frame
-        if (mSelectionDisabled)
-        {
-            foreach (var dice in mDice)
-            {
-                DieBehavior db = dice.GetComponent<DieBehavior>();
-                if (db != null)
-                {
-                    db.SetCanSelect(false);
-                }
-            }
-        }
-        else
-        {
-            foreach (var dice in mDice)
-            {
-                DieBehavior db = dice.GetComponent<DieBehavior>();
-                if (db != null)
-                {
-                    db.SetCanSelect(true);
-                }
-            }
-        }
-
-        // every frame, check if every hole is completed
-        mLevelCompleted = mHoles[0].GetComponent<HoleBehavior>().GetCompleted();
-        foreach (var hole in mHoles)
-        {
-            HoleBehavior hb = hole.GetComponent<HoleBehavior>();
-            mLevelCompleted &= hb.GetCompleted();
-        }
-
-        // if this level is completed, load transition scene
-        if (mLevelCompleted)
-        {
-            // output telemtry data
-            GameObject TelemetryManager = GameObject.FindGameObjectWithTag("Telemetry");
-            Telemetry tele = null;
-            if (TelemetryManager != null)
-            {
-                tele = TelemetryManager.GetComponent<Telemetry>();
-            }
-            if (tele != null)
-            {
-                // only outputing Telemetry data for the level scenes
-                // NOTE: CHANGE THE RANGE IF MORE LEVELS ARE ADDED
-                if (SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex <= 21)
-                {
-                    string filePath = Path.Combine(Application.streamingAssetsPath, "TelemetryData.txt");
-                    StreamWriter sw = new StreamWriter(filePath, true);
-                    sw.WriteLine("Level " + SceneManager.GetActiveScene().buildIndex + ": Restarts: " + tele.GetRestartTimes() + " Time: " + tele.GetTimeEachLevel());
-                    sw.Close();
-                }
-            }
-            PlayerPrefs.SetInt("buildIndex", SceneManager.GetActiveScene().buildIndex + 1);
-            SceneManager.LoadScene("LevelTransition");
-        }
-
-        // Restart screen pops up if all objects hit 0
-        if (ShouldRestart())
-        {
-            // Allow time for hitting the wall animation
-            restartScreenTimer += Time.deltaTime;
-            if (restartScreenTimer >= RESTART_SCREEN_TIME)
-            {
-                restartScreenTimer = 0.0f;
-                TutorialRestart tr = GameObject.FindGameObjectWithTag("RestartCanvas").GetComponent<TutorialRestart>();
-                GameObject oth = GameObject.FindGameObjectWithTag("TutorialCanvas");
-                if (oth != null) {
-                    if (oth.activeSelf) {
-                        oth.SetActive(false);
-                    }
-                }
-                // if the restart canvas is not active
-                if (!tr.PanelCanvas.activeSelf)
-                {
-                    // spawn restart screen
-                    tr.PanelCanvas.SetActive(true);
-                }
-            }
-        }
     }
 
+    // Check the condition of restart screen display
     private bool ShouldRestart()
     {
         bool allDiceDead = false;
@@ -178,5 +162,50 @@ public class GameEvent : MonoBehaviour
             }
         }
         return allDiceDead && !allHolesCompleted;
+    }
+
+    private void OutputTelemetryData()
+    {
+        // output telemtry data
+        GameObject TelemetryManager = GameObject.FindGameObjectWithTag("Telemetry");
+        Telemetry tele = null;
+        if (TelemetryManager != null)
+        {
+            tele = TelemetryManager.GetComponent<Telemetry>();
+        }
+        if (tele != null)
+        {
+            // only outputing Telemetry data for the level scenes
+            // NOTE: CHANGE THE RANGE IF MORE LEVELS ARE ADDED
+            if (SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex <= 22)
+            {
+                string filePath = Path.Combine(Application.streamingAssetsPath, "TelemetryData.txt");
+                StreamWriter sw = new StreamWriter(filePath, true);
+                sw.WriteLine("Level " + SceneManager.GetActiveScene().buildIndex + ": Restarts: " + tele.GetRestartTimes() + " Time: " + tele.GetTimeEachLevel());
+                sw.Close();
+            }
+        }
+    }
+
+    private void EnableLevelSelectButton()
+    {
+        // enable next level select button
+        GameObject GameProgress = GameObject.FindGameObjectWithTag("GameProgress");
+        GameProgress gp = null;
+        if (GameProgress != null)
+        {
+            gp = GameProgress.GetComponent<GameProgress>();
+        }
+        if (gp != null)
+        {
+            // Every time a level is completed, enable the level button for the next level
+            int nextSceneBuildIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            // NOTE: CHANGE THE RANGE IF MORE LEVELS ARE ADDED
+            if (nextSceneBuildIndex >= 2 && nextSceneBuildIndex <= 22)
+            {
+                gp.GetLevelUnlocked()[nextSceneBuildIndex - 1] = true;
+                //print(gp.GetLevelUnlocked()[1]);
+            }
+        }
     }
 }
