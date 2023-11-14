@@ -14,8 +14,10 @@ public class MainMenu : MonoBehaviour
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().name.Equals("LevelTransition")) {
-            if (Input.GetKeyDown(KeyCode.Space)) {
+        if (SceneManager.GetActiveScene().name.Equals("LevelTransition"))
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
                 buildIndexNumber = PlayerPrefs.GetInt("buildIndex");
                 Invoke("ChangeScene", delay);
             }
@@ -51,13 +53,6 @@ public class MainMenu : MonoBehaviour
     public void ReturnMainMenu()
     {
         sceneName = "MainMenu";
-        Invoke("ChangeScene", delay);
-    }
-
-    public void Level(Button b)
-    {
-        string txt = b.GetComponentInChildren<TMP_Text>().text;
-        sceneName = "Level" + txt;
         Invoke("ChangeScene", delay);
     }
 
