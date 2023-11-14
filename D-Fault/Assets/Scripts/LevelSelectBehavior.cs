@@ -15,12 +15,19 @@ public class LevelSelectBehavior : MonoBehaviour
     private void Start()
     {
         GameObject gameProgress = GameObject.FindGameObjectWithTag("GameProgress");
-        GameProgress gp = gameProgress.GetComponent<GameProgress>();
-        List<bool> levelUnlocked = gp.GetLevelUnlocked();
-        for (int i = 0; i < levelUnlocked.Count; i++)
+        GameProgress gp = null;
+        if (gameProgress != null)
         {
-            Button b = gameObject.transform.GetChild(i).GetComponent<Button>();
-            b.interactable = levelUnlocked[i];
+            gp = gameProgress.GetComponent<GameProgress>();
+        }
+        if (gp != null)
+        {
+            List<bool> levelUnlocked = gp.GetLevelUnlocked();
+            for (int i = 0; i < levelUnlocked.Count; i++)
+            {
+                Button b = gameObject.transform.GetChild(i).GetComponent<Button>();
+                b.interactable = levelUnlocked[i];
+            }
         }
     }
 
