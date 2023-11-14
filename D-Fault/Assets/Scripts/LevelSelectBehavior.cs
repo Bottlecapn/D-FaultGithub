@@ -12,6 +12,18 @@ public class LevelSelectBehavior : MonoBehaviour
 
     float delay = 0.2f;
 
+    private void Start()
+    {
+        GameObject gameProgress = GameObject.FindGameObjectWithTag("GameProgress");
+        GameProgress gp = gameProgress.GetComponent<GameProgress>();
+        List<bool> levelUnlocked = gp.GetLevelUnlocked();
+        for (int i = 0; i < levelUnlocked.Count; i++)
+        {
+            Button b = gameObject.transform.GetChild(i).GetComponent<Button>();
+            b.enabled = levelUnlocked[i];
+        }
+    }
+
     private void ChangeScene()
     {
         if (sceneName == "")
