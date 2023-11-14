@@ -9,7 +9,7 @@ public class HoleBehavior : Tile
     [SerializeField] int holePar;
     private int mCurrentHoleCount;
     AudioSource sfx;
-    [SerializeField] AudioClip scoreSound, completeSound;
+    [SerializeField] AudioClip scoreSoundCoin, scoreSoundDice, completeSound;
     NumberDisplay holeNumberDisplay;
     private bool mCompleted = false; // for game event manager
 
@@ -36,7 +36,12 @@ public class HoleBehavior : Tile
     {
         // play initial scoring sound
         sfx.pitch = 1f;
-        sfx.PlayOneShot(scoreSound);
+        if (dice.CompareTag("Dice")) { 
+            sfx.PlayOneShot(scoreSoundDice);
+        } else if (dice.CompareTag("Coin"))
+        {
+            sfx.PlayOneShot(scoreSoundCoin);
+        }
 
         // waits until die is destroyed AND the previous coroutine is finished before counting down.
         DieBehavior d = dice.GetComponent<DieBehavior>();
