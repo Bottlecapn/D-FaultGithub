@@ -678,9 +678,9 @@ MonoBehaviour:
   slot2: {fileID: 8975518447423298665}
   slot3: {fileID: 6831644288884004001}
   maxDuration: 13
-  useAudio: 0
+  useAudio: 1
   sfx: {fileID: 4636791156708243462}
-  countSound: {fileID: 8300000, guid: efe284dfd3174bf44a506b57c478eb13, type: 3}
+  countSound: {fileID: 8300000, guid: 9587720b232dbb94191d2f9c8c38478c, type: 3}
   numberSprites:
   - {fileID: -1205788998, guid: fe4721fd1ea04c24084b1a74231a1f1e, type: 3}
   - {fileID: -1393070703, guid: fe4721fd1ea04c24084b1a74231a1f1e, type: 3}
@@ -705,8 +705,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holePar: 0
-  scoreSound: {fileID: 8300000, guid: 2afb157186bfe204186c24fd63cb8d21, type: 3}
-  completeSound: {fileID: 8300000, guid: 2cceb7b0baf2cc64cb1bd8067e44701b, type: 3}
+  scoreSoundCoin: {fileID: 8300000, guid: f45e527d9e528404294d7cb7102ca58b, type: 3}
+  scoreSoundDice: {fileID: 8300000, guid: 3551d5247915ca845a5b396f59dd41fe, type: 3}
+  completeSound: {fileID: 8300000, guid: 8872ad3b5721cc741bd39db0f17ef4ed, type: 3}
 --- !u!1 &5663972595077043133
 GameObject:
   m_ObjectHideFlags: 0
