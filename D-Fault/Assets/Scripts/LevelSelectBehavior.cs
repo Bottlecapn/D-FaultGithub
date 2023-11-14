@@ -20,7 +20,7 @@ public class LevelSelectBehavior : MonoBehaviour
         for (int i = 0; i < levelUnlocked.Count; i++)
         {
             Button b = gameObject.transform.GetChild(i).GetComponent<Button>();
-            b.enabled = levelUnlocked[i];
+            b.interactable = levelUnlocked[i];
         }
     }
 
