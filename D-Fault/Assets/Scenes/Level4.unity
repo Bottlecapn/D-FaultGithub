@@ -767,7 +767,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 61.8318, y: 140.5}
+  m_AnchoredPosition: {x: 20.2, y: 141.4}
   m_SizeDelta: {x: 504.3482, y: 26.3373}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1271289216
@@ -790,7 +790,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You can combine two objects to add their values together.
+  m_text: You can combine two dice to add their values together.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5c73238e13016c4382110624ee5ba91, type: 2}
   m_sharedMaterial: {fileID: -7249032509463807619, guid: b5c73238e13016c4382110624ee5ba91, type: 2}
