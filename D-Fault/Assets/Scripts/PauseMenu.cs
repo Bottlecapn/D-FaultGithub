@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
+using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
     public bool Paused = false;
+    public Button pauseButton;
     public GameObject pauseUI;
     AudioSource sfx;
     [SerializeField]
@@ -34,16 +36,21 @@ public class PauseMenu : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.R))
         {
-            if (Paused) 
-            { 
+            if (Paused)
+            {
                 Resume();
-            } 
+            }
             else
             {
                 sfx.PlayOneShot(restartSound);
                 Invoke("Restart", 0.5f);
             }
         }
+    }
+
+    public void Pause(Button b)
+    {
+        Pause();
     }
 
 
