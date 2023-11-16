@@ -413,8 +413,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "- Click on a dice to select it,\n  and use WASD to move it.\n- Press 'R'
-    to restart a level.\n- Press 'Esc' to pause the game."
+  m_text: "- Click on a dice to select,\n  and use WASD to move.\n- Press 'R' to
+    restart a level.\n- Press 'Esc' to pause the game."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5c73238e13016c4382110624ee5ba91, type: 2}
   m_sharedMaterial: {fileID: -7249032509463807619, guid: b5c73238e13016c4382110624ee5ba91, type: 2}

@@ -1,6 +1,0 @@
-Level 1: Restarts: 0 Time: 11.33908
-Level 2: Restarts: 0 Time: 16.18684
-Level 1: Restarts: 0 Time: 8.711844
-Level 2: Restarts: 0 Time: 9.485367
-Level 3: Restarts: 0 Time: 7.922491
-Level 4: Restarts: 0 Time: 8.875401
