@@ -14,11 +14,8 @@ public class GameEvent : MonoBehaviour
     private bool mLevelCompleted = false;
     // Restart screen pops up 1 second later after fail
     private float restartScreenTimer = 0.0f;
-<<<<<<< Updated upstream
-    private const float RESTART_SCREEN_TIME = 3.0f;
-=======
     private const float RESTART_SCREEN_TIME = 1.0f;
->>>>>>> Stashed changes
+
 
     // Start is called before the first frame update
     void Start()
