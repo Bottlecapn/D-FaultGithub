@@ -34,10 +34,14 @@ public class AudioManager : MonoBehaviour
         if(SceneManager.GetActiveScene().buildIndex >= 7 && SceneManager.GetActiveScene().buildIndex <= 24)
         {
             backgroundMusic.clip = bg2;
-        } else
-        {
+        } else if (SceneManager.GetActiveScene().buildIndex > 24) 
+        { 
+            backgroundMusic.clip = backgroundMusic.clip;
+        } else { 
             backgroundMusic.clip = bg1;
         }
+
+
         if (!backgroundMusic.isPlaying)
         {
             backgroundMusic.Play();
