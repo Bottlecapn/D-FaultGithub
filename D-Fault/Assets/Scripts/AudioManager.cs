@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
     private static AudioManager audioManager = null;
     private AudioSource backgroundMusic;
+    [SerializeField]
+    private AudioClip bg1, bg2;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,13 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(SceneManager.GetActiveScene().buildIndex >= 7)
+        {
+            backgroundMusic.clip = bg2;
+        } else
+        {
+            backgroundMusic.clip = bg1;
+        }
         if (!backgroundMusic.isPlaying)
         {
             backgroundMusic.Play();
