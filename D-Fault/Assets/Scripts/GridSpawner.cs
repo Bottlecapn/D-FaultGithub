@@ -12,6 +12,7 @@ public class GridSpawner : MonoBehaviour
     [SerializeField] GameObject die;
     [SerializeField] GameObject wall;
     [SerializeField] GameObject coin;
+    [SerializeField] GameObject bg;
     [SerializeField] int[] diceValues;
     //[SerializeField] TextAsset level;
 
@@ -260,6 +261,8 @@ public class GridSpawner : MonoBehaviour
             currentY += 1;
         }
         camPivot.transform.position = new Vector3(currentX / 2, 0, currentY / 2);
+        //GameObject background = Instantiate(bg);
+        //background.transform.position = new Vector3(currentX / 2, 0, currentY / 2);
         reader.Close();
     }
 }

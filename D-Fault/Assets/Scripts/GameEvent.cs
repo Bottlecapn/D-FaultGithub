@@ -14,7 +14,8 @@ public class GameEvent : MonoBehaviour
     private bool mLevelCompleted = false;
     // Restart screen pops up 1 second later after fail
     private float restartScreenTimer = 0.0f;
-    private const float RESTART_SCREEN_TIME = 3.0f;
+    private const float RESTART_SCREEN_TIME = 1.0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -140,6 +141,7 @@ public class GameEvent : MonoBehaviour
     {
         bool allDiceDead = false;
         bool allHolesCompleted = false;
+        bool holesCountingDown = false;
         // Check if all dice and coins reaches 0
         if (mDice.Any())
         {
@@ -159,9 +161,13 @@ public class GameEvent : MonoBehaviour
             {
                 HoleBehavior holeBehavior = hole.GetComponent<HoleBehavior>();
                 allHolesCompleted &= (holeBehavior.GetCurrentHoleCount() == 0);
+                if(holeBehavior.GetIsCounting() == true)
+                {
+                    holesCountingDown = true;
+                }
             }
         }
-        return allDiceDead && !allHolesCompleted;
+        return allDiceDead && !allHolesCompleted && !holesCountingDown;
     }
 
     private void OutputTelemetryData()

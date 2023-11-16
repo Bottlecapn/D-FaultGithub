@@ -12,6 +12,7 @@ public class HoleBehavior : Tile
     [SerializeField] AudioClip scoreSoundCoin, scoreSoundDice, completeSound;
     NumberDisplay holeNumberDisplay;
     private bool mCompleted = false; // for game event manager
+    private bool mCountingDown = false; // for game event manager
 
     private void Awake()
     {
@@ -34,6 +35,7 @@ public class HoleBehavior : Tile
     // Coroutine that starts the scoring sequence and number counting down.
     private IEnumerator ScoreSequence(GameObject dice)
     {
+        mCountingDown = true;
         // play initial scoring sound
         sfx.pitch = 1f;
         if (dice.CompareTag("Dice")) { 
@@ -86,6 +88,7 @@ public class HoleBehavior : Tile
         {
             print("Scored");
         }
+        mCountingDown = false;
         yield break;
     }
 
@@ -104,5 +107,10 @@ public class HoleBehavior : Tile
     public int GetCurrentHoleCount()
     {
         return mCurrentHoleCount;
+    }
+
+    public bool GetIsCounting()
+    {
+        return mCountingDown;
     }
 }
