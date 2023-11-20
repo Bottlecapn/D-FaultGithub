@@ -242,17 +242,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94346661}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 981165141}
+  m_Father: {fileID: 257381762}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -28.700014}
-  m_SizeDelta: {x: 638, y: 50}
+  m_AnchoredPosition: {x: 0.0010461807, y: 3.3210144}
+  m_SizeDelta: {x: 712.3958, y: 43.3575}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &94346663
 MonoBehaviour:
@@ -274,8 +274,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "This new object is a      .   \nCoins move two tiles at a time, and they
-    can even jump over walls!"
+  m_text: '      move two tiles at a time, and they can jump over walls.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5c73238e13016c4382110624ee5ba91, type: 2}
   m_sharedMaterial: {fileID: -7249032509463807619, guid: b5c73238e13016c4382110624ee5ba91, type: 2}
@@ -352,6 +351,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94346661}
   m_CullTransparentMesh: 1
+--- !u!1 &257381761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 257381762}
+  m_Layer: 5
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &257381762
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257381761}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1183620689}
+  - {fileID: 94346662}
+  m_Father: {fileID: 981165141}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 17, y: -42}
+  m_SizeDelta: {x: 712.39795, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &303568430
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,8 +596,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1183620689}
-  - {fileID: 94346662}
+  - {fileID: 257381762}
   m_Father: {fileID: 1061475424}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -710,16 +745,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183620688}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 981165141}
+  m_Father: {fileID: 257381762}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 84.5, y: -28.700014}
+  m_AnchoredPosition: {x: -247.19894, y: 0.00001335144}
   m_SizeDelta: {x: 218, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1183620690
@@ -742,7 +777,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Coin
+  m_text: Coins
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5c73238e13016c4382110624ee5ba91, type: 2}
   m_sharedMaterial: {fileID: -7249032509463807619, guid: b5c73238e13016c4382110624ee5ba91, type: 2}
