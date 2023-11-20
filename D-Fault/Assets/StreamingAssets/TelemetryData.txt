@@ -1,2 +1,0 @@
-Level 7: Restarts: 0 Time: 12.11546
-Level 1: Restarts: 0 Time: 8.483546
