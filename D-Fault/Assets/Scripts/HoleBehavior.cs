@@ -81,7 +81,7 @@ public class HoleBehavior : Tile
         {
             mCurrentHoleCount = 0;
             sfx.PlayOneShot(completeSound);
-            yield return new WaitForSeconds(1);
+            //yield return new WaitForSeconds(1);
             mCompleted = true;
         }
         else

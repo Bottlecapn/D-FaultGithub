@@ -707,7 +707,7 @@ MonoBehaviour:
   holePar: 0
   scoreSoundCoin: {fileID: 8300000, guid: f45e527d9e528404294d7cb7102ca58b, type: 3}
   scoreSoundDice: {fileID: 8300000, guid: 3551d5247915ca845a5b396f59dd41fe, type: 3}
-  completeSound: {fileID: 8300000, guid: 8872ad3b5721cc741bd39db0f17ef4ed, type: 3}
+  completeSound: {fileID: 8300000, guid: 87ab43c939837104b8d2ab863cf8c605, type: 3}
 --- !u!1 &5663972595077043133
 GameObject:
   m_ObjectHideFlags: 0
