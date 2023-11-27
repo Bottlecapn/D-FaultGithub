@@ -13,6 +13,8 @@ public class GridSpawner : MonoBehaviour
     [SerializeField] GameObject wall;
     [SerializeField] GameObject coin;
     [SerializeField] GameObject bg;
+    [SerializeField] GameObject boardCorner;
+    [SerializeField] GameObject boardEdge;
     [SerializeField] int[] diceValues;
     //[SerializeField] TextAsset level;
 
@@ -235,6 +237,8 @@ public class GridSpawner : MonoBehaviour
             }
             currentY += 1; // TODO: variable should be the size of the tile, not hardcoded
         }
+        // Genereate the visual border of the game board
+        GenerateBorder(currentX, currentY);
 
         foreach (DieBehavior d in diceInLevel)
         {
@@ -249,7 +253,7 @@ public class GridSpawner : MonoBehaviour
         }
         else
         {
-            currentX += 1;
+            currentX -= 1;
         }
 
         if (currentY % 2 == 1)
@@ -258,11 +262,73 @@ public class GridSpawner : MonoBehaviour
         }
         else
         {
-            currentY += 1;
+            currentY -= 1;
         }
-        camPivot.transform.position = new Vector3(currentX / 2, 0, currentY / 2);
-        //GameObject background = Instantiate(bg);
-        //background.transform.position = new Vector3(currentX / 2, 0, currentY / 2);
+        print("CurX: " + currentX + ", CurY: " + currentY);
+        camPivot.transform.position = new Vector3((float)currentX / 2f, 0, (float)currentY / 2f);
+        if(bg != null) { 
+            GameObject background = Instantiate(bg);
+            background.transform.position = new Vector3((float)currentX / 2f, -1.2f, (float)currentY / 2f);
+        }
         reader.Close();
+    }
+
+
+    // Generates the board's border in each level.
+    void GenerateBorder(int boardX, int boardY)
+    {
+        GameObject objectToSpawn = null;
+        Vector3 spawnPoint = new Vector3(0,0,0);
+        Quaternion rotationValue = new Quaternion(0, 0, 0, 0);
+        for (int y = -1; y < boardY+1; y++){
+            for (int x = -1; x < boardX+1; x++)
+            {
+                objectToSpawn = null;
+                if(x == -1)
+                {
+                    if(y == -1) {
+                        objectToSpawn = boardCorner;
+                        rotationValue = new Quaternion(-90,180,0,0);
+                    } else if (y == boardY) {
+                        objectToSpawn = boardCorner;
+                        rotationValue =  new Quaternion(-90,0,-90,0);
+                    } else {
+                        objectToSpawn = boardEdge;
+                        rotationValue = new Quaternion(-90, 0, -90, 0);
+                    }
+                } 
+                else if (x == boardX)
+                {
+                    if (y == -1) {
+                        objectToSpawn = boardCorner;
+                        rotationValue = new Quaternion(-90, 0, 90, 0);
+                    } else if (y == boardY) {
+                        objectToSpawn = boardCorner;
+                        rotationValue = new Quaternion(-90, 0, 0, 0);
+                    } else {
+                        objectToSpawn = boardEdge;
+                        rotationValue = new Quaternion(-90, 0, 90, 0);
+                    }
+                } 
+                else
+                {
+                    if (y == -1) {
+                        objectToSpawn = boardEdge;
+                        //rotationValue = new Quaternion(-90,180,0,0);
+                    } else if (y == boardY) {
+                        objectToSpawn = boardEdge;
+                        rotationValue = new Quaternion(-90, 0, 0, 0);
+                    }
+                }
+                spawnPoint = new Vector3(transform.position.x + x, -0.25f, transform.position.y + y);
+                if(objectToSpawn != null) { 
+                    print(rotationValue);
+                    GameObject go = Instantiate(objectToSpawn, transform);
+                    go.transform.position = spawnPoint;
+                    go.transform.rotation = Quaternion.Euler(rotationValue.x, rotationValue.y, rotationValue.z);
+                    //go.transform.rotation = rotationValue;
+                }
+            }
+        }
     }
 }

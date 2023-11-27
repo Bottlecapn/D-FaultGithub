@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 10650e1be821a6e46818a0773989c0a8
+guid: c0be2fe1d6c4f2945a1c301987fc0096
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4882522333714097938
-    second: tempbg_0
+      213: 3010622787186760819
+    second: carpetTextureTiled_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -98,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tempbg_0
+      name: carpetTextureTiled_0
       rect:
         serializedVersion: 2
-        x: 95
-        y: 97
-        width: 801
-        height: 801
+        x: 0
+        y: 0
+        width: 3000
+        height: 3000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 217a0fc913432c340800000000000000
-      internalID: 4882522333714097938
+      spriteID: 37c96f65971e7c920800000000000000
+      internalID: 3010622787186760819
       vertices: []
       indices: 
       edges: []
@@ -128,8 +128,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      tempbg_0: 4882522333714097938
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
