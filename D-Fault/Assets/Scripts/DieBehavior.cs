@@ -247,11 +247,13 @@ public class DieBehavior : MonoBehaviour
     // Called by Animation events in the die's animation (do not call in code).
     protected void PlaySFX(int sound)
     {
+        sfx.Stop();
         sfx.pitch = 1f;
         if (sound == 0)
         {
             sfx.pitch = Random.Range(1.05f, .9f);
-            sfx.PlayOneShot(moveSound);
+            sfx.clip = moveSound;
+            sfx.Play();
         }
         else if (sound == 1)
         {
@@ -261,15 +263,18 @@ public class DieBehavior : MonoBehaviour
         {
             //moveDeny / Rebound sound
             sfx.pitch = Random.Range(1.05f, .9f);
-            sfx.PlayOneShot(moveDenySound);
+            sfx.clip = moveDenySound;
+            sfx.Play();
         } 
         else if (sound == 3)
         {
-            sfx.PlayOneShot(sameCombineSound);
+            sfx.clip = sameCombineSound;
+            sfx.Play();
         } 
         else if (sound == 4)
         {
-            sfx.PlayOneShot(differentCombineSound);
+            sfx.clip = differentCombineSound;
+            sfx.Play();
         }
     }
 
