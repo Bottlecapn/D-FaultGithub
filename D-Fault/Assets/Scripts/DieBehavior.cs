@@ -209,7 +209,7 @@ public class DieBehavior : MonoBehaviour
                 anim.SetTrigger("Add");
                 DieBehavior otherDie = other.gameObject.GetComponent<DieBehavior>();
                 otherDie.Moves += Moves;
-                otherDie.anim.SetTrigger("Add");
+                otherDie.anim.SetTrigger("AddCoin");
                 otherDie.SetSelection(true);
                 this.SetSelection(false);
             }

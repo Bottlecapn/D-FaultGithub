@@ -16,6 +16,7 @@ public class GridSpawner : MonoBehaviour
     [SerializeField] GameObject boardCorner;
     [SerializeField] GameObject boardEdge;
     [SerializeField] int[] diceValues;
+    float rotationSpeed = 0.1f;
     //[SerializeField] TextAsset level;
 
     // Start is called before the first frame update
@@ -268,7 +269,9 @@ public class GridSpawner : MonoBehaviour
         camPivot.transform.position = new Vector3((float)currentX / 2f, 0, (float)currentY / 2f);
         if(bg != null) { 
             GameObject background = Instantiate(bg);
-            background.transform.position = new Vector3((float)currentX / 2f, -1.2f, (float)currentY / 2f);
+            background.transform.position = new Vector3((float)currentX / 2f, -0.8f, (float)currentY / 2f);
+            //float sizeAverage = (currentX+currentY)/2f;
+            //background.transform.localScale = new Vector3(1+sizeAverage*0.001f, 1 + sizeAverage * 0.001f, 1f);
         }
         reader.Close();
     }
