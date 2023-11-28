@@ -74,12 +74,12 @@ public class GameEvent : MonoBehaviour
 
         // if this level is completed, load transition scene
         if (mLevelCompleted)
-        {   
+        {
             if (!mEndLevelStarted)
             {
                 mEndLevelStarted = true;
                 sfx.PlayOneShot(levelCompleteSFX);
-                Invoke("EndAnimation",0.5f);
+                Invoke("EndAnimation", 0.5f);
                 Invoke("EndLevel", 1.75f);
             }
         }
@@ -171,7 +171,7 @@ public class GameEvent : MonoBehaviour
             {
                 HoleBehavior holeBehavior = hole.GetComponent<HoleBehavior>();
                 allHolesCompleted &= (holeBehavior.GetCurrentHoleCount() == 0);
-                if(holeBehavior.GetIsCounting() == true)
+                if (holeBehavior.GetIsCounting() == true)
                 {
                     holesCountingDown = true;
                 }
@@ -230,8 +230,7 @@ public class GameEvent : MonoBehaviour
         OutputTelemetryData();
         EnableLevelSelectButton();
 
-        PlayerPrefs.SetInt("buildIndex", SceneManager.GetActiveScene().buildIndex + 1);
-        SceneManager.LoadScene("LevelTransition");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private void EndAnimation()
