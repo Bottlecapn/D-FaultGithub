@@ -42,6 +42,7 @@ public class HoleBehavior : Tile
     {
         mCountingDown = true;
         DieBehavior d = dice.GetComponent<DieBehavior>();
+
         // play initial scoring sound
         sfx.pitch = 1f;
         if (d.Moves > 0) { 
@@ -89,22 +90,28 @@ public class HoleBehavior : Tile
             }
         }
 
-        // after CountDown is finished, update the actual hole count to subtract die value.
-        // wait for a second if level is complete before loading the next one.
-        mCurrentHoleCount -= d.Moves;
-        d.Moves = 0;
-        if (mCurrentHoleCount <= 0)
-        {
-            mCurrentHoleCount = 0;
-            sfx.PlayOneShot(completeSound);
-            completionParticles.Play();
-            scoreParticles.Stop();
-            //yield return new WaitForSeconds(1);
+        
+        // if the hole is already 0, do not play any additional effects or sounds.
+        if(mCurrentHoleCount <= 0) {
             mCompleted = true;
+            d.Moves = 0;
         }
         else
         {
-            print("Scored");
+            mCurrentHoleCount -= d.Moves;
+            d.Moves = 0;
+            if (mCurrentHoleCount <= 0)
+            {
+                mCurrentHoleCount = 0;
+                sfx.PlayOneShot(completeSound);
+                completionParticles.Play();
+                scoreParticles.Stop();
+                mCompleted = true;
+            }
+            else
+            {
+                print("Scored");
+            }
         }
         mCountingDown = false;
         yield break;
