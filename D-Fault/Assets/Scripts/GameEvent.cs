@@ -18,6 +18,7 @@ public class GameEvent : MonoBehaviour
     private const float RESTART_SCREEN_TIME = 1.0f;
     public AudioClip levelCompleteSFX;
     AudioSource sfx;
+    GameObject restartCanvas;
 
 
     // Start is called before the first frame update
@@ -38,6 +39,9 @@ public class GameEvent : MonoBehaviour
             tele.ResetTimeEachLevel();
         }
         sfx = gameObject.GetComponent<AudioSource>();
+        restartCanvas = GameObject.FindGameObjectWithTag("RestartCanvas");
+        restartCanvas.GetComponent<Animator>().SetTrigger("FadeIn");
+
     }
 
     // Update is called once per frame
@@ -71,16 +75,12 @@ public class GameEvent : MonoBehaviour
         // if this level is completed, load transition scene
         if (mLevelCompleted)
         {   
-            /*OutputTelemetryData();
-            EnableLevelSelectButton();
-
-            PlayerPrefs.SetInt("buildIndex", SceneManager.GetActiveScene().buildIndex + 1);
-            SceneManager.LoadScene("LevelTransition");*/
             if (!mEndLevelStarted)
             {
                 mEndLevelStarted = true;
                 sfx.PlayOneShot(levelCompleteSFX);
-                Invoke("EndLevel", 1f);
+                Invoke("EndAnimation",0.5f);
+                Invoke("EndLevel", 1.75f);
             }
         }
 
@@ -232,5 +232,10 @@ public class GameEvent : MonoBehaviour
 
         PlayerPrefs.SetInt("buildIndex", SceneManager.GetActiveScene().buildIndex + 1);
         SceneManager.LoadScene("LevelTransition");
+    }
+
+    private void EndAnimation()
+    {
+        restartCanvas.GetComponent<Animator>().SetTrigger("FadeOut");
     }
 }

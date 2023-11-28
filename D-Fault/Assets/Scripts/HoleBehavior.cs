@@ -13,6 +13,7 @@ public class HoleBehavior : Tile
     NumberDisplay holeNumberDisplay;
     private bool mCompleted = false; // for game event manager
     private bool mCountingDown = false; // for game event manager
+    ParticleSystem particles;
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class HoleBehavior : Tile
         sfx = GetComponent<AudioSource>();
         mCurrentHoleCount = holePar;
         holeNumberDisplay.UpdateNumber(mCurrentHoleCount);
+        particles = GetComponent<ParticleSystem>();
     }
 
 
@@ -81,6 +83,7 @@ public class HoleBehavior : Tile
         {
             mCurrentHoleCount = 0;
             sfx.PlayOneShot(completeSound);
+            particles.Play();
             //yield return new WaitForSeconds(1);
             mCompleted = true;
         }
