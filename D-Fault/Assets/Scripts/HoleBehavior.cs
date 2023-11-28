@@ -13,7 +13,10 @@ public class HoleBehavior : Tile
     NumberDisplay holeNumberDisplay;
     private bool mCompleted = false; // for game event manager
     private bool mCountingDown = false; // for game event manager
-    ParticleSystem particles;
+    [SerializeField]
+    ParticleSystem completionParticles;
+    [SerializeField]
+    ParticleSystem scoreParticles;
 
     private void Awake()
     {
@@ -21,7 +24,7 @@ public class HoleBehavior : Tile
         sfx = GetComponent<AudioSource>();
         mCurrentHoleCount = holePar;
         holeNumberDisplay.UpdateNumber(mCurrentHoleCount);
-        particles = GetComponent<ParticleSystem>();
+        completionParticles = GetComponent<ParticleSystem>();
     }
 
 
@@ -38,17 +41,20 @@ public class HoleBehavior : Tile
     private IEnumerator ScoreSequence(GameObject dice)
     {
         mCountingDown = true;
+        DieBehavior d = dice.GetComponent<DieBehavior>();
         // play initial scoring sound
         sfx.pitch = 1f;
-        if (dice.CompareTag("Dice")) { 
-            sfx.PlayOneShot(scoreSoundDice);
-        } else if (dice.CompareTag("Coin"))
-        {
-            sfx.PlayOneShot(scoreSoundCoin);
+        if (d.Moves > 0) { 
+            if (dice.CompareTag("Dice")) { 
+                sfx.PlayOneShot(scoreSoundDice);
+            } else if (dice.CompareTag("Coin"))
+            {
+                sfx.PlayOneShot(scoreSoundCoin);
+            }
         }
 
         // waits until die is destroyed AND the previous coroutine is finished before counting down.
-        DieBehavior d = dice.GetComponent<DieBehavior>();
+        
         while (true)
         {
             if (dice == null && !holeNumberDisplay.IsCounting())
@@ -63,6 +69,14 @@ public class HoleBehavior : Tile
         // Calls the CountDown coroutine in NumberDisplay.
         // while that coroutine is running, this one is paused.
         StartCoroutine(holeNumberDisplay.CountDown(mCurrentHoleCount, Mathf.Clamp(mCurrentHoleCount - d.Moves, 0, 1000)));
+        if(d.Moves > 0)
+        {
+            /*if (scoreParticles.isPlaying())
+            {
+                scoreParticles.Stop();
+            }*/
+            scoreParticles.Play();
+        }
         while (true)
         {
             if (holeNumberDisplay.IsCounting())
@@ -83,7 +97,8 @@ public class HoleBehavior : Tile
         {
             mCurrentHoleCount = 0;
             sfx.PlayOneShot(completeSound);
-            particles.Play();
+            completionParticles.Play();
+            scoreParticles.Stop();
             //yield return new WaitForSeconds(1);
             mCompleted = true;
         }

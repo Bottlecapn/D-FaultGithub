@@ -8,3 +8,8 @@ Level 7: Restarts: 0 Time: 9.273918
 Level 8: Restarts: 0 Time: 8.0516
 Level 9: Restarts: 0 Time: 7.293182
 Level 10: Restarts: 0 Time: 9.554664
+Level 2: Restarts: 0 Time: 9.058815
+Level 2: Restarts: 0 Time: 9.861693
+Level 3: Restarts: 0 Time: 8.995348
+Level 4: Restarts: 0 Time: 8.385054
+Level 5: Restarts: 0 Time: 13.01542
