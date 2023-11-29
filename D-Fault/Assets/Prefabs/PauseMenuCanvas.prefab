@@ -382,8 +382,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 145, y: -15}
-  m_SizeDelta: {x: 533.7856, y: 218.7556}
+  m_AnchoredPosition: {x: 193, y: -46}
+  m_SizeDelta: {x: 541.75, y: 469.6251}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6419168040646074564
 CanvasRenderer:
@@ -413,8 +413,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "- Click on a dice to select,\n  and use WASD to move.\n- Press 'R' to
-    restart a level.\n- Press 'Esc' to pause the game."
+  m_text: "- Click on a dice to select,\n  and use WASD to move.\n\n- Click on the
+    screen and drag the mouse to rotate the camera\n\n- Press 'R' to restart a level.\n\n-
+    Press 'Esc' to pause the game."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5c73238e13016c4382110624ee5ba91, type: 2}
   m_sharedMaterial: {fileID: -7249032509463807619, guid: b5c73238e13016c4382110624ee5ba91, type: 2}
@@ -441,7 +442,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33.55
+  m_fontSize: 32.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1402,8 +1403,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 145, y: 83.979}
-  m_SizeDelta: {x: 274.5186, y: 72.2572}
+  m_AnchoredPosition: {x: 179.3534, y: 144.2679}
+  m_SizeDelta: {x: 306.3751, y: 98.1406}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2663735005782113191
 CanvasRenderer:
@@ -1460,13 +1461,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45.3
+  m_fontSize: 61.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 300
-  m_fontStyle: 1
+  m_fontStyle: 5
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
