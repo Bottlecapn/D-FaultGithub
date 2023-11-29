@@ -99,6 +99,10 @@ public class GameEvent : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            restartScreenTimer = 0.0f;
+        }
     }
 
     // Disable selection if in pause menu OR if any OBJECT IS MOVING
@@ -161,7 +165,7 @@ public class GameEvent : MonoBehaviour
             {
                 HoleBehavior holeBehavior = hole.GetComponent<HoleBehavior>();
                 allHolesCompleted &= (holeBehavior.GetCurrentHoleCount() == 0);
-                if(holeBehavior.GetIsCounting() == true)
+                if (holeBehavior.GetIsCounting() == true)
                 {
                     holesCountingDown = true;
                 }
