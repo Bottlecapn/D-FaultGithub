@@ -309,7 +309,9 @@ MonoBehaviour:
   cubeRenderer: {fileID: 2162044043459844649}
   addSound: {fileID: 8300000, guid: 1976aa0e93223794e9ef0e00eed50dec, type: 3}
   moveSound: {fileID: 8300000, guid: 2cb24e2a70e0dde4d9c7b5e4469897a7, type: 3}
-  coinCombineSound: {fileID: 8300000, guid: 047c8298f7d73e943935f7cd7f4863c9, type: 3}
+  sameCombineSound: {fileID: 8300000, guid: 1976aa0e93223794e9ef0e00eed50dec, type: 3}
+  differentCombineSound: {fileID: 8300000, guid: 047c8298f7d73e943935f7cd7f4863c9, type: 3}
+  moveDenySound: {fileID: 8300000, guid: ae33082f72754194ea062811c9b6922a, type: 3}
   Moves: 10
   moveDistance: 1
   defaultHeight: 0.5

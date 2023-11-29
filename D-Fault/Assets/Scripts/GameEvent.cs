@@ -12,9 +12,13 @@ public class GameEvent : MonoBehaviour
     private bool mSelectionDisabled = false;
     public List<HoleBehavior> mHoles;
     private bool mLevelCompleted = false;
+    private bool mEndLevelStarted = false;
     // Restart screen pops up 1 second later after fail
     private float restartScreenTimer = 0.0f;
     private const float RESTART_SCREEN_TIME = 1.0f;
+    public AudioClip levelCompleteSFX;
+    AudioSource sfx;
+    GameObject restartCanvas;
 
 
     // Start is called before the first frame update
@@ -34,6 +38,10 @@ public class GameEvent : MonoBehaviour
             tele.ResetRestartTimes();
             tele.ResetTimeEachLevel();
         }
+        sfx = gameObject.GetComponent<AudioSource>();
+        restartCanvas = GameObject.FindGameObjectWithTag("RestartCanvas");
+        restartCanvas.GetComponent<Animator>().SetTrigger("FadeIn");
+
     }
 
     // Update is called once per frame
@@ -67,11 +75,13 @@ public class GameEvent : MonoBehaviour
         // if this level is completed, load transition scene
         if (mLevelCompleted)
         {
-            OutputTelemetryData();
-            EnableLevelSelectButton();
-
-            PlayerPrefs.SetInt("buildIndex", SceneManager.GetActiveScene().buildIndex + 1);
-            SceneManager.LoadScene("LevelTransition");
+            if (!mEndLevelStarted)
+            {
+                mEndLevelStarted = true;
+                sfx.PlayOneShot(levelCompleteSFX);
+                Invoke("EndAnimation", 0.5f);
+                Invoke("EndLevel", 1.75f);
+            }
         }
 
         // Restart screen pops up if all objects hit 0
@@ -217,5 +227,18 @@ public class GameEvent : MonoBehaviour
                 //print(gp.GetLevelUnlocked()[1]);
             }
         }
+    }
+
+    private void EndLevel()
+    {
+        OutputTelemetryData();
+        EnableLevelSelectButton();
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    private void EndAnimation()
+    {
+        restartCanvas.GetComponent<Animator>().SetTrigger("FadeOut");
     }
 }

@@ -490,6 +490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1059828564}
   - component: {fileID: 1059828563}
+  - component: {fileID: 1059828565}
   m_Layer: 0
   m_Name: Game Event Manager
   m_TagString: GameEvent
@@ -511,6 +512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mDice: []
   mHoles: []
+  levelCompleteSFX: {fileID: 8300000, guid: 1e6ca1e1a437b1d40ac0d677d54ac88d, type: 3}
 --- !u!4 &1059828564
 Transform:
   m_ObjectHideFlags: 0
@@ -526,6 +528,102 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1059828565
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059828562}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1061404012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -721,6 +819,9 @@ MonoBehaviour:
   die: {fileID: 1737172300991720200, guid: b669ac66f6c0e9542b781fa06e53331c, type: 3}
   wall: {fileID: 76025097956725628, guid: 956eb2fe759c5484cb950edb276513fa, type: 3}
   coin: {fileID: 1737172300991720200, guid: d3071335c539a27408784ab81fd87e64, type: 3}
+  bg: {fileID: 756491336349050267, guid: b6529da2ad1e5e3459e0a926b0d0edae, type: 3}
+  boardCorner: {fileID: 2520873043006359747, guid: 179349f547952d14fb0f80be694a19af, type: 3}
+  boardEdge: {fileID: 2855802506425161925, guid: d005d0243ac97d54ba0c0e01bb1c9d75, type: 3}
   diceValues: 04000000050000000300000003000000
 --- !u!4 &1987460085
 Transform:

@@ -4,24 +4,51 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-    GameObject pivot;
+    GameObject mainCamera;
+    Camera cam;
+    [SerializeField]
+    float rotationSpeed;
+    float camRotationTimer;
+    Quaternion defaultRotation;
+
     // Start is called before the first frame update
     void Start()
     {
-        pivot = GameObject.Find("Camera Pivot");
-        gameObject.transform.parent = pivot.transform;
+        mainCamera = GameObject.FindFirstObjectByType<Camera>().gameObject;
+        cam = mainCamera.GetComponent<Camera>();
+        defaultRotation = transform.rotation;
+        camRotationTimer = 0f;
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        transform.LookAt(pivot.transform);
-        /*if (Input.GetKeyDown(KeyCode.Q))
+        mainCamera.transform.LookAt(transform);
+
+        // Rotate the camera pivot upon holding either mouse button.
+        if (Input.GetMouseButton(1) || Input.GetMouseButton(0))
         {
-            pivot.transform.Rotate(new Vector3(0,-90,0));
-        } else if (Input.GetKeyDown(KeyCode.E))
+            camRotationTimer += Time.deltaTime;
+                // the button must be held for a brief moment for camera rotation to be enabled.
+                if(camRotationTimer >= 0.175f) { 
+                float XaxisRotation = Input.GetAxis("Mouse X") * rotationSpeed;
+                transform.Rotate(Vector3.down, XaxisRotation);
+                if (transform.rotation.x > 360)
+                {
+                    transform.rotation = new Quaternion(transform.rotation.x - 360, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+                }
+            }
+        } 
+        else
         {
-            pivot.transform.Rotate(new Vector3(0, 90, 0));
-        }*/
+            RestoreDefaultRotation();
+            camRotationTimer = 0f;
+        }
+
+    }
+
+    void RestoreDefaultRotation()
+    {
+        transform.rotation = Quaternion.Slerp(transform.rotation, defaultRotation, 0.2f);
     }
 }
