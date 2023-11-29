@@ -6,8 +6,8 @@ public class CameraControl : MonoBehaviour
 {
     GameObject mainCamera;
     Camera cam;
-    [SerializeField]
-    float rotationSpeed;
+    //[SerializeField]
+    float rotationSpeed = 3.5f;
     float camRotationTimer;
     Quaternion defaultRotation;
 
@@ -29,16 +29,17 @@ public class CameraControl : MonoBehaviour
         if (Input.GetMouseButton(1) || Input.GetMouseButton(0))
         {
             camRotationTimer += Time.deltaTime;
-                // the button must be held for a brief moment for camera rotation to be enabled.
-                if(camRotationTimer >= 0.175f) { 
+            // the button must be held for a brief moment for camera rotation to be enabled.
+            if (camRotationTimer >= 0.15f)
+            {
                 float XaxisRotation = Input.GetAxis("Mouse X") * rotationSpeed;
-                transform.Rotate(Vector3.down, XaxisRotation);
+                transform.Rotate(Vector3.up, XaxisRotation);
                 if (transform.rotation.x > 360)
                 {
                     transform.rotation = new Quaternion(transform.rotation.x - 360, transform.rotation.y, transform.rotation.z, transform.rotation.w);
                 }
             }
-        } 
+        }
         else
         {
             RestoreDefaultRotation();
