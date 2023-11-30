@@ -197,7 +197,7 @@ public class GameEvent : MonoBehaviour
         {
             // only outputing Telemetry data for the level scenes
             // NOTE: CHANGE THE RANGE IF MORE LEVELS ARE ADDED
-            if (SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex <= 24)
+            if (SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex <= 25)
             {
                 string filePath = Path.Combine(Application.streamingAssetsPath, "TelemetryData.txt");
                 StreamWriter sw = new StreamWriter(filePath, true);
@@ -221,7 +221,7 @@ public class GameEvent : MonoBehaviour
             // Every time a level is completed, enable the level button for the next level
             int nextSceneBuildIndex = SceneManager.GetActiveScene().buildIndex + 1;
             // NOTE: CHANGE THE RANGE IF MORE LEVELS ARE ADDED
-            if (nextSceneBuildIndex >= 2 && nextSceneBuildIndex <= 24)
+            if (nextSceneBuildIndex >= 2 && nextSceneBuildIndex <= 25)
             {
                 gp.GetLevelUnlocked()[nextSceneBuildIndex - 1] = true;
                 //print(gp.GetLevelUnlocked()[1]);
