@@ -303,11 +303,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 1650737845525521777}
   dieParent: {fileID: 1737172300991720200}
-  red: {fileID: 2100000, guid: f1011d286a94b914191b791295715acd, type: 2}
-  white: {fileID: 2100000, guid: 0bedf5a29bb4c13479f857d4d8122b02, type: 2}
+  red: {fileID: 2100000, guid: 194a6dda468769042b017039b2874f31, type: 2}
+  white: {fileID: 2100000, guid: b6141770163a1dd40957fa77b44931b6, type: 2}
   yellow: {fileID: 2100000, guid: 7cc4529e5bc9bc241a49eb7edee1794c, type: 2}
   cubeRenderer: {fileID: 2162044043459844649}
-  addSound: {fileID: 8300000, guid: 1976aa0e93223794e9ef0e00eed50dec, type: 3}
   moveSound: {fileID: 8300000, guid: 2cb24e2a70e0dde4d9c7b5e4469897a7, type: 3}
   sameCombineSound: {fileID: 8300000, guid: 1976aa0e93223794e9ef0e00eed50dec, type: 3}
   differentCombineSound: {fileID: 8300000, guid: 047c8298f7d73e943935f7cd7f4863c9, type: 3}
@@ -1621,7 +1620,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0bedf5a29bb4c13479f857d4d8122b02, type: 2}
+  - {fileID: 2100000, guid: b6141770163a1dd40957fa77b44931b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
