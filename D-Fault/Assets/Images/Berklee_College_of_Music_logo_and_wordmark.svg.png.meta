@@ -1,0 +1,712 @@
+fileFormatVersion: 2
+guid: f18b3af20cd64c24eb3d80274d2cca36
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 287200612615976783
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_0
+  - first:
+      213: -8232699003686841742
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_1
+  - first:
+      213: -5184097354990462158
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_2
+  - first:
+      213: 8344637131038365183
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_3
+  - first:
+      213: -8390117724418968066
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_4
+  - first:
+      213: -6118443374612510334
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_5
+  - first:
+      213: -4732396500158580930
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_6
+  - first:
+      213: -5217826958627230119
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_7
+  - first:
+      213: 5418366253201287387
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_8
+  - first:
+      213: -3782447075530313153
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_9
+  - first:
+      213: -1003199047259034545
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_10
+  - first:
+      213: 6511703963559964301
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_11
+  - first:
+      213: 4745659926180481445
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_12
+  - first:
+      213: 2638705282595611028
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_13
+  - first:
+      213: -9031378914435435999
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_14
+  - first:
+      213: 8372045010558915065
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_15
+  - first:
+      213: 8753657927654724809
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_16
+  - first:
+      213: 4780902636985442871
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_17
+  - first:
+      213: 8247349016144121483
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_18
+  - first:
+      213: 5312866390486264255
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_19
+  - first:
+      213: 5457399090947321413
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_20
+  - first:
+      213: 6986141706335825318
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_21
+  - first:
+      213: 647220917350897685
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_22
+  - first:
+      213: 3667581786767913972
+    second: Berklee_College_of_Music_logo_and_wordmark.svg_23
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 276
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f47ff3e7f675cf300800000000000000
+      internalID: 287200612615976783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_1
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 353
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2729886ffd39fbd80800000000000000
+      internalID: -8232699003686841742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_2
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 253
+        width: 157
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23b50c21ce26e08b0800000000000000
+      internalID: -5184097354990462158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_3
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 250
+        width: 126
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff59317424b1ec370800000000000000
+      internalID: 8344637131038365183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_4
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 253
+        width: 104
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef57c44e160509b80800000000000000
+      internalID: -8390117724418968066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_5
+      rect:
+        serializedVersion: 2
+        x: 1114
+        y: 252
+        width: 161
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28901edea2ce61ba0800000000000000
+      internalID: -6118443374612510334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_6
+      rect:
+        serializedVersion: 2
+        x: 1284
+        y: 253
+        width: 74
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e37feb7d476235eb0800000000000000
+      internalID: -4732396500158580930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_7
+      rect:
+        serializedVersion: 2
+        x: 1361
+        y: 250
+        width: 127
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95e219fb60e8697b0800000000000000
+      internalID: -5217826958627230119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_8
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 250
+        width: 127
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd8e6094667e13b40800000000000000
+      internalID: 5418366253201287387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_9
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 50
+        width: 110
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f32fc41dc6c028bc0800000000000000
+      internalID: -3782447075530313153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_10
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 54
+        width: 13
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4c6d1d18cbe312f0800000000000000
+      internalID: -1003199047259034545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_11
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 54
+        width: 13
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8eae7e11483e5a50800000000000000
+      internalID: 6511703963559964301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_12
+      rect:
+        serializedVersion: 2
+        x: 1457
+        y: 53
+        width: 54
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a94bcc2f88fbd140800000000000000
+      internalID: 4745659926180481445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_13
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 53
+        width: 125
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 491ee0c59709e9420800000000000000
+      internalID: 2638705282595611028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_14
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 159
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1227f154ab81aa280800000000000000
+      internalID: -9031378914435435999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_15
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 51
+        width: 85
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f112f1849a7f2470800000000000000
+      internalID: 8372045010558915065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_16
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 51
+        width: 79
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c4542f918d3b7970800000000000000
+      internalID: 8753657927654724809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_17
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 12
+        width: 86
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 732ee373e9d295240800000000000000
+      internalID: 4780902636985442871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_18
+      rect:
+        serializedVersion: 2
+        x: 1217
+        y: 51
+        width: 80
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8e00fddb38747270800000000000000
+      internalID: 8247349016144121483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_19
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 51
+        width: 85
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb9ab0855d71bb940800000000000000
+      internalID: 5312866390486264255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_20
+      rect:
+        serializedVersion: 2
+        x: 1721
+        y: 51
+        width: 71
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54e64750f839cbb40800000000000000
+      internalID: 5457399090947321413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_21
+      rect:
+        serializedVersion: 2
+        x: 1811
+        y: 51
+        width: 61
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ad20b42ed2c3f060800000000000000
+      internalID: 6986141706335825318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_22
+      rect:
+        serializedVersion: 2
+        x: 1895
+        y: 54
+        width: 12
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51817e5cef36bf800800000000000000
+      internalID: 647220917350897685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Berklee_College_of_Music_logo_and_wordmark.svg_23
+      rect:
+        serializedVersion: 2
+        x: 1931
+        y: 51
+        width: 69
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f37ef0143ed5e230800000000000000
+      internalID: 3667581786767913972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Berklee_College_of_Music_logo_and_wordmark.svg_0: 287200612615976783
+      Berklee_College_of_Music_logo_and_wordmark.svg_1: -8232699003686841742
+      Berklee_College_of_Music_logo_and_wordmark.svg_10: -1003199047259034545
+      Berklee_College_of_Music_logo_and_wordmark.svg_11: 6511703963559964301
+      Berklee_College_of_Music_logo_and_wordmark.svg_12: 4745659926180481445
+      Berklee_College_of_Music_logo_and_wordmark.svg_13: 2638705282595611028
+      Berklee_College_of_Music_logo_and_wordmark.svg_14: -9031378914435435999
+      Berklee_College_of_Music_logo_and_wordmark.svg_15: 8372045010558915065
+      Berklee_College_of_Music_logo_and_wordmark.svg_16: 8753657927654724809
+      Berklee_College_of_Music_logo_and_wordmark.svg_17: 4780902636985442871
+      Berklee_College_of_Music_logo_and_wordmark.svg_18: 8247349016144121483
+      Berklee_College_of_Music_logo_and_wordmark.svg_19: 5312866390486264255
+      Berklee_College_of_Music_logo_and_wordmark.svg_2: -5184097354990462158
+      Berklee_College_of_Music_logo_and_wordmark.svg_20: 5457399090947321413
+      Berklee_College_of_Music_logo_and_wordmark.svg_21: 6986141706335825318
+      Berklee_College_of_Music_logo_and_wordmark.svg_22: 647220917350897685
+      Berklee_College_of_Music_logo_and_wordmark.svg_23: 3667581786767913972
+      Berklee_College_of_Music_logo_and_wordmark.svg_3: 8344637131038365183
+      Berklee_College_of_Music_logo_and_wordmark.svg_4: -8390117724418968066
+      Berklee_College_of_Music_logo_and_wordmark.svg_5: -6118443374612510334
+      Berklee_College_of_Music_logo_and_wordmark.svg_6: -4732396500158580930
+      Berklee_College_of_Music_logo_and_wordmark.svg_7: -5217826958627230119
+      Berklee_College_of_Music_logo_and_wordmark.svg_8: 5418366253201287387
+      Berklee_College_of_Music_logo_and_wordmark.svg_9: -3782447075530313153
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

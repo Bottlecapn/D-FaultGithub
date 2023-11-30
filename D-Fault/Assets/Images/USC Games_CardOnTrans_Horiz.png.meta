@@ -1,0 +1,312 @@
+fileFormatVersion: 2
+guid: 12a543ad948e8584d815a01dda02dfb5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1394511455118276450
+    second: USC Games_CardOnTrans_Horiz_0
+  - first:
+      213: -8566283157511623048
+    second: USC Games_CardOnTrans_Horiz_1
+  - first:
+      213: 5779844814461364856
+    second: USC Games_CardOnTrans_Horiz_2
+  - first:
+      213: -224702223142599832
+    second: USC Games_CardOnTrans_Horiz_3
+  - first:
+      213: -2327501806763503281
+    second: USC Games_CardOnTrans_Horiz_4
+  - first:
+      213: 5865400353624552292
+    second: USC Games_CardOnTrans_Horiz_5
+  - first:
+      213: -5658939616592261152
+    second: USC Games_CardOnTrans_Horiz_6
+  - first:
+      213: 8466915087205613113
+    second: USC Games_CardOnTrans_Horiz_7
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: USC Games_CardOnTrans_Horiz_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 323
+        height: 324
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 267b98da7cc4a5310800000000000000
+      internalID: 1394511455118276450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: USC Games_CardOnTrans_Horiz_1
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 1
+        width: 204
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87eab17bad27e1980800000000000000
+      internalID: -8566283157511623048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: USC Games_CardOnTrans_Horiz_2
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 1
+        width: 300
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87a6ade5c32263050800000000000000
+      internalID: 5779844814461364856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: USC Games_CardOnTrans_Horiz_3
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 0
+        width: 331
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8634851c482b1ecf0800000000000000
+      internalID: -224702223142599832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: USC Games_CardOnTrans_Horiz_4
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 0
+        width: 173
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4118c9307d03bfd0800000000000000
+      internalID: -2327501806763503281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: USC Games_CardOnTrans_Horiz_5
+      rect:
+        serializedVersion: 2
+        x: 1370
+        y: 4
+        width: 335
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 463fd3f9b86166150800000000000000
+      internalID: 5865400353624552292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: USC Games_CardOnTrans_Horiz_6
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 0
+        width: 166
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ef02aba6686771b0800000000000000
+      internalID: -5658939616592261152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: USC Games_CardOnTrans_Horiz_7
+      rect:
+        serializedVersion: 2
+        x: 1875
+        y: 0
+        width: 125
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93e39448966808570800000000000000
+      internalID: 8466915087205613113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      USC Games_CardOnTrans_Horiz_0: 1394511455118276450
+      USC Games_CardOnTrans_Horiz_1: -8566283157511623048
+      USC Games_CardOnTrans_Horiz_2: 5779844814461364856
+      USC Games_CardOnTrans_Horiz_3: -224702223142599832
+      USC Games_CardOnTrans_Horiz_4: -2327501806763503281
+      USC Games_CardOnTrans_Horiz_5: 5865400353624552292
+      USC Games_CardOnTrans_Horiz_6: -5658939616592261152
+      USC Games_CardOnTrans_Horiz_7: 8466915087205613113
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
