@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      carpetGreenTextureTiledfaded_0: 4944372818675951387
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
