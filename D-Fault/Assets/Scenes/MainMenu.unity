@@ -284,6 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bg1: {fileID: 8300000, guid: 176397aac0b23a74b9b9005c67db9c21, type: 3}
   bg2: {fileID: 8300000, guid: e6d51d0505893b248b16c52b3024a44b, type: 3}
+  bg3: {fileID: 8300000, guid: c4fe5ceaf11258e479e279f506769a38, type: 3}
 --- !u!4 &131292539
 Transform:
   m_ObjectHideFlags: 0
@@ -313,7 +314,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

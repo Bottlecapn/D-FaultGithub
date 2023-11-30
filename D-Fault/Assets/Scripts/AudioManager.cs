@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
     private static AudioManager audioManager = null;
     private AudioSource backgroundMusic;
     [SerializeField]
-    private AudioClip bg1, bg2;
+    private AudioClip bg1, bg2, bg3;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,10 +31,14 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(SceneManager.GetActiveScene().buildIndex >= 7 && SceneManager.GetActiveScene().buildIndex <= 24)
+        if(SceneManager.GetActiveScene().buildIndex >= 7 && SceneManager.GetActiveScene().buildIndex <= 15)
         {
             backgroundMusic.clip = bg2;
-        } else if (SceneManager.GetActiveScene().buildIndex > 24) 
+        } else if (SceneManager.GetActiveScene().buildIndex >= 16 && SceneManager.GetActiveScene().buildIndex <= 25)
+        {
+            backgroundMusic.clip = bg3;
+        }
+        else if (SceneManager.GetActiveScene().buildIndex > 25) 
         { 
             backgroundMusic.clip = backgroundMusic.clip;
         } else { 
@@ -45,8 +49,8 @@ public class AudioManager : MonoBehaviour
         if (!backgroundMusic.isPlaying)
         {
             backgroundMusic.Play();
-            StartCoroutine(Fade(true, backgroundMusic, 7.0f, 0.5f));
-            StartCoroutine(Fade(false, backgroundMusic, 7.0f, 0.0f));
+            /*StartCoroutine(Fade(true, backgroundMusic, 7.0f, 0.5f));
+            StartCoroutine(Fade(false, backgroundMusic, 7.0f, 0.0f));*/
         }
     }
 
