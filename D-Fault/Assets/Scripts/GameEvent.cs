@@ -224,7 +224,6 @@ public class GameEvent : MonoBehaviour
             if (nextSceneBuildIndex >= 2 && nextSceneBuildIndex <= 25)
             {
                 gp.GetLevelUnlocked()[nextSceneBuildIndex - 1] = true;
-                //print(gp.GetLevelUnlocked()[1]);
             }
         }
     }
