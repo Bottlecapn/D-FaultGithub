@@ -121,7 +121,8 @@ public class DieBehavior : MonoBehaviour
             if (gameObject.CompareTag("Coin"))
             {
                 dieParent.transform.rotation = Quaternion.LookRotation(Vector3.forward * -1f, Vector3.up);
-            } else
+            }
+            else
             {
                 dieParent.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
             }
@@ -265,12 +266,12 @@ public class DieBehavior : MonoBehaviour
             sfx.pitch = Random.Range(1.05f, .9f);
             sfx.clip = moveDenySound;
             sfx.Play();
-        } 
+        }
         else if (sound == 3)
         {
             sfx.clip = sameCombineSound;
             sfx.Play();
-        } 
+        }
         else if (sound == 4)
         {
             sfx.clip = differentCombineSound;
@@ -311,7 +312,6 @@ public class DieBehavior : MonoBehaviour
     // Sets the die's number of moves. Called by GridSpawner.
     public void SetMoveLimit(int movelimit)
     {
-        print(movelimit);
         Moves = movelimit;
         MoveNumberUpdate(false);
     }

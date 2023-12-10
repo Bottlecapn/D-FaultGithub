@@ -47,6 +47,16 @@ public class GameEvent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Developer Key
+        if (Input.GetKeyDown(KeyCode.RightBracket))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftBracket))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
+
         // Disable selection if in pause menu OR if any OBJECT IS MOVING
         ToggleSelectionDisabled();
 
@@ -165,7 +175,8 @@ public class GameEvent : MonoBehaviour
                 DieBehavior diceBehavior = dice.GetComponent<DieBehavior>();
                 allDiceDead &= (diceBehavior.Moves == 0);
             }
-        } else
+        }
+        else
         {
             allDiceDead = true;
         }

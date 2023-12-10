@@ -16,7 +16,6 @@ public class GridSpawner : MonoBehaviour
     [SerializeField] GameObject boardCorner;
     [SerializeField] GameObject boardEdge;
     [SerializeField] int[] diceValues;
-    float rotationSpeed = 0.1f;
     //[SerializeField] TextAsset level;
 
     // Start is called before the first frame update
@@ -28,26 +27,6 @@ public class GridSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-        else if (Input.GetKeyDown(KeyCode.M))
-        {
-            SceneManager.LoadScene("MainMenu");
-        }
-        else if (Input.GetKeyDown(KeyCode.L))
-        {
-            SceneManager.LoadScene("LevelSelect");
-        }
-        else if (Input.GetKeyDown(KeyCode.RightBracket))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftBracket))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        }
     }
 
     // Generates the level's grid from a text file.
@@ -71,7 +50,7 @@ public class GridSpawner : MonoBehaviour
             line = reader.ReadLine();
             for (int i = 0; i < line.Length; i++)
             {
-                
+
                 GameObject go;
                 // spawn a tile
                 if (line[i] == '.')
@@ -247,7 +226,6 @@ public class GridSpawner : MonoBehaviour
         }
 
         GameObject camPivot = GameObject.Find("Camera Pivot");
-        print("CurX: " + currentX + ", CurY: " + currentY);
         if (currentX % 2 == 1)
         {
             currentX -= 1;
@@ -265,9 +243,9 @@ public class GridSpawner : MonoBehaviour
         {
             currentY -= 1;
         }
-        print("CurX: " + currentX + ", CurY: " + currentY);
         camPivot.transform.position = new Vector3((float)currentX / 2f, 0, (float)currentY / 2f);
-        if(bg != null) { 
+        if (bg != null)
+        {
             GameObject background = Instantiate(bg);
             background.transform.position = new Vector3((float)currentX / 2f, -0.8f, (float)currentY / 2f);
             //float sizeAverage = (currentX+currentY)/2f;
@@ -281,51 +259,65 @@ public class GridSpawner : MonoBehaviour
     void GenerateBorder(int boardX, int boardY)
     {
         GameObject objectToSpawn = null;
-        Vector3 spawnPoint = new Vector3(0,0,0);
+        Vector3 spawnPoint = new Vector3(0, 0, 0);
         Quaternion rotationValue = new Quaternion(0, 0, 0, 0);
-        for (int y = -1; y < boardY+1; y++){
-            for (int x = -1; x < boardX+1; x++)
+        for (int y = -1; y < boardY + 1; y++)
+        {
+            for (int x = -1; x < boardX + 1; x++)
             {
                 objectToSpawn = null;
-                if(x == -1)
+                if (x == -1)
                 {
-                    if(y == -1) {
+                    if (y == -1)
+                    {
                         objectToSpawn = boardCorner;
-                        rotationValue = new Quaternion(-90,180,0,0);
-                    } else if (y == boardY) {
+                        rotationValue = new Quaternion(-90, 180, 0, 0);
+                    }
+                    else if (y == boardY)
+                    {
                         objectToSpawn = boardCorner;
-                        rotationValue =  new Quaternion(-90,0,-90,0);
-                    } else {
+                        rotationValue = new Quaternion(-90, 0, -90, 0);
+                    }
+                    else
+                    {
                         objectToSpawn = boardEdge;
                         rotationValue = new Quaternion(-90, 0, -90, 0);
                     }
-                } 
+                }
                 else if (x == boardX)
                 {
-                    if (y == -1) {
+                    if (y == -1)
+                    {
                         objectToSpawn = boardCorner;
                         rotationValue = new Quaternion(-90, 0, 90, 0);
-                    } else if (y == boardY) {
+                    }
+                    else if (y == boardY)
+                    {
                         objectToSpawn = boardCorner;
                         rotationValue = new Quaternion(-90, 0, 0, 0);
-                    } else {
+                    }
+                    else
+                    {
                         objectToSpawn = boardEdge;
                         rotationValue = new Quaternion(-90, 0, 90, 0);
                     }
-                } 
+                }
                 else
                 {
-                    if (y == -1) {
+                    if (y == -1)
+                    {
                         objectToSpawn = boardEdge;
                         //rotationValue = new Quaternion(-90,180,0,0);
-                    } else if (y == boardY) {
+                    }
+                    else if (y == boardY)
+                    {
                         objectToSpawn = boardEdge;
                         rotationValue = new Quaternion(-90, 0, 0, 0);
                     }
                 }
                 spawnPoint = new Vector3(transform.position.x + x, -0.25f, transform.position.y + y);
-                if(objectToSpawn != null) { 
-                    print(rotationValue);
+                if (objectToSpawn != null)
+                {
                     GameObject go = Instantiate(objectToSpawn, transform);
                     go.transform.position = spawnPoint;
                     go.transform.rotation = Quaternion.Euler(rotationValue.x, rotationValue.y, rotationValue.z);
