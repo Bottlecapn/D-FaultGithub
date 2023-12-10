@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     private AudioSource backgroundMusic;
     [SerializeField]
     private AudioClip bg1, bg2, bg3;
+    private bool muted;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +24,10 @@ public class AudioManager : MonoBehaviour
             return;
         }
         backgroundMusic = GetComponent<AudioSource>();
-        backgroundMusic.volume = 0.0f;
-        StartCoroutine(Fade(true, backgroundMusic, 7.0f, 0.5f));
-        StartCoroutine(Fade(false, backgroundMusic, 7.0f, 0.0f));
+        muted = false;
+        //backgroundMusic.volume = 0.0f;
+        //StartCoroutine(Fade(true, backgroundMusic, 7.0f, 0.5f));
+        //StartCoroutine(Fade(false, backgroundMusic, 7.0f, 0.0f));
     }
 
     // Update is called once per frame
@@ -45,12 +47,31 @@ public class AudioManager : MonoBehaviour
             backgroundMusic.clip = bg1;
         }
 
+        if(backgroundMusic.volume <= 0)
+        {
+            //StartCoroutine(Fade(true, backgroundMusic, 7.0f, 0.5f));
+            //StartCoroutine(Fade(false, backgroundMusic, 7.0f, 0.0f));
+        }
 
         if (!backgroundMusic.isPlaying)
         {
             backgroundMusic.Play();
             /*StartCoroutine(Fade(true, backgroundMusic, 7.0f, 0.5f));
             StartCoroutine(Fade(false, backgroundMusic, 7.0f, 0.0f));*/
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            muted = !muted;
+        }
+
+        if (muted)
+        {
+            backgroundMusic.volume = 0;
+        } 
+        else
+        {
+            backgroundMusic.volume = 0.5f;
         }
     }
 
