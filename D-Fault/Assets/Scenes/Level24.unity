@@ -229,6 +229,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 752381632418628083, guid: b6529da2ad1e5e3459e0a926b0d0edae, type: 3}
+      propertyPath: m_Size.x
+      value: 39.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 752381632418628083, guid: b6529da2ad1e5e3459e0a926b0d0edae, type: 3}
+      propertyPath: m_Size.y
+      value: 39.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 752381632418628083, guid: b6529da2ad1e5e3459e0a926b0d0edae, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6096048826247256199, guid: c6fa6756f5c21904084c976e3906d551, type: 3}
+    - target: {fileID: 752381632418628083, guid: b6529da2ad1e5e3459e0a926b0d0edae, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 756491336349050267, guid: b6529da2ad1e5e3459e0a926b0d0edae, type: 3}
       propertyPath: m_Name
       value: carpetbg24
@@ -766,6 +782,10 @@ PrefabInstance:
     - target: {fileID: 4135719221218139016, guid: 3c0f42f2e66e6d141a454b8cef6ef0b4, type: 3}
       propertyPath: m_Name
       value: PauseMenuCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135719221218139016, guid: 3c0f42f2e66e6d141a454b8cef6ef0b4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: eaaf82e03141d09498ff496f7bc6c501
+guid: f5852a96d5599fd4396e33c1006de91c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3510211880067035515
-    second: paperBlank 1_0
+      213: -8673716349729230093
+    second: carpetTextureBlueFaded_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 75
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -98,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: paperBlank 1_0
+      name: carpetTextureBlueFaded_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1240
-        height: 1754
+        x: 1
+        y: 1
+        width: 1998
+        height: 1998
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58e8f3a94e8394fc0800000000000000
-      internalID: -3510211880067035515
+      spriteID: 3f234eb6fe4c0a780800000000000000
+      internalID: -8673716349729230093
       vertices: []
       indices: 
       edges: []
@@ -129,7 +129,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      paperBlank 1_0: -3510211880067035515
+      carpetTextureBlueFaded_0: -8673716349729230093
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

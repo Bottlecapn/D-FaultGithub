@@ -165,22 +165,23 @@ public class GameEvent : MonoBehaviour
                 DieBehavior diceBehavior = dice.GetComponent<DieBehavior>();
                 allDiceDead &= (diceBehavior.Moves == 0);
             }
-        }
-        // Check all hole numbers if no dice are alive
-        else
+        } else
         {
             allDiceDead = true;
-            allHolesCompleted = (mHoles[0].GetComponent<HoleBehavior>().GetCurrentHoleCount() == 0);
-            foreach (var hole in mHoles)
+        }
+        // Check all hole numbers if no dice are alive
+        allHolesCompleted = (mHoles[0].GetComponent<HoleBehavior>().GetCurrentHoleCount() == 0);
+        foreach (var hole in mHoles)
+        {
+            HoleBehavior holeBehavior = hole.GetComponent<HoleBehavior>();
+            allHolesCompleted &= (holeBehavior.GetCurrentHoleCount() == 0);
+            if (holeBehavior.GetIsCounting() == true)
             {
-                HoleBehavior holeBehavior = hole.GetComponent<HoleBehavior>();
-                allHolesCompleted &= (holeBehavior.GetCurrentHoleCount() == 0);
-                if (holeBehavior.GetIsCounting() == true)
-                {
-                    holesCountingDown = true;
-                }
+                holesCountingDown = true;
             }
         }
+        //print(!holesCountingDown + ", " + allDiceDead + ", " + !allHolesCompleted);
+
         return allDiceDead && !allHolesCompleted && !holesCountingDown;
     }
 
@@ -223,6 +224,7 @@ public class GameEvent : MonoBehaviour
             // NOTE: CHANGE THE RANGE IF MORE LEVELS ARE ADDED
             if (nextSceneBuildIndex >= 2 && nextSceneBuildIndex <= 25)
             {
+
                 gp.GetLevelUnlocked()[nextSceneBuildIndex - 1] = true;
                 //print(gp.GetLevelUnlocked()[1]);
             }
@@ -233,7 +235,6 @@ public class GameEvent : MonoBehaviour
     {
         OutputTelemetryData();
         EnableLevelSelectButton();
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
