@@ -181,7 +181,6 @@ public class GameEvent : MonoBehaviour
             }
         }
         //print(!holesCountingDown + ", " + allDiceDead + ", " + !allHolesCompleted);
-
         return allDiceDead && !allHolesCompleted && !holesCountingDown;
     }
 
@@ -226,6 +225,7 @@ public class GameEvent : MonoBehaviour
             {
 
                 gp.GetLevelUnlocked()[nextSceneBuildIndex - 1] = true;
+                //print(gp.GetLevelUnlocked()[1]);
             }
         }
     }
