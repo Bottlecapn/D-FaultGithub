@@ -9,7 +9,6 @@ public class LevelSelectBehavior : MonoBehaviour
 {
     static string sceneName = "";
     int buildIndexNumber = -1;
-
     float delay = 0.2f;
 
     private void Start()

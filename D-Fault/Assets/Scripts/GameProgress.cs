@@ -23,7 +23,7 @@ public class GameProgress : MonoBehaviour
         // only unlock the first level
         levelUnlocked.Add(true);
         // NOTE: CHANGE THE RANGE IF MORE LEVELS ARE ADDED
-        for (int i = 1; i <= 25; i++)
+        for (int i = 1; i <= 24; i++)
         {
             levelUnlocked.Add(false);
         }

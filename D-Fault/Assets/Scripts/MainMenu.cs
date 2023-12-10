@@ -50,6 +50,12 @@ public class MainMenu : MonoBehaviour
         Invoke("ChangeScene", delay);
     }
 
+    public void SettingsMenu()
+    {
+        sceneName = "SettingsMenu";
+        Invoke("ChangeScene", delay);
+    }
+
     public void ReturnMainMenu()
     {
         sceneName = "MainMenu";
