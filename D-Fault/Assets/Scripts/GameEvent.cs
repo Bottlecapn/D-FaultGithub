@@ -226,7 +226,6 @@ public class GameEvent : MonoBehaviour
             {
 
                 gp.GetLevelUnlocked()[nextSceneBuildIndex - 1] = true;
-                //print(gp.GetLevelUnlocked()[1]);
             }
         }
     }
