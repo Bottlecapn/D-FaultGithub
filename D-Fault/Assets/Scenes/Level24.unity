@@ -229,6 +229,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 752381632418628083, guid: b6529da2ad1e5e3459e0a926b0d0edae, type: 3}
+      propertyPath: m_Size.x
+      value: 39.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 752381632418628083, guid: b6529da2ad1e5e3459e0a926b0d0edae, type: 3}
+      propertyPath: m_Size.y
+      value: 39.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 752381632418628083, guid: b6529da2ad1e5e3459e0a926b0d0edae, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6096048826247256199, guid: c6fa6756f5c21904084c976e3906d551, type: 3}
+    - target: {fileID: 752381632418628083, guid: b6529da2ad1e5e3459e0a926b0d0edae, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 756491336349050267, guid: b6529da2ad1e5e3459e0a926b0d0edae, type: 3}
       propertyPath: m_Name
       value: carpetbg24
@@ -767,6 +783,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenuCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4135719221218139016, guid: 3c0f42f2e66e6d141a454b8cef6ef0b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -898,7 +918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26ae1416dfd9fe46a71b2034188e5ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holeValues: 050000000400000002000000
+  holeValues: 050000000400000003000000
   basicTile: {fileID: 5051932311032128713, guid: 7cba52d065cf79446a851c23aefdafe7, type: 3}
   greyTile: {fileID: 5051932311032128713, guid: 4f103cf3449a65946bf61c6d5bcd512a, type: 3}
   hole: {fileID: 5051932311032128713, guid: 408115aabd5698e44bfb336fe27325a3, type: 3}

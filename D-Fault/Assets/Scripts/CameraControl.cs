@@ -10,6 +10,8 @@ public class CameraControl : MonoBehaviour
     float rotationSpeed = 3.5f;
     float camRotationTimer;
     Quaternion defaultRotation;
+    float autoRotateSpeed = 0.25f;
+    bool autoRotate;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,7 @@ public class CameraControl : MonoBehaviour
         cam = mainCamera.GetComponent<Camera>();
         defaultRotation = transform.rotation;
         camRotationTimer = 0f;
+        autoRotate = false;
     }
 
     // Update is called once per frame
@@ -25,6 +28,10 @@ public class CameraControl : MonoBehaviour
     {
         mainCamera.transform.LookAt(transform);
 
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            autoRotate = !autoRotate;
+        }
         // Rotate the camera pivot upon holding either mouse button.
         if (Input.GetMouseButton(1) || Input.GetMouseButton(0))
         {
@@ -40,7 +47,16 @@ public class CameraControl : MonoBehaviour
                 }
             }
         }
+        else if (autoRotate)
+        {
+            transform.Rotate(Vector3.up, autoRotateSpeed);
+            if (transform.rotation.x > 360)
+            {
+                transform.rotation = new Quaternion(transform.rotation.x - 360, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+            }
+        }
         else
+
         {
             RestoreDefaultRotation();
             camRotationTimer = 0f;
