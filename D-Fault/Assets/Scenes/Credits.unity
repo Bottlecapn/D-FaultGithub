@@ -477,14 +477,10 @@ MonoBehaviour:
     Minhao Wu
 
 
-    Krishna Biniwale
-
-
     Criag Henderson
 
 
-    Alex
-    Connelly
+    Alex Connelly
 
 
     Neil Small
@@ -492,48 +488,51 @@ MonoBehaviour:
 
 
 
-    Kevin Bannerman
+    Ram
+    Biniwale
 
     Sadhana Ramani
 
-    Trong
-    Nhah
+    Trong Nhan
 
     Gage Tilly
 
     Mason Schuler
 
-    Eva McMillan
+    Eva
+    McMillan
 
     Nicholas Shimada
 
-    Jacob
-    Ruttenberg
+    Jacob Ruttenberg
 
-    Lucy
+    Lucy Tsai
 
-    Ben Dang
+    Nickey
+    Olson
 
     Eileen Zong
 
 
     William McCullen
 
-    Brian
-    Nguyen
+    Brian Nguyen
 
     Dylan Overby
 
-    Elaine Toh
+    Elaine
+    Toh
 
     Max Li
 
     Xander King
 
-    Marcus
-    Gordon
+    Marcus Gordon
 
-    Angela Ma
+    Akil King
+
+    Brian
+    Cuy
 
     Abby Farhat
 
@@ -712,7 +711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4135719221218139016, guid: 3c0f42f2e66e6d141a454b8cef6ef0b4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1105,9 +1104,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "General Design\n\n\n\nLevel Design \n\nArt & Animation\n\nProgramming\n\nUI
-    & Tutorial\n\nMusic Producer\n\nComposer\n\nSound Designer\n\n\n\nAlpha Playtesters\n\n\n\n\n\n\n\n\n\n\n\nBeta
-    Playtesters\n\n\n\n\n\n\n\n\n\n\n\nSpecial Thanks"
+  m_text: "General Design\n\n\n\nLevel Design \n\nArt & Animation\n\nProgramming\n\nMusic
+    Producer\n\nComposer\n\nSound Designer\n\n\n\nAlpha Playtesters\n\n\n\n\n\n\n\n\n\n\n\nBeta
+    Playtesters\n\n\n\n\n\n\n\n\n\n\n\n\nSpecial Thanks"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5c73238e13016c4382110624ee5ba91, type: 2}
   m_sharedMaterial: {fileID: -7249032509463807619, guid: b5c73238e13016c4382110624ee5ba91, type: 2}
