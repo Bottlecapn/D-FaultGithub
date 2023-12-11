@@ -23,7 +23,6 @@ public class AudioManager : MonoBehaviour
             return;
         }
         backgroundMusic = GetComponent<AudioSource>();
-        muted = false;
         //backgroundMusic.volume = 0.0f;
         //StartCoroutine(Fade(true, backgroundMusic, 7.0f, 0.5f));
         //StartCoroutine(Fade(false, backgroundMusic, 7.0f, 0.0f));
