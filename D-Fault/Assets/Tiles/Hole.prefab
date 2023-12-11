@@ -866,7 +866,7 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 0, y: 0, z: 0.25}
+    m_Position: {x: 0, y: 0, z: 0.35}
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 0.01, y: 0.01, z: 1}
     placementMode: 0
@@ -5473,7 +5473,7 @@ AudioSource:
   m_GameObject: {fileID: 5051932311032128713}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1925693041180373714, guid: e842d2f51f67a5344acaf7aff4a88992, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.522

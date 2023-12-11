@@ -263,7 +263,7 @@ AudioSource:
   m_GameObject: {fileID: 1806729873389796898}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1925693041180373714, guid: e842d2f51f67a5344acaf7aff4a88992, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -389,7 +389,6 @@ MonoBehaviour:
   white: {fileID: 2100000, guid: e82dacf709737d94daad588653c08834, type: 2}
   yellow: {fileID: 2100000, guid: 10a7f95c014d0b8418543a55094f5647, type: 2}
   cubeRenderer: {fileID: 2162044043459844649}
-  addSound: {fileID: 8300000, guid: 8ab04876a79a2d84ba9c9808208cf454, type: 3}
   moveSound: {fileID: 8300000, guid: b67932df1708f9e4d9ecc5fb7604d3dd, type: 3}
   sameCombineSound: {fileID: 8300000, guid: 2594e7ab4c0ccb54eb2c73b607a5fed9, type: 3}
   differentCombineSound: {fileID: 8300000, guid: 047c8298f7d73e943935f7cd7f4863c9, type: 3}

@@ -9,7 +9,6 @@ public class AudioManager : MonoBehaviour
     private AudioSource backgroundMusic;
     [SerializeField]
     private AudioClip bg1, bg2, bg3;
-    private bool muted;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,19 +59,6 @@ public class AudioManager : MonoBehaviour
             StartCoroutine(Fade(false, backgroundMusic, 7.0f, 0.0f));*/
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            muted = !muted;
-        }
-
-        if (muted)
-        {
-            backgroundMusic.volume = 0;
-        } 
-        else
-        {
-            backgroundMusic.volume = 0.5f;
-        }
     }
 
     // FadeIn = true, FadeOut = false

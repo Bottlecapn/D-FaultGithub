@@ -48,14 +48,14 @@ public class GameEvent : MonoBehaviour
     void Update()
     {
         // Developer Key
-        if (Input.GetKeyDown(KeyCode.RightBracket))
+        /*if (Input.GetKeyDown(KeyCode.RightBracket))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         else if (Input.GetKeyDown(KeyCode.LeftBracket))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        }
+        }*/
 
         // Disable selection if in pause menu OR if any OBJECT IS MOVING
         ToggleSelectionDisabled();
