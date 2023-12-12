@@ -45,17 +45,20 @@ public class HoleBehavior : Tile
 
         // play initial scoring sound
         sfx.pitch = 1f;
-        if (d.Moves > 0) { 
-            if (dice.CompareTag("Dice")) { 
+        if (d.Moves > 0)
+        {
+            if (dice.CompareTag("Dice"))
+            {
                 sfx.PlayOneShot(scoreSoundDice);
-            } else if (dice.CompareTag("Coin"))
+            }
+            else if (dice.CompareTag("Coin"))
             {
                 sfx.PlayOneShot(scoreSoundCoin);
             }
         }
 
         // waits until die is destroyed AND the previous coroutine is finished before counting down.
-        
+
         while (true)
         {
             if (dice == null && !holeNumberDisplay.IsCounting())
@@ -70,7 +73,7 @@ public class HoleBehavior : Tile
         // Calls the CountDown coroutine in NumberDisplay.
         // while that coroutine is running, this one is paused.
         StartCoroutine(holeNumberDisplay.CountDown(mCurrentHoleCount, Mathf.Clamp(mCurrentHoleCount - d.Moves, 0, 1000)));
-        if(d.Moves > 0)
+        if (d.Moves > 0)
         {
             /*if (scoreParticles.isPlaying())
             {
@@ -90,9 +93,10 @@ public class HoleBehavior : Tile
             }
         }
 
-        
+
         // if the hole is already 0, do not play any additional effects or sounds.
-        if(mCurrentHoleCount <= 0) {
+        if (mCurrentHoleCount <= 0)
+        {
             mCompleted = true;
             d.Moves = 0;
         }
@@ -107,10 +111,6 @@ public class HoleBehavior : Tile
                 completionParticles.Play();
                 scoreParticles.Stop();
                 mCompleted = true;
-            }
-            else
-            {
-                print("Scored");
             }
         }
         mCountingDown = false;

@@ -1445,7 +1445,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 2.6249, y: 110.4384}
-  m_SizeDelta: {x: 505.7343, y: 76.5052}
+  m_SizeDelta: {x: 547.53, y: 76.5052}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &612715527
 MonoBehaviour:
@@ -1467,7 +1467,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'The number on the dice represents the number of moves the dice has left.
+  m_text: 'The number on the dice represents the moves the dice has left.
+
 
 
 
