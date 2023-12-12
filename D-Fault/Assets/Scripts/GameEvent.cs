@@ -25,7 +25,7 @@ public class GameEvent : MonoBehaviour
     void Start()
     {
         // Reset telemetry data variables
-        GameObject TelemetryManager = GameObject.FindGameObjectWithTag("Telemetry");
+        /*GameObject TelemetryManager = GameObject.FindGameObjectWithTag("Telemetry");
         Telemetry tele = null;
         if (TelemetryManager != null)
         {
@@ -37,7 +37,7 @@ public class GameEvent : MonoBehaviour
             tele.SetPreviousLevel(SceneManager.GetActiveScene().buildIndex);
             tele.ResetRestartTimes();
             tele.ResetTimeEachLevel();
-        }
+        }*/
         sfx = gameObject.GetComponent<AudioSource>();
         restartCanvas = GameObject.FindGameObjectWithTag("RestartCanvas");
         restartCanvas.GetComponent<Animator>().SetTrigger("FadeIn");
@@ -236,14 +236,13 @@ public class GameEvent : MonoBehaviour
             {
 
                 gp.GetLevelUnlocked()[nextSceneBuildIndex - 1] = true;
-                //print(gp.GetLevelUnlocked()[1]);
             }
         }
     }
 
     private void EndLevel()
     {
-        OutputTelemetryData();
+        //OutputTelemetryData();
         EnableLevelSelectButton();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
