@@ -9,6 +9,9 @@ public class AudioManager : MonoBehaviour
     private AudioSource backgroundMusic;
     [SerializeField]
     private AudioClip bg1, bg2, bg3;
+    private float masterVolume = 0.0f;
+    private float musicVolume = 0.0f;
+    private float SFXVolume = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,21 +34,24 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(SceneManager.GetActiveScene().buildIndex >= 7 && SceneManager.GetActiveScene().buildIndex <= 15)
+        if (SceneManager.GetActiveScene().buildIndex >= 7 && SceneManager.GetActiveScene().buildIndex <= 15)
         {
             backgroundMusic.clip = bg2;
-        } else if (SceneManager.GetActiveScene().buildIndex >= 16 && SceneManager.GetActiveScene().buildIndex <= 25)
+        }
+        else if (SceneManager.GetActiveScene().buildIndex >= 16 && SceneManager.GetActiveScene().buildIndex <= 25)
         {
             backgroundMusic.clip = bg3;
         }
-        else if (SceneManager.GetActiveScene().buildIndex > 25) 
-        { 
+        else if (SceneManager.GetActiveScene().buildIndex > 25)
+        {
             backgroundMusic.clip = backgroundMusic.clip;
-        } else { 
+        }
+        else
+        {
             backgroundMusic.clip = bg1;
         }
 
-        if(backgroundMusic.volume <= 0)
+        if (backgroundMusic.volume <= 0)
         {
             //StartCoroutine(Fade(true, backgroundMusic, 7.0f, 0.5f));
             //StartCoroutine(Fade(false, backgroundMusic, 7.0f, 0.0f));
@@ -80,5 +86,30 @@ public class AudioManager : MonoBehaviour
         }
 
         yield break;
+    }
+
+    public float GetMasterVolume()
+    {
+        return masterVolume;
+    }
+    public void SetMasterVolume(float volume)
+    {
+        masterVolume = volume;
+    }
+    public float GetMusicVolume()
+    {
+        return musicVolume;
+    }
+    public void SetMusicVolume(float volume)
+    {
+        musicVolume = volume;
+    }
+    public float GetSFXVolume()
+    {
+        return SFXVolume;
+    }
+    public void SetSFXVolume(float volume)
+    {
+        SFXVolume = volume;
     }
 }
