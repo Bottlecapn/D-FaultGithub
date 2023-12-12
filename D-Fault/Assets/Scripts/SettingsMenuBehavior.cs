@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Unity.Audio;
+using UnityEngine.Audio;
 
 public class SettingsMenuBehavior : MonoBehaviour
 {
-    public AudioSource masterChannel;
-    public AudioSource musicChannel;
-    public AudioSource SFXChannel;
+    public AudioMixer audiomixer;
 
     public void ReturnToMainMenu()
     {
@@ -17,16 +16,16 @@ public class SettingsMenuBehavior : MonoBehaviour
 
     public void SetMasterVolume(float volume)
     {
-        //masterChannel.SetFloat("volume", volume);
+        audiomixer.SetFloat("Master Volume", volume);
     }
 
     public void SetMusicVolume(float volume)
     {
-        //musicChannel.SetFloat("volume", volume);
+        audiomixer.SetFloat("Music Volume", volume);
     }
 
     public void SetSFXVolume(float volume)
     {
-        //SFXChannel.SetFloat("volume", volume);
+        audiomixer.SetFloat("SFX Volume", volume);
     }
 }

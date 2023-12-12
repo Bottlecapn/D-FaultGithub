@@ -596,10 +596,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1582113054}
   m_HandleRect: {fileID: 89773784}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 100
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2353,10 +2353,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1320642600}
   m_HandleRect: {fileID: 952916956}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 100
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2728,10 +2728,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1328889944}
   m_HandleRect: {fileID: 436684720}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 100
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2776,9 +2776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160a6c110626b774a85166bb7851c04a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterChannel: {fileID: 0}
-  musicChannel: {fileID: 0}
-  SFXChannel: {fileID: 0}
+  audiomixer: {fileID: 24100000, guid: e842d2f51f67a5344acaf7aff4a88992, type: 2}
 --- !u!4 &1929059073
 Transform:
   m_ObjectHideFlags: 0
